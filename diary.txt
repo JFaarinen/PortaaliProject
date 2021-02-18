@@ -1,2 +1,5 @@
-14.2 Projektin aloituspalaveri / Todellisuuspakolaiset Ry: 2h
-17.2 Portaalin front-endin aloitus. Luotu React -ympäristö sekä projektin GitHub -repositio. 
+14.2 Projektin aloituspalaveri / Todellisuuspakolaiset Ry: 
+=> 2h
+17.2 Portaalin front-endin aloitus. Luotu React -ympäristö sekä projektin GitHub -repositio.
+	 JSON -serverille luotu pieni tuotekanta kehityksen tueksi.
+=> 3h
