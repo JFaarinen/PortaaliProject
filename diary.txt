@@ -3,3 +3,4 @@
 17.2 Portaalin front-endin aloitus. Luotu React -ympäristö sekä projektin GitHub -repositio.
 	 JSON -serverille luotu pieni tuotekanta kehityksen tueksi.
 => 3h
+18.2 Ensimmäinen luonnos tuotteiden näyttämisestä ohjelmassa.

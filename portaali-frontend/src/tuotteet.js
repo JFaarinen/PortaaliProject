@@ -1,4 +1,4 @@
-const tuotteet = [
+const tuoteLista = [
     {
         id: 1,
         tuote: "Haarukka",
@@ -9,7 +9,7 @@ const tuotteet = [
         ],
         lkm: 15,
         kuvaus: "Siinä on piikkejä varren päässä mutta heinähankoa pienempi...",
-        img: ""
+        img: "./images/item-1.jpg"
     },
     {
         id: 2,
@@ -21,7 +21,7 @@ const tuotteet = [
         ],
         lkm: 20,
         kuvaus: "Savikuppeja, eri näköisiä",
-        img: ""
+        img: "./images/item-2.jpg"
     },
     {
         id: 3,
@@ -33,7 +33,7 @@ const tuotteet = [
         ],
         lkm: 2,
         kuvaus: "Laatikko. Siihen menee sisälle tavaraa. Tai kissa",
-        img: ""
+        img: "./images/item-3.jpg"
     },
     {
         id: 4,
@@ -44,7 +44,7 @@ const tuotteet = [
         ],
         lkm: 7,
         kuvaus: "Dekantterilasi, eri kokoja. Myöhemmin päivitellään ehkä valintoja per koko",
-        img: ""
+        img: "./images/item-4.jpg"
     },
     {
         id: 5,
@@ -56,7 +56,7 @@ const tuotteet = [
         ],
         lkm: 1,
         kuvaus: "Igor kaivoi tän jostain. A.B Normal",
-        img: ""
+        img: "./images/item-5.jpg"
     },
     {
         id: 6,
@@ -67,7 +67,7 @@ const tuotteet = [
         ],
         lkm: 1,
         kuvaus: "Partypallo suoraan 70 -luvulta",
-        img: ""
+        img: "./images/item-6.jpg"
     },
     {
         id: 7,
@@ -79,7 +79,7 @@ const tuotteet = [
         ],
         lkm: 1,
         kuvaus: "Pullo pissalle. Sisällön saa tuottaa itse. Palautettava pestynä",
-        img: ""
+        img: "./images/item-7.jpg"
     },
     {
         id: 8,
@@ -91,7 +91,7 @@ const tuotteet = [
         ],
         lkm: 8,
         kuvaus: "Lyhty. Pannaan tuli sisään, tulee valoa ulos",
-        img: ""
+        img: "./images/item-8.jpg"
     },
     {
         id: 9,
@@ -102,7 +102,7 @@ const tuotteet = [
         ],
         lkm: 21,
         kuvaus: "Nasseja. Kumia. Ei suojaa kaasulta oikeasti.",
-        img: ""
+        img: "./images/item-9.jpg"
     },
     {
         id: 10,
@@ -114,7 +114,7 @@ const tuotteet = [
         ],
         lkm: 8,
         kuvaus: "Lääkärintakkeja, eri kokoja.",
-        img: ""
+        img: "./images/item-10.jpg"
     }
 ]
-export default tuotteet;
+export default tuoteLista;
