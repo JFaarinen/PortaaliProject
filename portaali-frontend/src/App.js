@@ -10,6 +10,7 @@ const kaikkiKategoriat = ['Kaikki', ...new Set(tuoteLista.map((tuote) => tuote.k
 function App() {
   const [tuotteet, setTuotteet] = useState(tuoteLista);
   const [kategoriat, setKategoriat] = useState(kaikkiKategoriat);
+  const [ostoskori, setOstoskori] = useState([]);
 
   const match = useRouteMatch('/tuotteet/:id');
   const tuote = match
@@ -40,7 +41,7 @@ function App() {
       </div>
       <Switch>
         <Route path="/tuotteet/:id">
-          <Tuote tuote={tuote} />
+          <Tuote tuote={tuote} ostoskori={ostoskori} setOstoskori={() => setOstoskori()} />
         </Route>
         <Route path="/tuotteet">
           <Kategoriat kategoriat={kategoriat} tuoteSuodatus={suodataTuotteet} />

@@ -41,6 +41,7 @@ Variables
     --transition: all 0.3s linear;
     --spacing: 0.1rem;
     --radius: 0.25rem;
+    --round: 50%;
     --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     --max-width: 1170px;
@@ -186,16 +187,28 @@ Variables
     margin: 0 auto;
     max-width: 1170px;
     display: grid;
-    gap: 3rem 2rem;
+    gap: 3rem 3rem;
     justify-items: center;
   }
-  .tuote-kuvaus {
+
+  .tuote {
     display: grid;
-    gap: 1rem 2rem;
-    max-width: 25rem;
-    background-color: #fff;
+    grid-template-columns: 1.1fr 1.1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+        "otsikko otsikko otsikko otsikko"
+        "kuva kuva tiedot tiedot"
+        "kuva kuva kuvaus kuvaus";
+    background-color: var(--clr-white);
   }
-  .photo {
+    .otsikko { grid-area: otsikko; }
+    .kuva { grid-area: kuva; }
+    .tiedot { grid-area: tiedot; }
+    .kuvaus { grid-area: kuvaus; }
+  
+
+  .photo-full {
     object-fit: cover;
     width: 100%;
     max-height: 200px;
@@ -203,6 +216,26 @@ Variables
     border-radius: var(--radius);
     display: block;
   }
+
+  .photo-tuote {
+    object-fit: cover;
+    width: 100%;
+    max-height: 200px;
+    border: 0.25rem solid var(--clr-silver);
+    border-radius: var(--radius);
+    display: block;
+  }
+
+  .photo-list {
+    object-fit: cover;
+    width: 200px;
+    height: 200px;
+    border: 0.25rem solid var(--clr-silver);
+    border-radius: var(--round);
+    display: block;
+  }
+
+
   .tuote-info header {
     display: flex;
     justify-content: space-between;
@@ -211,30 +244,53 @@ Variables
   .tuote-info h4 {
     margin-bottom: 0.5rem;
   }
-  .price {
+  .hinta {
     color: var(--clr-silver);
   }
   .tuote-text {
     margin-bottom: 0;
     padding-top: 1rem;
   }
-  
-  @media screen and (min-width: 768px) {
-    .menu-item {
-      grid-template-columns: 225px 1fr;
-      gap: 0 1.25rem;
-      max-width: 40rem;
+
+  @media screen and (max-width: 480px) {
+    .section-center {
+      grid-template-columns: 1fr;
+      gap: 0 1rem;
+      width: 90vw;
     }
-    .picture {
-        max-height: 175px;
+    .picture-list {
+        height: 100px;
+        width: 100px;
     }
   }
+  
+  @media screen and (min-width: 768px) {
+    .section-center {
+      grid-template-columns: 1fr 1fr;
+      gap: 0 1.25rem;
+      width: 90vw;
+    }
+    .picture-list {
+        height: 150px;
+        width: 150px;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    .section-center {
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0 1.25rem;
+      width: 90vw;
+    }
+    .picture-list {
+        height: 175px;
+        width: 175px;
+    }
+  }
+
   @media screen and (min-width: 1200px) {
     .section-center {
       width: 95vw;
-      grid-template-columns: 1fr 1fr;
-    }
-    .picture {
-        max-height: 175px;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
     }
   }

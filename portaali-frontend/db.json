@@ -2,7 +2,7 @@
     "tuotteet": [
         {
             "id": 1,
-            "tuote": "Haarukka",
+            "nimi": "Haarukka",
             "kategoria": [
                 "Astiat",
                 "Ruoanlaitto",
@@ -14,7 +14,7 @@
         },
         {
             "id": 2,
-            "tuote": "Kuppi, savea",
+            "nimi": "Kuppi, savea",
             "kategoria": [
                 "Astiat",
                 "Ruoanlaitto",
@@ -26,7 +26,7 @@
         },
         {
             "id": 3,
-            "tuote": "Styroksilaatikko, iso",
+            "nimi": "Styroksilaatikko, iso",
             "kategoria": [
                 "Labra",
                 "Lääkintä",
@@ -38,7 +38,7 @@
         },
         {
             "id": 4,
-            "tuote": "Dekantterilasi",
+            "nimi": "Dekantterilasi",
             "kategoria": [
                 "Labra",
                 "Lääkintä"
@@ -49,7 +49,7 @@
         },
         {
             "id": 5,
-            "tuote": "Röntgenkuva, aivot",
+            "nimi": "Röntgenkuva, aivot",
             "kategoria": [
                 "Labra",
                 "Lääkintä",
@@ -61,7 +61,7 @@
         },
         {
             "id": 6,
-            "tuote": "Diskovalo, pöytämalli",
+            "nimi": "Diskovalo, pöytämalli",
             "kategoria": [
                 "Valaistus",
                 "Tehosteet"
@@ -72,7 +72,7 @@
         },
         {
             "id": 7,
-            "tuote": "Pissauspullo",
+            "nimi": "Pissauspullo",
             "kategoria": [
                 "Labra",
                 "Lääkintä",
@@ -84,7 +84,7 @@
         },
         {
             "id": 8,
-            "tuote": "Lyhty",
+            "nimi": "Lyhty",
             "kategoria": [
                 "Valaistus",
                 "Fantasia",
@@ -96,7 +96,7 @@
         },
         {
             "id": 9,
-            "tuote": "Kaasunaamari",
+            "nimi": "Kaasunaamari",
             "kategoria": [
                 "Post-apo",
                 "Suojavaruste"
@@ -107,7 +107,7 @@
         },
         {
             "id": 10,
-            "tuote": "Lääkärintakki",
+            "nimi": "Lääkärintakki",
             "kategoria": [
                 "Vaatetus",
                 "Labra",
