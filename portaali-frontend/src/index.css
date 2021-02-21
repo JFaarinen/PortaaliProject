@@ -192,6 +192,8 @@ Variables
   }
 
   .tuote {
+    width: 80vw;
+    margin: auto;
     display: grid;
     grid-template-columns: 1.1fr 1.1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;

@@ -1,16 +1,25 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import TuoteLista from './components/TuoteLista';
 import Kategoriat from './components/Kategoriat';
-import tuoteLista from './tuotteet';
+import UusiTuote from './components/UusiTuote';
+import tuoteService from './services/tuotteet';
 import Tuote from './components/Tuote';
 import { Switch, Route, Link, useRouteMatch } from 'react-router-dom';
 
-const kaikkiKategoriat = ['Kaikki', ...new Set(tuoteLista.map((tuote) => tuote.kategoriat).reduce((a, b) => a.concat(b)))];
-
 function App() {
-  const [tuotteet, setTuotteet] = useState(tuoteLista);
-  const [kategoriat, setKategoriat] = useState(kaikkiKategoriat);
+  const [tuotteet, setTuotteet] = useState([]);
   const [ostoskori, setOstoskori] = useState([]);
+  //const [kategoriat, setKategoriat] = useState(kaikkiKategoriat);
+
+  useEffect(() => {
+    tuoteService
+      .getAll()
+      .then(response => {
+        setTuotteet(response.data);
+      });
+  }, []);
+
+  //const kaikkiKategoriat = ['Kaikki', ...new Set(tuotteet.map((tuote) => tuote.kategoriat).reduce((a, b) => a.concat(b)))];
 
   const match = useRouteMatch('/tuotteet/:id');
   const tuote = match
@@ -19,9 +28,9 @@ function App() {
 
   const suodataTuotteet = (kategoria) => {
     if (kategoria === 'Kaikki') {
-      setTuotteet(tuoteLista);
+      setTuotteet(tuotteet);
     } else {
-      const naytaTuotteet = tuoteLista.filter((tuote) => tuote.kategoriat.includes(kategoria));
+      const naytaTuotteet = tuotteet.filter((tuote) => tuote.kategoriat.includes(kategoria));
       setTuotteet(naytaTuotteet);
     }
   }
@@ -38,14 +47,17 @@ function App() {
         <Link className="menu" to="/">Alku</Link>
         <Link className="menu" to="/tuotteet">Tuotteet</Link>
         <Link className="menu" to="/larpit">Pelejä</Link>
+        <Link className="menu" to="/uusiTuote">Uusi tuote</Link>
       </div>
       <Switch>
         <Route path="/tuotteet/:id">
           <Tuote tuote={tuote} ostoskori={ostoskori} setOstoskori={() => setOstoskori()} />
         </Route>
         <Route path="/tuotteet">
-          <Kategoriat kategoriat={kategoriat} tuoteSuodatus={suodataTuotteet} />
           <TuoteLista tuotteet={tuotteet} />
+        </Route>
+        <Route path="/uusiTuote">
+          <UusiTuote />
         </Route>
       </Switch>
     </main>

@@ -10,3 +10,11 @@ Ensimmäinen versio tuotteiden hakusivusta joka alustetaan tässä vaiheessa
 kovakoodatusta taulukosta. App -tiedostoon lisätty router. Lisätty hakusivulle
 suodatus toimenpiteiden kategorioiden perusteella.
 => 4h
+
+20.2 Luotu yksittäisen tuotteen tiedot näyttävä komponentti sekä tapahtumankäsittelijä joka siirtää tuotekomponentissa
+tehdyn varauksen tiedot sovelluksen ostoskoriin.
+=> 4h
+
+21.2 Lisätty projektiin kehitystyön aikainan json-server -ympäristö sekä axios palvelu joka huolehtii yksittäisen tuotteen tietojen 
+lisäämisestä ja päivittämisestä. Luotu lomake UusiTuote jonka kautta käyttäjällä mahdollisuus päivittää portaaliin uusia tuotteita.
+=> 2h
