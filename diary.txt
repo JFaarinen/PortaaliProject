@@ -21,4 +21,8 @@ lisäämisestä ja päivittämisestä. Luotu lomake UusiTuote jonka kautta käyt
 
 ----------
 
-9.6 Luotu projektin back-endia varten oma express -rajapintaa käyttävä ympäristö.
+9.6 Luotu projektin back-endia varten oma express -rajapintaa ja nodemonia käyttävä ympäristö. Luotu back-endista raakaversio jossa 
+kovakoodattu lista erilaisia Portaalissa tarjottavia tuotteita. Luotu palvelimelle toiminnot tuotelistan ja yksittäisen tuotteen
+noutamiselle, tuotteen lisäämiselle ja poistamiselle. Otettu käyttöön REST client ja luotu testit
+edellämainituille pyynnöille.
+=> 2h

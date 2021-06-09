@@ -1,0 +1,15 @@
+POST http://localhost:3001/api/tuotteet
+Content-type: application/json
+
+{
+    "nimi": "Kuppi, savea",
+    "kategoriat": [
+        "Astiat",
+        "Ruoanlaitto",
+        "Kupit"
+        ],
+    "hinta": 2.00,
+    "lkm": 2,
+    "plääh": 1,
+    "img": "./images/item-2.jpg"
+}

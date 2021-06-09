@@ -1,6 +1,7 @@
-const { response } = require('express');
 const express = require('express');
 const app = express();
+
+app.use(express.json());
 
 let tuotteet = [
     {
@@ -132,12 +133,55 @@ let tuotteet = [
     }
 ];
 
-app.get('/', (request, response) => {
-    response.send('<h1>Larp -tarvikevarasto Portaali');
+app.get('/', (req, res) => {
+    res.send('<h1>Larp -tarvikevarasto Portaali');
 });
 
-app.get('/api/tuotteet', (request, response) => {
-    response.json(tuotteet);
+app.get('/api/tuotteet', (req, res) => {
+    res.json(tuotteet);
+});
+
+app.get('/api/tuotteet/:id', (req, res) => {
+    const id = Number(req.params.id);
+    const tuote = tuotteet.find(t => t.id === id);
+
+    if (tuote) {
+        res.json(tuote);
+    } else {
+        res.status(404).end();
+    }
+});
+
+app.delete('/api/tuotteet/:id', (req, res) => {
+    const id = Number(req.params.id);
+    tuotteet = tuotteet.filter(t => t.id !== id);
+    res.status(204).end();
+});
+
+app.post('/api/tuotteet', (req, res) => {
+    const maxId = tuotteet.length > 0
+        ? Math.max(...tuotteet.map(t => t.id)) : 0;
+
+    const body = req.body;
+
+    if (!body.nimi) {
+        return res.status(400).json({
+            error: 'puutteelliset tiedot'
+        });
+    }
+
+    const tuote = {
+        nimi: body.nimi,
+        kategoriat: body.kategoriat,
+        hinta: body.hinta || 0.00,
+        lkm: body.lkm || 1,
+        kuvaus: body.kuvaus,
+        img: body.img,
+        id: maxId + 1
+    }
+
+    tuotteet = tuotteet.concat(tuote);
+    res.json(tuote);
 });
 
 const PORT = 3001;
