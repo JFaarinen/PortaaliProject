@@ -6,10 +6,12 @@ import tuoteService from './services/tuotteet';
 import Tuote from './components/Tuote';
 import { Switch, Route, Link, useRouteMatch } from 'react-router-dom';
 
+let kaikkiKategoriat = [];
+
 function App() {
   const [tuotteet, setTuotteet] = useState([]);
   const [ostoskori, setOstoskori] = useState([]);
-  //const [kategoriat, setKategoriat] = useState(kaikkiKategoriat);
+  const [kategoriat, setKategoriat] = useState([]);
 
   useEffect(() => {
     tuoteService
@@ -18,8 +20,6 @@ function App() {
         setTuotteet(response.data);
       });
   }, []);
-
-  //const kaikkiKategoriat = ['Kaikki', ...new Set(tuotteet.map((tuote) => tuote.kategoriat).reduce((a, b) => a.concat(b)))];
 
   const match = useRouteMatch('/tuotteet/:id');
   const tuote = match
@@ -54,6 +54,7 @@ function App() {
           <Tuote tuote={tuote} ostoskori={ostoskori} setOstoskori={() => setOstoskori()} />
         </Route>
         <Route path="/tuotteet">
+          <Kategoriat kategoriat={kategoriat} tuoteSuodatus={suodataTuotteet} />
           <TuoteLista tuotteet={tuotteet} />
         </Route>
         <Route path="/uusiTuote">

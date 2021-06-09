@@ -1,4 +1,4 @@
-14.2 Projektin aloituspalaveri / Todellisuuspakolaiset Ry: 
+14.2 Projektin aloituspalaveri / Todellisuuspakolaiset Ry: kartoitettu Portaalin alustavia tarpeita
 => 2h
 
 17.2 Portaalin front-endin aloitus. Luotu React -ympäristö sekä projektin GitHub -repositio.
@@ -18,3 +18,7 @@ tehdyn varauksen tiedot sovelluksen ostoskoriin.
 21.2 Lisätty projektiin kehitystyön aikainan json-server -ympäristö sekä axios palvelu joka huolehtii yksittäisen tuotteen tietojen 
 lisäämisestä ja päivittämisestä. Luotu lomake UusiTuote jonka kautta käyttäjällä mahdollisuus päivittää portaaliin uusia tuotteita.
 => 2h
+
+----------
+
+9.6 Luotu projektin back-endia varten oma express -rajapintaa käyttävä ympäristö.
