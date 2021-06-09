@@ -1,0 +1,144 @@
+{
+  "tuotteet": [
+    {
+      "id": 1,
+      "nimi": "Haarukka",
+      "kategoria": [
+        "Astiat",
+        "Ruoanlaitto",
+        "Aterimet"
+      ],
+      "lkm": 15,
+      "hinta": 1.5,
+      "kuvaus": "Siinä on piikkejä varren päässä mutta heinähankoa pienempi...",
+      "img": "./images/item-1.jpg"
+    },
+    {
+      "id": 2,
+      "nimi": "Kuppi, savea",
+      "kategoria": [
+        "Astiat",
+        "Ruoanlaitto",
+        "Kupit"
+      ],
+      "lkm": 20,
+      "hinta": 2.5,
+      "kuvaus": "Savikuppeja, eri näköisiä",
+      "img": "./images/item-2.jpg"
+    },
+    {
+      "id": 3,
+      "nimi": "Styroksilaatikko, iso",
+      "kategoria": [
+        "Labra",
+        "Lääkintä",
+        "Säilytys"
+      ],
+      "lkm": 2,
+      "hinta": 3.5,
+      "kuvaus": "Laatikko. Siihen menee sisälle tavaraa. Tai kissa",
+      "img": "./images/item-3.jpg"
+    },
+    {
+      "id": 4,
+      "nimi": "Dekantterilasi",
+      "kategoria": [
+        "Labra",
+        "Lääkintä"
+      ],
+      "lkm": 7,
+      "hinta": 4.5,
+      "kuvaus": "Dekantterilasi, eri kokoja. Myöhemmin päivitellään ehkä valintoja per koko",
+      "img": "./images/item-4.jpg"
+    },
+    {
+      "id": 5,
+      "nimi": "Röntgenkuva, aivot",
+      "kategoria": [
+        "Labra",
+        "Lääkintä",
+        "Kauhu"
+      ],
+      "lkm": 1,
+      "hinta": 6,
+      "kuvaus": "Igor kaivoi tän jostain. A.B Normal",
+      "img": "./images/item-5.jpg"
+    },
+    {
+      "id": 6,
+      "nimi": "Diskovalo, pöytämalli",
+      "kategoria": [
+        "Valaistus",
+        "Tehosteet"
+      ],
+      "lkm": 1,
+      "hinta": 7.75,
+      "kuvaus": "Partypallo suoraan 70 -luvulta",
+      "img": "./images/item-6.jpg"
+    },
+    {
+      "id": 7,
+      "nimi": "Pissauspullo",
+      "kategoria": [
+        "Labra",
+        "Lääkintä",
+        "Squik!"
+      ],
+      "lkm": 1,
+      "hinta": 6,
+      "kuvaus": "Pullo pissalle. Sisällön saa tuottaa itse. Palautettava pestynä",
+      "img": "./images/item-7.jpg"
+    },
+    {
+      "id": 8,
+      "nimi": "Lyhty",
+      "kategoria": [
+        "Valaistus",
+        "Fantasia",
+        "Keskiaika"
+      ],
+      "lkm": 8,
+      "hinta": 9.5,
+      "kuvaus": "Lyhty. Pannaan tuli sisään, tulee valoa ulos",
+      "img": "./images/item-8.jpg"
+    },
+    {
+      "id": 9,
+      "nimi": "Kaasunaamari",
+      "kategoria": [
+        "Post-apo",
+        "Suojavaruste"
+      ],
+      "lkm": 21,
+      "hinta": 7.5,
+      "kuvaus": "Nasseja. Kumia. Ei suojaa kaasulta oikeasti.",
+      "img": "./images/item-9.jpg"
+    },
+    {
+      "id": 10,
+      "nimi": "Lääkärintakki",
+      "kategoria": [
+        "Vaatetus",
+        "Labra",
+        "Lääkintä"
+      ],
+      "lkm": 8,
+      "hinta": 9,
+      "kuvaus": "Lääkärintakkeja, eri kokoja.",
+      "img": "./images/item-10.jpg"
+    },
+    {
+      "nimi": "Haarukka, 6 piikkiä",
+      "hinta": "6.00",
+      "kuvaus": "Haarukka, miks tässä on piikkejä näin paljon??",
+      "lkm": "9",
+      "kuva": "./images/item-1.jpg",
+      "kategoria": [
+        "Ruokailuväline",
+        "Astia",
+        "WTF"
+      ],
+      "id": 11
+    }
+  ]
+}
