@@ -28,4 +28,4 @@ edellämainituille pyynnöille.
 => 2h
 
 12.6 Lisätty Back-endiin morgan auttamaan kehitystyötä. Yhdistetty alustava front-end ja back-end.
-=>
+=>1h
