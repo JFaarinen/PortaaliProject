@@ -26,3 +26,6 @@ kovakoodattu lista erilaisia Portaalissa tarjottavia tuotteita. Luotu palvelimel
 noutamiselle, tuotteen lisäämiselle ja poistamiselle. Otettu käyttöön REST client ja luotu testit
 edellämainituille pyynnöille.
 => 2h
+
+12.6 Lisätty Back-endiin morgan auttamaan kehitystyötä. Yhdistetty alustava front-end ja back-end.
+=>

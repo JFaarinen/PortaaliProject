@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const morgan = require('morgan');
 
 const requestLogger = (request, response, next) => {
@@ -141,8 +142,9 @@ let tuotteet = [
 ];
 
 app.use(express.json());
+app.use(cors());
 app.use(requestLogger);
-morgan('short');
+app.use(morgan('dev'));
 
 app.get('/', (req, res) => {
     res.send('<h1>Larp -tarvikevarasto Portaali');
