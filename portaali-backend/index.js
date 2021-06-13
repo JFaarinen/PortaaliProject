@@ -1,7 +1,9 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const cors = require('cors');
 const morgan = require('morgan');
+const Tuote = require('./models/tuote');
 
 const requestLogger = (request, response, next) => {
     console.log('Method: ', request.method);
@@ -152,7 +154,8 @@ app.get('/', (req, res) => {
 });
 
 app.get('/api/tuotteet', (req, res) => {
-    res.json(tuotteet);
+    Tuote.find({})
+        .then(tuotteet => { res.json(tuotteet) });
 });
 
 app.get('/api/tuotteet/:id', (req, res) => {

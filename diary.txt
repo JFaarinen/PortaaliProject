@@ -28,4 +28,7 @@ edellämainituille pyynnöille.
 => 2h
 
 12.6 Lisätty Back-endiin morgan auttamaan kehitystyötä. Yhdistetty alustava front-end ja back-end.
-=>1.5h
+=>2h
+
+13.6 Luotu projektia varten MongoDb -tietokanta. Otettu käyttöön dotenv tietokantayhteyden avaamisen avuksi.
+=> 2h
