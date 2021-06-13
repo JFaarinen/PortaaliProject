@@ -31,4 +31,5 @@ edellämainituille pyynnöille.
 =>2h
 
 13.6 Luotu projektia varten MongoDb -tietokanta. Otettu käyttöön dotenv tietokantayhteyden avaamisen avuksi.
-=> 2h
+Toteutettu backendiin routerit tuotelistan ja yksittäisten tuotteiden hakua varten sekä uusien tuotteiden lisäämiseksi ja vanhojen poistamiseksi.
+=> 4h
