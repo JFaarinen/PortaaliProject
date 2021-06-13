@@ -73,6 +73,26 @@ app.post('/api/tuotteet', (req, res) => {
     });
 });
 
+app.put('/api/tuotteet/:id', (req, res, next) => {
+    const body = req.body;
+    const id = req.params.id;
+
+    const tuote = {
+        nimi: body.nimi,
+        kategoriat: body.kategoriat,
+        hinta: body.hinta,
+        lkm: body.lkm,
+        kuvaus: body.kuvaus,
+        img: body.img
+    };
+
+    Tuote.findByIdAndUpdate(id, tuote, { new: true })
+        .then(paivitettyTuote => {
+            res.json(paivitettyTuote)
+        })
+        .catch(error => next(error));
+});
+
 const unknownEndpoint = (req, res) => {
     res.status(404).send({ error: 'virheellinen osoite' });
 }
