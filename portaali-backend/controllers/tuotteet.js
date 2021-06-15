@@ -1,22 +1,22 @@
 const tuoteRouter = require('express').Router();
 const Tuote = require('../models/tuote');
 
-tuoteRouter.get('/', (req, res) => {
-    Tuote.find({})
-        .then(tuotteet => { res.json(tuotteet) });
+tuoteRouter.get('/', async (req, res) => {
+    const tuotteet = await Tuote.find({});
+    res.json(tuotteet);
 });
 
-tuoteRouter.get('/:id', (req, res, next) => {
-    const id = req.params.id;
-    Tuote.findById(id)
-        .then(tuote => {
-            if (tuote) {
-                res.json(tuote);
-            } else {
-                res.status(404).end();
-            }
-        })
-        .catch(error => next(error));
+tuoteRouter.get('/:id', async (req, res, next) => {
+    try {
+        const tuote = await Tuote.findById(req.params.id);
+        if (tuote) {
+            res.json(tuote.toJSON());
+        } else {
+            res.status(404).end();
+        }
+    } catch (exception) {
+        next(exception)
+    };
 });
 
 tuoteRouter.delete('/:id', (req, res, next) => {

@@ -37,4 +37,6 @@ Toteutettu backendiin routerit tuotelistan ja yksittäisten tuotteiden hakua var
 14.6 Refaktoroitu koodin rakennetta useampaan moduuliin.
 => 2h
 
-15.6 Otettu käyttöön Jest, supertest sekä Cross-env back-endin testaukseen.
+15.6 Otettu käyttöön Jest, supertest sekä Cross-env back-endin testaukseen. Luotu testiympäristöä varten oma testitietokanta.
+Luotu testitapaukset tuotteiden lisäämiselle ja noutamiselle portaalista.
+=> 2h

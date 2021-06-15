@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const supertest = require('supertest');
 const app = require('../app');
+const jestConfig = require('../jest.config');
 const api = supertest(app);
 const Tuote = require('../models/tuote');
 
@@ -46,15 +47,79 @@ test('tuotteet palautetaan json -formaatissa', async () => {
 });
 
 test('testikannassa on kaksi tuotetta', async () => {
-    const response = await api.get('/api/tuotteet');
-    expect(response.body).toHaveLength(testituotteet.length);
+    const res = await api.get('/api/tuotteet');
+    expect(res.body).toHaveLength(testituotteet.length);
 });
 
 test('kannassa oleva tuote palautetaan get -pyynnölle', async () => {
-    const response = await api.get('/api/tuotteet');
-    const tuotteet = response.body.map(r => r.content);
+    const res = await api.get('/api/tuotteet');
+    const tuotteet = res.body.map(r => r.content);
 
     expect(tuotteet).toContain(testituotteet[0].name);
+});
+
+test('kelvollinen tuote voidaan lisätä portaaliin', async () => {
+    const uusiTuote = {
+        nimi: "Haarukka",
+        kategoriat: [
+            "Astiat",
+            "Ruoanlaitto",
+            "Aterimet"
+        ],
+        hinta: 1.50,
+        lkm: 13,
+        kuvaus: "Siinä on piikkejä varren päässä mutta heinähankoa pienempi...",
+        img: "./images/item-1.jpg"
+    };
+
+    await api
+        .post('/api/tuotteet')
+        .send(uusiTuote)
+        .expect(200)
+        .expect('Content-Type', /application\/json/);
+
+    const res = await api.get('/api/tuotteet');
+    const tuotteet = res.body.map(r => r.nimi);
+
+    expect(res.body).toHaveLength(testituotteet.length + 1);
+    expect(tuotteet).toContain('Haarukka');
+});
+
+test('nimetöntä tuotetta ei lisätä', async () => {
+    jest.setTimeout(async () => {
+        const uusiTuote = {
+            kategoriat: [
+                "Astiat",
+                "Ruoanlaitto",
+                "Aterimet"
+            ],
+            hinta: 1.50,
+            lkm: 13,
+            kuvaus: "Siinä on piikkejä varren päässä mutta heinähankoa pienempi...",
+            img: "./images/item-1.jpg"
+        };
+
+        await api
+            .post('api/tuotteet')
+            .send(uusiTuote)
+            .expect(400);
+
+        const res = await api.get('/api/tuotteet');
+        expect(res.body).toHaveLength(testituotteet.length);
+    }, 8000);
+});
+
+test('haluttu tuote pystytään noutamaan', async () => {
+    const testituotteet = await Tuote.find({});
+    const haluttuTuote = testituotteet[0];
+
+    const noudettuTuote = await api
+        .get(`/api/tuotteet/${haluttuTuote._id}`)
+        .expect(200)
+        .expect('Content-Type', /application\/json/);
+
+    const haluttuTuoteJSON = JSON.parse(JSON.stringify(haluttuTuote));
+    expect(noudettuTuote.body).toEqual(haluttuTuoteJSON);
 });
 
 afterAll(() => {
