@@ -43,6 +43,28 @@ describe('kun tietokannassa on luotuna käyttäjä', () => {
         const userIDt = usersLopuksi.map(u => u.userId);
         expect(userIDt).toContain(uusiUser.userId);
     });
+
+    test('käyttäjän luonti antaa virhekoodin 400 jos UserId jo käytössä', async () => {
+        const usersAlussa = await avustaja.useritKannassa();
+
+        const uusiUser = {
+            userId: 'admin',
+            etunimi: '1337',
+            sukunimi: '5up3r_h4xx0rr',
+            password: 'palainen'
+        }
+
+        const result = await api
+            .post('/api/users')
+            .send(uusiUser)
+            .expect(400)
+            .expect('Content-Type', /application\/json/);
+
+        expect(result.body.error).toContain('expected `userId` to be unique');
+
+        const usersLopussa = await avustaja.useritKannassa();
+        expect(usersLopussa).toHaveLength(usersAlussa.length);
+    });
 });
 
 afterAll(() => {

@@ -1,9 +1,21 @@
 const mongoose = require('mongoose');
+const uniqueValidator = require('mongoose-unique-validator');
 
 const userSchema = mongoose.Schema({
-    userId: String,
-    etunimi: String,
-    sukunimi: String,
+    userId: {
+        type: String,
+        unique: true,
+        required: true,
+        minlength: 5
+    },
+    etunimi: {
+        type: String,
+        required: true
+    },
+    sukunimi: {
+        type: String,
+        required: true
+    },
     salasanaHash: String
 });
 
@@ -15,6 +27,8 @@ userSchema.set('toJSON', {
         delete returnedObject.salasanaHash;
     }
 });
+
+userSchema.plugin(uniqueValidator);
 
 const User = mongoose.model('User', userSchema);
 module.exports = User;
