@@ -1,15 +1,14 @@
-PUT http://localhost:3001/api/tuotteet/60c6718252dff60140d5cde8
+PUT http://localhost:3001/api/tuotteet/60cf1e251f1ed4147c916ed6
 Content-type: application/json
 
 {
-    "nimi": "Kuppi, savea",
+    "nimi": "Kaasunaamari",
     "kategoriat": [
-        "Astiat",
-        "Ruoanlaitto",
-        "Kupit"
-        ],
-    "hinta": 5.00,
-    "lkm": 4,
-    "plääh": 1,
-    "img": "./images/item-2.jpg"
+        "Post-apo",
+        "Suojavaruste"
+    ],
+    "lkm": 9,
+    "hinta": 6,
+    "kuvaus": "Nasseja. Kumia. Ei suojaa kaasulta oikeasti. Eikä muultakaan.",
+    "img": "./images/item-9.jpg"
 }

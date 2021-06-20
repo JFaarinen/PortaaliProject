@@ -26,6 +26,13 @@ const testituotteet = [
     },
 ];
 
+const puuttuvaTuote = async () => {
+    const puuttuva = new Tuote({ nimi: 'poistunut valikoimasta' });
+    await puuttuva.save();
+    await puuttuva.remove();
+    return puuttuva._id.toString();
+}
+
 const tuotteetKannassa = async () => {
     const tuotteet = await Tuote.find({});
     return tuotteet.map(tuote => tuote.toJSON());
@@ -33,5 +40,6 @@ const tuotteetKannassa = async () => {
 
 module.exports = {
     testituotteet,
+    puuttuvaTuote,
     tuotteetKannassa
 }
