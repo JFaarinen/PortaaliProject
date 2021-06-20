@@ -7,35 +7,21 @@ tuoteRouter.get('/', async (req, res) => {
 });
 
 tuoteRouter.get('/:id', async (req, res, next) => {
-    try {
-        const tuote = await Tuote.findById(req.params.id);
-        if (tuote) {
-            res.json(tuote.toJSON());
-        } else {
-            res.status(404).end();
-        }
-    } catch (exception) {
-        next(exception)
-    };
-});
-
-tuoteRouter.delete('/:id', (req, res, next) => {
-    const id = req.params.id;
-    Tuote.findByIdAndRemove(id)
-        .then(result => {
-            res.status(204).end();
-        })
-        .catch(error => next(error));
-});
-
-tuoteRouter.post('/', (req, res) => {
-    const body = req.body;
-
-    if (!body.nimi) {
-        return res.status(400).json({
-            error: 'puutteelliset tiedot'
-        });
+    const tuote = await Tuote.findById(req.params.id);
+    if (tuote) {
+        res.json(tuote.toJSON());
+    } else {
+        res.status(404).end();
     }
+});
+
+tuoteRouter.delete('/:id', async (req, res, next) => {
+    await Tuote.findByIdAndRemove(req.params.id);
+    res.status(204).end();
+});
+
+tuoteRouter.post('/', async (req, res, next) => {
+    const body = req.body;
 
     const tuote = new Tuote({
         nimi: body.nimi,
@@ -46,12 +32,11 @@ tuoteRouter.post('/', (req, res) => {
         img: body.img
     });
 
-    tuote.save().then(lisattyTuote => {
-        res.json(lisattyTuote)
-    });
+    const lisattyTuote = await tuote.save();
+    res.json(lisattyTuote.toJSON());
 });
 
-tuoteRouter.put('/:id', (req, res, next) => {
+tuoteRouter.put('/:id', async (req, res, next) => {
     const body = req.body;
     const id = req.params.id;
 
@@ -64,11 +49,8 @@ tuoteRouter.put('/:id', (req, res, next) => {
         img: body.img
     };
 
-    Tuote.findByIdAndUpdate(id, tuote, { new: true })
-        .then(paivitettyTuote => {
-            res.json(paivitettyTuote)
-        })
-        .catch(error => next(error));
+    const paivitettyTuote = await Tuote.findByIdAndUpdate(id, tuote, { new: true });
+    res.json(paivitettyTuote);
 });
 
 module.exports = tuoteRouter;
