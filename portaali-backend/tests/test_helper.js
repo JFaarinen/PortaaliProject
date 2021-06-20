@@ -1,4 +1,5 @@
 const Tuote = require('../models/tuote');
+const User = require('../models/user');
 
 const testituotteet = [
     {
@@ -38,8 +39,14 @@ const tuotteetKannassa = async () => {
     return tuotteet.map(tuote => tuote.toJSON());
 }
 
+const useritKannassa = async () => {
+    const users = await User.find({});
+    return users.map(u => u.toJSON());
+}
+
 module.exports = {
     testituotteet,
     puuttuvaTuote,
-    tuotteetKannassa
+    tuotteetKannassa,
+    useritKannassa
 }
