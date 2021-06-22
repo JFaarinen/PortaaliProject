@@ -8,7 +8,7 @@ loginRouter.post('/', async (req, res) => {
     const user = await User.findOne({ userName: body.userName });
     const salasanaOikein = user === null
         ? false
-        : await bcrypt.compare(body.password, user.salasanaHash);
+        : await bcrypt.compare(body.salasana, user.salasanaHash);
 
     if (!(user && salasanaOikein)) {
         return res.status(401).json({
