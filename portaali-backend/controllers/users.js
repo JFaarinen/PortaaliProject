@@ -11,10 +11,10 @@ userRouter.post('/', async (req, res) => {
     const body = req.body;
 
     const saltRounds = 10;
-    const salasanaHash = await bcrypt.hash(body.password, saltRounds);
+    const salasanaHash = await bcrypt.hash(body.salasana, saltRounds);
 
     const user = new User({
-        userId: body.userId,
+        userName: body.userName,
         etunimi: body.etunimi,
         sukunimi: body.sukunimi,
         salasanaHash

@@ -13,7 +13,7 @@ describe('kun tietokannassa on luotuna käyttäjä', () => {
         await User.deleteMany({});
         const salasanaHash = await bcrypt.hash('kalasana', 10);
         const user = new User({
-            userId: 'admin',
+            userName: 'admin',
             etunimi: 'adminuser',
             sukunimi: 'adminen',
             salasanaHash
@@ -21,14 +21,14 @@ describe('kun tietokannassa on luotuna käyttäjä', () => {
         await user.save();
     });
 
-    test('käyttäjän luonti onnistuu uudella userID:lla', async () => {
+    test('käyttäjän luonti onnistuu uudella usernamella', async () => {
         const usersAlussa = await avustaja.useritKannassa();
 
         const uusiUser = {
-            userId: 'hacker',
+            userName: 'hacker',
             etunimi: '1337',
             sukunimi: 'h4xx0rr',
-            password: 'palainen'
+            salasana: 'palainen'
         }
 
         await api
@@ -40,18 +40,18 @@ describe('kun tietokannassa on luotuna käyttäjä', () => {
         const usersLopuksi = await avustaja.useritKannassa();
         expect(usersLopuksi).toHaveLength(usersAlussa.length + 1);
 
-        const userIDt = usersLopuksi.map(u => u.userId);
-        expect(userIDt).toContain(uusiUser.userId);
+        const usernamet = usersLopuksi.map(u => u.userName);
+        expect(usernamet).toContain(uusiUser.userName);
     });
 
-    test('käyttäjän luonti antaa virhekoodin 400 jos UserId jo käytössä', async () => {
+    test('käyttäjän luonti antaa virhekoodin 400 jos UseName jo käytössä', async () => {
         const usersAlussa = await avustaja.useritKannassa();
 
         const uusiUser = {
-            userId: 'admin',
+            userName: 'admin',
             etunimi: '1337',
             sukunimi: '5up3r_h4xx0rr',
-            password: 'palainen'
+            salasana: 'palainen'
         }
 
         const result = await api
@@ -60,7 +60,7 @@ describe('kun tietokannassa on luotuna käyttäjä', () => {
             .expect(400)
             .expect('Content-Type', /application\/json/);
 
-        expect(result.body.error).toContain('expected `userId` to be unique');
+        expect(result.body.error).toContain('expected `userName` to be unique');
 
         const usersLopussa = await avustaja.useritKannassa();
         expect(usersLopussa).toHaveLength(usersAlussa.length);
