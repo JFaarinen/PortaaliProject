@@ -1,5 +1,6 @@
 POST http://localhost:3001/api/tuotteet
 Content-type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImFkbWluMiIsImlkIjoiNjBkMjMzZjg0YjgxODgzYmNjNzIwNjFiIiwiaWF0IjoxNjI0Mzg5ODE3fQ._yRf-uyrfNIcEdyjeQ-zhWtmZwClOnYr4Y9w58AGYd4 
 
 {
     "nimi": "Kuppi, savea",
