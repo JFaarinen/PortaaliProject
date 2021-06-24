@@ -7,7 +7,6 @@ const jestConfig = require('../jest.config');
 const api = supertest(app);
 const User = require('../models/user');
 
-
 describe('kun tietokannassa on luotuna käyttäjä', () => {
     beforeEach(async () => {
         await User.deleteMany({});

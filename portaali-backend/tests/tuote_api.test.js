@@ -1,10 +1,12 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
 const supertest = require('supertest');
 const avustaja = require('./test_helper');
 const app = require('../app');
 const jestConfig = require('../jest.config');
 const api = supertest(app);
 const Tuote = require('../models/tuote');
+const User = require('../models/user');
 
 describe('kun kannassa on jo tuotteita', () => {
     beforeEach(async () => {
@@ -67,37 +69,32 @@ describe('kun kannassa on jo tuotteita', () => {
     });
 
 
-    describe('uuden tuotteen lisääminen', () => {
-        test('onnistuu kelvollisilla tiedoilla', async () => {
-            const uusiTuote = {
-                nimi: "Haarukka",
-                kategoriat: [
-                    "Astiat",
-                    "Ruoanlaitto",
-                    "Aterimet"
-                ],
-                hinta: 1.50,
-                lkm: 13,
-                kuvaus: "Siinä on piikkejä varren päässä mutta heinähankoa pienempi...",
-                img: "./images/item-1.jpg"
+    describe('ja järjestelmään on kirjauduttu ylläpitäjänä', () => {
+
+        beforeEach(async () => {
+            await User.deleteMany({});
+            const testUser = {
+                userName: 'admin',
+                etunimi: 'adminuser',
+                sukunimi: 'adminen',
             };
-
             await api
-                .post('/api/tuotteet')
-                .send(uusiTuote)
-                .expect(200)
-                .expect('Content-Type', /application\/json/);
+                .post('/api/users')
+                .send(testUser);
 
-            const tuotteetLopussa = await avustaja.tuotteetKannassa();
-            expect(tuotteetLopussa).toHaveLength(avustaja.testituotteet.length + 1);
+            const res = await api
+                .post('/api/login')
+                .send(testUser);
 
-            const paivitetytTuotteet = tuotteetLopussa.map(t => t.nimi);
-            expect(paivitetytTuotteet).toContain('Haarukka');
+            header = {
+                'Authorization': `bearer ${res.body.token}`
+            }
         });
 
-        test('epäonnistuu puutteellisilla tiedoilla', async () => {
-            jest.setTimeout(async () => {
+        describe('uuden tuotteen lisääminen', () => {
+            test('onnistuu kelvollisilla tiedoilla', async () => {
                 const uusiTuote = {
+                    nimi: "Haarukka",
                     kategoriat: [
                         "Astiat",
                         "Ruoanlaitto",
@@ -110,34 +107,96 @@ describe('kun kannassa on jo tuotteita', () => {
                 };
 
                 await api
-                    .post('api/tuotteet')
+                    .post('/api/tuotteet')
                     .send(uusiTuote)
-                    .expect(400);
+                    .set(header)
+                    .expect(200)
+                    .expect('Content-Type', /application\/json/);
+
+                const tuotteetLopussa = await avustaja.tuotteetKannassa();
+                expect(tuotteetLopussa).toHaveLength(avustaja.testituotteet.length + 1);
+
+                const paivitetytTuotteet = tuotteetLopussa.map(t => t.nimi);
+                expect(paivitetytTuotteet).toContain('Haarukka');
+            });
+
+            test('epäonnistuu puutteellisilla tiedoilla', async () => {
+                jest.setTimeout(async () => {
+                    const uusiTuote = {
+                        kategoriat: [
+                            "Astiat",
+                            "Ruoanlaitto",
+                            "Aterimet"
+                        ],
+                        hinta: 1.50,
+                        lkm: 13,
+                        kuvaus: "Siinä on piikkejä varren päässä mutta heinähankoa pienempi...",
+                        img: "./images/item-1.jpg"
+                    };
+
+                    await api
+                        .post('api/tuotteet')
+                        .send(uusiTuote)
+                        .expect(400);
+
+                    const tuotteetLopussa = await avustaja.tuotteetKannassa();
+                    expect(tuotteetLopussa).toHaveLength(avustaja.testituotteet.length);
+                }, 8000);
+            });
+        });
+
+        describe('tuotteen poistaminen kannasta', () => {
+            test('onnistuu mikäli id on validi', async () => {
+                const tuotteetAlussa = await avustaja.tuotteetKannassa();
+                const poistettavaTuote = tuotteetAlussa[0];
+
+                await api
+                    .delete(`/api/tuotteet/${poistettavaTuote.id}`)
+                    .expect(204);
+
+                const tuotteetLopuksi = await avustaja.tuotteetKannassa();
+                expect(tuotteetLopuksi).toHaveLength(avustaja.testituotteet.length - 1);
+
+                const tuotteet = tuotteetLopuksi.map(t => t.nimi);
+                expect(tuotteet).not.toContain(poistettavaTuote.nimi);
+            });
+        });
+
+    });
+
+    describe('ja järjetelmään ei ole kirjauduttu sisään', () => {
+        describe('uuden tuotteen lisääminen', () => {
+            test('aiheuttaa virheilmoituksen 401 - unauthorized', async () => {
+                const uusiTuote = {
+                    nimi: "Haarukka",
+                    kategoriat: [
+                        "Astiat",
+                        "Ruoanlaitto",
+                        "Aterimet"
+                    ],
+                    hinta: 1.50,
+                    lkm: 13,
+                    kuvaus: "Siinä on piikkejä varren päässä mutta heinähankoa pienempi...",
+                    img: "./images/item-1.jpg"
+                };
+
+                await api
+                    .post('/api/tuotteet')
+                    .send(uusiTuote)
+                    .expect(401)
+                    .expect('Content-Type', /application\/json/);
 
                 const tuotteetLopussa = await avustaja.tuotteetKannassa();
                 expect(tuotteetLopussa).toHaveLength(avustaja.testituotteet.length);
-            }, 8000);
+
+                const paivitetytTuotteet = tuotteetLopussa.map(t => t.nimi);
+                expect(paivitetytTuotteet).not.toContain('Haarukka');
+            });
+
         });
-    });
 
-    describe('tuotteen poistaminen kannasta', () => {
-        test('onnistuu mikäli id on validi', async () => {
-            const tuotteetAlussa = await avustaja.tuotteetKannassa();
-            const poistettavaTuote = tuotteetAlussa[0];
-
-            await api
-                .delete(`/api/tuotteet/${poistettavaTuote.id}`)
-                .expect(204);
-
-            const tuotteetLopuksi = await avustaja.tuotteetKannassa();
-            expect(tuotteetLopuksi).toHaveLength(avustaja.testituotteet.length - 1);
-
-            const tuotteet = tuotteetLopuksi.map(t => t.nimi);
-            expect(tuotteet).not.toContain(poistettavaTuote.nimi);
-        });
     });
 });
-
 
 
 afterAll(() => {
