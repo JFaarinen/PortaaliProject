@@ -12,7 +12,6 @@ describe('kun kannassa on jo tuotteita', () => {
     beforeEach(async () => {
         await Tuote.deleteMany({});
         await Tuote.insertMany(avustaja.testituotteet);
-        console.log('...testikanta luotu');
     });
 
     test('tuotteiden id kenttä on nimetty oikein', async () => {

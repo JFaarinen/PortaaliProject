@@ -26,6 +26,8 @@ app.use(cors());
 app.use(express.static('build'));
 app.use(express.json());
 app.use(middlewares.requestLogger);
+app.use(middlewares.tokenExtractor);
+
 app.use('/api/tuotteet', tuoteRouter);
 app.use('/api/users', userRouter);
 app.use('/api/login', loginRouter);
