@@ -70,13 +70,16 @@ describe('kun kannassa on jo tuotteita', () => {
 
 
     describe('ja järjestelmään on kirjauduttu ylläpitäjänä', () => {
+        let headers;
 
         beforeEach(async () => {
             await User.deleteMany({});
+
             const testUser = {
                 userName: 'admin',
                 etunimi: 'adminuser',
                 sukunimi: 'adminen',
+                salasana: 'kalasana'
             };
             await api
                 .post('/api/users')
@@ -86,15 +89,42 @@ describe('kun kannassa on jo tuotteita', () => {
                 .post('/api/login')
                 .send(testUser);
 
-            header = {
+            headers = {
                 'Authorization': `bearer ${res.body.token}`
             }
         });
 
-        describe('uuden tuotteen lisääminen', () => {
-            test('onnistuu kelvollisilla tiedoilla', async () => {
+        test('tuotteen lisääminen onnistuu kelvollisilla tiedoilla', async () => {
+            const uusiTuote = {
+                nimi: "Haarukka",
+                kategoriat: [
+                    "Astiat",
+                    "Ruoanlaitto",
+                    "Aterimet"
+                ],
+                hinta: 1.50,
+                lkm: 13,
+                kuvaus: "Siinä on piikkejä varren päässä mutta heinähankoa pienempi...",
+                img: "./images/item-1.jpg"
+            };
+
+            await api
+                .post('/api/tuotteet')
+                .send(uusiTuote)
+                .set(headers)
+                .expect(200)
+                .expect('Content-Type', /application\/json/);
+
+            const tuotteetLopussa = await avustaja.tuotteetKannassa();
+            expect(tuotteetLopussa).toHaveLength(avustaja.testituotteet.length + 1);
+
+            const paivitetytTuotteet = tuotteetLopussa.map(t => t.nimi);
+            expect(paivitetytTuotteet).toContain('Haarukka');
+        });
+
+        test('tuotteen lisääminen epäonnistuu puutteellisilla tiedoilla', async () => {
+            jest.setTimeout(async () => {
                 const uusiTuote = {
-                    nimi: "Haarukka",
                     kategoriat: [
                         "Astiat",
                         "Ruoanlaitto",
@@ -107,42 +137,13 @@ describe('kun kannassa on jo tuotteita', () => {
                 };
 
                 await api
-                    .post('/api/tuotteet')
+                    .post('api/tuotteet')
                     .send(uusiTuote)
-                    .set(header)
-                    .expect(200)
-                    .expect('Content-Type', /application\/json/);
+                    .expect(400);
 
                 const tuotteetLopussa = await avustaja.tuotteetKannassa();
-                expect(tuotteetLopussa).toHaveLength(avustaja.testituotteet.length + 1);
-
-                const paivitetytTuotteet = tuotteetLopussa.map(t => t.nimi);
-                expect(paivitetytTuotteet).toContain('Haarukka');
-            });
-
-            test('epäonnistuu puutteellisilla tiedoilla', async () => {
-                jest.setTimeout(async () => {
-                    const uusiTuote = {
-                        kategoriat: [
-                            "Astiat",
-                            "Ruoanlaitto",
-                            "Aterimet"
-                        ],
-                        hinta: 1.50,
-                        lkm: 13,
-                        kuvaus: "Siinä on piikkejä varren päässä mutta heinähankoa pienempi...",
-                        img: "./images/item-1.jpg"
-                    };
-
-                    await api
-                        .post('api/tuotteet')
-                        .send(uusiTuote)
-                        .expect(400);
-
-                    const tuotteetLopussa = await avustaja.tuotteetKannassa();
-                    expect(tuotteetLopussa).toHaveLength(avustaja.testituotteet.length);
-                }, 8000);
-            });
+                expect(tuotteetLopussa).toHaveLength(avustaja.testituotteet.length);
+            }, 8000);
         });
 
         describe('tuotteen poistaminen kannasta', () => {
