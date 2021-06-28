@@ -2,19 +2,20 @@ import React, { useState } from 'react';
 import loginService from '../services/login';
 
 const Login = () => {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+    const [userName, setUserName] = useState('');
+    const [salasana, setSalasana] = useState('');
     const [user, setUser] = useState(null);
 
     const handleLogin = async (event) => {
         event.preventDefault();
         try {
             const user = await loginService.login({
-                username, password
+                userName, salasana
             });
             setUser(user);
-            setUsername('');
-            setPassword('');
+            console.log('user ', user, ' logged in');
+            setUserName('');
+            setSalasana('');
         } catch (exception) {
             console.log('virheellinen kirjautuminen');
         }
@@ -28,18 +29,18 @@ const Login = () => {
                     Käyttäjätunnus:
                     <input
                         type='text'
-                        value={username}
+                        value={userName}
                         name="username"
-                        onChange={({ target }) => setUsername(target.value)}
+                        onChange={({ target }) => setUserName(target.value)}
                     />
                 </div>
                 <div>
                     password
                     <input
                         type="password"
-                        value={password}
+                        value={salasana}
                         name="password"
-                        onChange={({ target }) => setPassword(target.value)}
+                        onChange={({ target }) => setSalasana(target.value)}
                     />
                 </div>
                 <button type="submit">Kirjaudu sisään</button>
