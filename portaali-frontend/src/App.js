@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import TuoteLista from './components/TuoteLista';
+import TuoteLista from './components/Tuotelista';
 import Kategoriat from './components/Kategoriat';
 import UusiTuote from './components/UusiTuote';
 import tuoteService from './services/tuotteet';
+import Login from './components/Login';
 import Tuote from './components/Tuote';
 import { Switch, Route, Link, useRouteMatch } from 'react-router-dom';
 
@@ -59,6 +60,9 @@ function App() {
         </Route>
         <Route path="/uusiTuote">
           <UusiTuote />
+        </Route>
+        <Route path="/Login">
+          <Login />
         </Route>
       </Switch>
     </main>
