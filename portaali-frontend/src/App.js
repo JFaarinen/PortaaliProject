@@ -9,10 +9,11 @@ import { Switch, Route, Link, useRouteMatch } from 'react-router-dom';
 
 let kaikkiKategoriat = [];
 
-function App() {
+const App = () => {
   const [tuotteet, setTuotteet] = useState([]);
   const [ostoskori, setOstoskori] = useState([]);
   const [kategoriat, setKategoriat] = useState([]);
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     tuoteService
@@ -20,6 +21,15 @@ function App() {
       .then(response => {
         setTuotteet(response.data);
       });
+  }, []);
+
+  useEffect(() => {
+    const loggedUserJSON = window.localStorage.getItem('loggedUser');
+    if (loggedUserJSON) {
+      const user = JSON.parse(loggedUserJSON);
+      setUser(user);
+      tuoteService.lisaaToken(user.token);
+    }
   }, []);
 
   const match = useRouteMatch('/tuotteet/:id');
@@ -62,7 +72,7 @@ function App() {
           <UusiTuote />
         </Route>
         <Route path="/Login">
-          <Login />
+          <Login setUser={() => setUser()}/>
         </Route>
       </Switch>
     </main>

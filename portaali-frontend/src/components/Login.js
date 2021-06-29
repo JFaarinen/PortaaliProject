@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 import loginService from '../services/login';
 import tuoteService from '../services/tuotteet';
 
-const Login = () => {
+const Login = ({setUser}) => {
     const [userName, setUserName] = useState('');
     const [salasana, setSalasana] = useState('');
-    const [user, setUser] = useState(null);
 
     const handleLogin = async (event) => {
         event.preventDefault();
@@ -15,6 +14,9 @@ const Login = () => {
             });
             setUser(user);
             tuoteService.lisaaToken(user.token);
+            window.localStorage.setItem(
+                'loggedUser', JSON.stringify(user)
+            );
             console.log('user ', user, ' logged in');
             setUserName('');
             setSalasana('');
