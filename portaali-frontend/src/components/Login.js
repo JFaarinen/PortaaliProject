@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import loginService from '../services/login';
+import tuoteService from '../services/tuotteet';
 
 const Login = () => {
     const [userName, setUserName] = useState('');
@@ -13,6 +14,7 @@ const Login = () => {
                 userName, salasana
             });
             setUser(user);
+            tuoteService.lisaaToken(user.token);
             console.log('user ', user, ' logged in');
             setUserName('');
             setSalasana('');

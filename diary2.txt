@@ -1,2 +1,5 @@
 28.6 Luotu login -lomake frontendiin sisäänkirjautumista varten
 => 2h
+
+29.6 Päivitetty front-endissä tuotteen lisääminen käyttäen tokenia
+=> 1h
