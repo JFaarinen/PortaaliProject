@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import TuoteLista from './components/Tuotelista';
 import Kategoriat from './components/Kategoriat';
 import UusiTuote from './components/UusiTuote';
@@ -10,11 +11,15 @@ import { Switch, Route, Link, useRouteMatch } from 'react-router-dom';
 let kaikkiKategoriat = [];
 
 const App = () => {
-  const [tuotteet, setTuotteet] = useState([]);
+  //const [tuotteet, setTuotteet] = useState([]);
   const [ostoskori, setOstoskori] = useState([]);
   const [kategoriat, setKategoriat] = useState([]);
   const [user, setUser] = useState(null);
 
+  const dispatch = useDispatch();
+  const tuotteet = useSelector(state => state);
+
+  /*
   useEffect(() => {
     tuoteService
       .getAll()
@@ -22,6 +27,7 @@ const App = () => {
         setTuotteet(response.data);
       });
   }, []);
+  */
 
   useEffect(() => {
     const loggedUserJSON = window.localStorage.getItem('loggedUser');
@@ -37,6 +43,7 @@ const App = () => {
     ? tuotteet.find(tuote => tuote.id === Number(match.params.id))
     : null;
 
+    /*
   const suodataTuotteet = (kategoria) => {
     if (kategoria === 'Kaikki') {
       setTuotteet(tuotteet);
@@ -45,6 +52,7 @@ const App = () => {
       setTuotteet(naytaTuotteet);
     }
   }
+  */
 
   return (
     <main>
@@ -65,7 +73,7 @@ const App = () => {
           <Tuote tuote={tuote} ostoskori={ostoskori} setOstoskori={() => setOstoskori()} />
         </Route>
         <Route path="/tuotteet">
-          <Kategoriat kategoriat={kategoriat} tuoteSuodatus={suodataTuotteet} />
+          <Kategoriat kategoriat={kategoriat} />
           <TuoteLista tuotteet={tuotteet} />
         </Route>
         <Route path="/uusiTuote">

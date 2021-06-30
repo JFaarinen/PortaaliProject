@@ -6,4 +6,4 @@
 
 30.6 Aloitettu poetaalin komponenttien päivittäminen käyttämään reduxia. Lisätty tuotteiden haku kannasta reduxin avulla.
 
-=> 2h
+=> 3h

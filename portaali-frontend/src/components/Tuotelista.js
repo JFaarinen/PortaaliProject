@@ -2,9 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const TuoteLista = ({ tuotteet }) => {
+    console.log(tuotteet);
     return (
         <div className='section-center'>
-            {tuotteet.map((t) => {
+            {tuotteet.data.map((t) => {
                 const { id, nimi, img } = t;
 
                 return (
