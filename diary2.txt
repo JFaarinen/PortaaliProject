@@ -4,5 +4,6 @@
 29.6 Päivitetty front-endissä tuotteen lisääminen käyttäen tokenia. Lisätty tokenin tallettaminen local storageen.
 => 2h
 
-30.6 Aloitettu poetaalin komponenttien päivittäminen käyttämään reduxia.
-=> 1h
+30.6 Aloitettu poetaalin komponenttien päivittäminen käyttämään reduxia. Lisätty tuotteiden haku kannasta reduxin avulla.
+
+=> 2h
