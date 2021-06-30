@@ -15,9 +15,7 @@ const tuoteReducer = (state = [], action) => {
 export const lisaaTuote = (tuote) => {
     return {
         type: 'UUSI_TUOTE',
-        data: {
-
-        }
+        data: { tuote }
     }
 }
 

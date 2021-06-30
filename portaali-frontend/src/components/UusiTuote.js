@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import tuoteService from '../services/tuotteet';
 
 const UusiTuote = () => {
     const [kategoriat, setKategoriat] = useState([]);
+    const dispatch = useDispatch();
 
     const lisaaKategoria = (event) => {
         event.preventDefault();
@@ -24,8 +26,8 @@ const UusiTuote = () => {
             .create(uusiTuote)
             .then(response => {
                 console.log('tuote lisätty ', response);
-
-            });
+                dispatch('UUSI_TUOTE', uusiTuote);
+            });   
         event.target.nimi.value = '';
         event.target.hinta.value = '';
         event.target.kuvaus.value = '';
