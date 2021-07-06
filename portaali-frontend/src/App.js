@@ -1,18 +1,25 @@
 import React, { useEffect, useState } from 'react';
-import TuoteLista from './components/TuoteLista';
+import { useSelector, useDispatch } from 'react-redux';
+import TuoteLista from './components/Tuotelista';
 import Kategoriat from './components/Kategoriat';
 import UusiTuote from './components/UusiTuote';
 import tuoteService from './services/tuotteet';
+import Login from './components/Login';
 import Tuote from './components/Tuote';
 import { Switch, Route, Link, useRouteMatch } from 'react-router-dom';
 
 let kaikkiKategoriat = [];
 
-function App() {
-  const [tuotteet, setTuotteet] = useState([]);
+const App = () => {
+  //const [tuotteet, setTuotteet] = useState([]);
   const [ostoskori, setOstoskori] = useState([]);
   const [kategoriat, setKategoriat] = useState([]);
+  const [user, setUser] = useState(null);
 
+  const dispatch = useDispatch();
+  const tuotteet = useSelector(state => state);
+
+  /*
   useEffect(() => {
     tuoteService
       .getAll()
@@ -20,12 +27,23 @@ function App() {
         setTuotteet(response.data);
       });
   }, []);
+  */
+
+  useEffect(() => {
+    const loggedUserJSON = window.localStorage.getItem('loggedUser');
+    if (loggedUserJSON) {
+      const user = JSON.parse(loggedUserJSON);
+      setUser(user);
+      tuoteService.lisaaToken(user.token);
+    }
+  }, []);
 
   const match = useRouteMatch('/tuotteet/:id');
   const tuote = match
     ? tuotteet.find(tuote => tuote.id === Number(match.params.id))
     : null;
 
+    /*
   const suodataTuotteet = (kategoria) => {
     if (kategoria === 'Kaikki') {
       setTuotteet(tuotteet);
@@ -34,6 +52,7 @@ function App() {
       setTuotteet(naytaTuotteet);
     }
   }
+  */
 
   return (
     <main>
@@ -54,11 +73,14 @@ function App() {
           <Tuote tuote={tuote} ostoskori={ostoskori} setOstoskori={() => setOstoskori()} />
         </Route>
         <Route path="/tuotteet">
-          <Kategoriat kategoriat={kategoriat} tuoteSuodatus={suodataTuotteet} />
+          <Kategoriat kategoriat={kategoriat} />
           <TuoteLista tuotteet={tuotteet} />
         </Route>
         <Route path="/uusiTuote">
           <UusiTuote />
+        </Route>
+        <Route path="/Login">
+          <Login setUser={() => setUser()}/>
         </Route>
       </Switch>
     </main>

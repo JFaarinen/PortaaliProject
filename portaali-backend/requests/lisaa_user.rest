@@ -2,8 +2,8 @@ POST http://localhost:3001/api/users
 Content-type: application/json
 
 {
-    "userName": "admin2",
-    "etunimi": "adminuser",
-    "sukunimi": "adminen",
+    "userName": "admin",
+    "etunimi": "Portaali",
+    "sukunimi": "Administrator",
     "salasana": "salainen"
 }

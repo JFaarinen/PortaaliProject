@@ -2,10 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const TuoteLista = ({ tuotteet }) => {
+    console.log(tuotteet);
     return (
         <div className='section-center'>
-            {tuotteet.map((t) => {
-                const { id, nimi, img } = t;
+            {tuotteet.data.map((t) => {
+                const { id, nimi, img, lkm, hinta } = t;
 
                 return (
                     <article key={id} className='tuote-kuvaus'>
@@ -15,7 +16,8 @@ const TuoteLista = ({ tuotteet }) => {
                                 <Link to={`/tuotteet/${id}`}>
                                     <h4>{nimi}</h4>
                                 </Link>
-                                <h4>Hinta €</h4>
+                                <h4>Saatavilla: {lkm} kpl</h4>
+                                <h4>Hinta {hinta} €</h4>
                             </div>
                         </div>
                     </article>
