@@ -4,6 +4,7 @@ import TuoteLista from './components/Tuotelista';
 import Kategoriat from './components/Kategoriat';
 import UusiTuote from './components/UusiTuote';
 import tuoteService from './services/tuotteet';
+import { alustaTuotteet } from './reducers/tuoteReducer';
 import Login from './components/Login';
 import Tuote from './components/Tuote';
 import { Switch, Route, Link, useRouteMatch } from 'react-router-dom';
@@ -11,7 +12,6 @@ import { Switch, Route, Link, useRouteMatch } from 'react-router-dom';
 let kaikkiKategoriat = [];
 
 const App = () => {
-  //const [tuotteet, setTuotteet] = useState([]);
   const [ostoskori, setOstoskori] = useState([]);
   const [kategoriat, setKategoriat] = useState([]);
   const [user, setUser] = useState(null);
@@ -19,15 +19,9 @@ const App = () => {
   const dispatch = useDispatch();
   const tuotteet = useSelector(state => state);
 
-  /*
   useEffect(() => {
-    tuoteService
-      .getAll()
-      .then(response => {
-        setTuotteet(response.data);
-      });
-  }, []);
-  */
+    dispatch(alustaTuotteet())
+  }, [dispatch]);
 
   useEffect(() => {
     const loggedUserJSON = window.localStorage.getItem('loggedUser');
@@ -43,16 +37,16 @@ const App = () => {
     ? tuotteet.find(tuote => tuote.id === Number(match.params.id))
     : null;
 
-    /*
-  const suodataTuotteet = (kategoria) => {
-    if (kategoria === 'Kaikki') {
-      setTuotteet(tuotteet);
-    } else {
-      const naytaTuotteet = tuotteet.filter((tuote) => tuote.kategoriat.includes(kategoria));
-      setTuotteet(naytaTuotteet);
-    }
+  /*
+const suodataTuotteet = (kategoria) => {
+  if (kategoria === 'Kaikki') {
+    setTuotteet(tuotteet);
+  } else {
+    const naytaTuotteet = tuotteet.filter((tuote) => tuote.kategoriat.includes(kategoria));
+    setTuotteet(naytaTuotteet);
   }
-  */
+}
+*/
 
   return (
     <main>
@@ -80,7 +74,7 @@ const App = () => {
           <UusiTuote />
         </Route>
         <Route path="/Login">
-          <Login setUser={() => setUser()}/>
+          <Login setUser={() => setUser()} />
         </Route>
       </Switch>
     </main>

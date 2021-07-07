@@ -1,3 +1,5 @@
+import tuoteService from '../services/tuotteet';
+
 const tuoteReducer = (state = [], action) => {
     switch (action.type) {
         case 'UUSI_TUOTE':
@@ -12,12 +14,10 @@ const tuoteReducer = (state = [], action) => {
     }
 }
 
-export const lisaaTuote = (tuote) => {
-    return async dispatch => {
-        dispatch({
-            type: 'UUSI_TUOTE',
-            data: tuote
-        })
+export const lisaaTuote = (uusiTuote) => {
+    return {
+        type: 'UUSI_TUOTE',
+        data: uusiTuote
     }
 }
 
@@ -28,10 +28,13 @@ export const poistaTuote = (id) => {
     }
 }
 
-export const alustaTuotteet = (tuotteet) => {
-    return {
-        type: 'ALUSTA_TUOTTEET',
-        data: tuotteet
+export const alustaTuotteet = () => {
+    return async dispatch => {
+        const tuotteet = await tuoteService.getAll();
+        dispatch({
+            type: 'ALUSTA_TUOTTEET',
+            data: tuotteet
+        });
     }
 }
 

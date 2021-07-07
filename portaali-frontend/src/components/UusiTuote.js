@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import tuoteService from '../services/tuotteet';
 
 const UusiTuote = () => {
@@ -14,8 +14,7 @@ const UusiTuote = () => {
     }
 
     const lisaaTuote = async (event) => {
-        event.preventDefault();
-        const uusiTuote = {
+        const tuoteTiedot = {
             "nimi": event.target.nimi.value,
             "hinta": event.target.hinta.value,
             "kuvaus": event.target.kuvaus.value,
@@ -23,18 +22,14 @@ const UusiTuote = () => {
             "kuva": event.target.kuva.value,
             "kategoria": kategoriat
         }
-        tuoteService
-            .create(uusiTuote)
-            .then(response => {
-                console.log('tuote lisätty ', response);
-                dispatch(lisaaTuote(uusiTuote));
-            });
         event.target.nimi.value = '';
         event.target.hinta.value = '';
         event.target.kuvaus.value = '';
         event.target.lukumaara.value = '';
         event.target.kuva.value = '';
         setKategoriat([]);
+        const uusiTuote = await tuoteService.create(tuoteTiedot);
+        dispatch(lisaaTuote(uusiTuote));
     }
 
     return (
