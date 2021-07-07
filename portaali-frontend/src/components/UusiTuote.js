@@ -12,7 +12,8 @@ const UusiTuote = () => {
         event.target.kuvaus.value = '';
         setKategoriat(kategoriat.concat(kategoria));
     }
-    const lisaaTuote = (event) => {
+
+    const lisaaTuote = async (event) => {
         event.preventDefault();
         const uusiTuote = {
             "nimi": event.target.nimi.value,
@@ -26,8 +27,8 @@ const UusiTuote = () => {
             .create(uusiTuote)
             .then(response => {
                 console.log('tuote lisätty ', response);
-                dispatch('UUSI_TUOTE', uusiTuote);
-            });   
+                dispatch(lisaaTuote(uusiTuote));
+            });
         event.target.nimi.value = '';
         event.target.hinta.value = '';
         event.target.kuvaus.value = '';

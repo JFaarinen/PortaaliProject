@@ -1,5 +1,5 @@
 const tuoteReducer = (state = [], action) => {
-    switch(action.type) {
+    switch (action.type) {
         case 'UUSI_TUOTE':
             return state.concat(action.data);
         case 'POISTA_TUOTE':
@@ -13,9 +13,11 @@ const tuoteReducer = (state = [], action) => {
 }
 
 export const lisaaTuote = (tuote) => {
-    return {
-        type: 'UUSI_TUOTE',
-        data: { tuote }
+    return async dispatch => {
+        dispatch({
+            type: 'UUSI_TUOTE',
+            data: tuote
+        })
     }
 }
 
