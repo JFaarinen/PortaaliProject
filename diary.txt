@@ -40,3 +40,31 @@ Toteutettu backendiin routerit tuotelistan ja yksittäisten tuotteiden hakua var
 15.6 Otettu käyttöön Jest, supertest sekä Cross-env back-endin testaukseen. Luotu testiympäristöä varten oma testitietokanta.
 Luotu testitapaukset tuotteiden lisäämiselle ja noutamiselle portaalista.
 => 2h
+
+20.6 Lisätty testi tuotteen poistamiselle. Refaktoroitu testitapausten koodia. Refaktoroitu backendin routerit käyttämään async/await -rakennetta.
+Lisätty backendiin router Portaalin käyttäjien/administratorien luomiseksi sekä testitapaukset käyttäjätunnuksen luomista varten.
+=> 4h
+
+22.6 Lisätty backendiin Router käyttäjätunnuksella kirjautumiselle. Lisätty Token -perusteinen tunnistautuminen ja muutettu tuotteiden Routerissa
+uusien tuotteiden lisääminen ja tuotetietojen päivittäminen sallituksi vain kirjautuneelle käyttäjälle.
+=> 2h
+
+24.6 Päivitetty tuotteiden testaus: uuden tuotteen lisääminen onnistuu vain kirjautuneelta käyttäjältä. Lisätty middleware joka poimii tokenin
+=> 2h
+
+28.6 Luotu login -lomake frontendiin sisäänkirjautumista varten
+=> 2h
+
+29.6 Päivitetty front-endissä tuotteen lisääminen käyttäen tokenia. Lisätty tokenin tallettaminen local storageen.
+=> 2h
+
+30.6 Aloitettu poetaalin komponenttien päivittäminen käyttämään reduxia. Lisätty tuotteiden haku kannasta reduxin avulla.
+Päivitetty Tuotelista -sivulla näytettäviä tietoja.
+=> 4h
+
+7.7 Otettu projektissa käyttöön redux devtools sekä redux-thunk. Päivitetty tuotteiden lisäämislomakkeen toimintaa siten että tuotteiden 
+lisääminen Reduxiin toimii.
+=> 2h
+
+14.7 Lisätty multer backendiin ja luotu middleware kuvatiedostojen tallentamista varten.
+=> 1h

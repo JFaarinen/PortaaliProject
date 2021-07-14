@@ -10,7 +10,7 @@ const User = require('../models/user');
 describe('kun tietokannassa on luotuna käyttäjä', () => {
     beforeEach(async () => {
         await User.deleteMany({});
-        const salasanaHash = await bcrypt.hash('kalasana', 10);
+        const salasanaHash = await bcrypt.hash('salainen', 10);
         const user = new User({
             userName: 'admin',
             etunimi: 'adminuser',

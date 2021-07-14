@@ -11,6 +11,5 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImFkb
         ],
     "hinta": 2.00,
     "lkm": 2,
-    "plääh": 1,
-    "img": "./images/item-2.jpg"
+    "plääh": 1
 }

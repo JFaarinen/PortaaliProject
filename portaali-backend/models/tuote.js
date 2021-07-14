@@ -1,12 +1,18 @@
 const mongoose = require('mongoose');
 
 const tuoteSchema = new mongoose.Schema({
-    nimi: String,
+    nimi: {
+        type: String,
+        require: true
+    },
     kategoriat: Array,
     hinta: Number,
     lkm: Number,
     kuvaus: String,
-    img: String
+    img: {
+        type: [String],
+        require: false
+    }
 });
 
 tuoteSchema.set('toJSON', {
