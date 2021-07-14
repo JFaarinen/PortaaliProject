@@ -66,5 +66,6 @@ Päivitetty Tuotelista -sivulla näytettäviä tietoja.
 lisääminen Reduxiin toimii.
 => 2h
 
-14.7 Lisätty multer backendiin ja luotu middleware kuvatiedostojen tallentamista varten.
-=> 1h
+14.7 Lisätty multer backendiin ja luotu middleware kuvatiedostojen tallentamista varten. Luotu router kuvien lisäämiseksi portaalissa 
+oleville tuotteille.
+=> 2h

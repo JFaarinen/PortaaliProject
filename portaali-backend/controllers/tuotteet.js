@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
 const tuoteRouter = require('express').Router();
 const Tuote = require('../models/tuote');
+const upload = require('../utils/multer');
 
 tuoteRouter.get('/', async (req, res) => {
     const tuotteet = await Tuote.find({});
@@ -56,11 +57,28 @@ tuoteRouter.put('/:id', async (req, res, next) => {
         kategoriat: body.kategoriat,
         hinta: body.hinta,
         lkm: body.lkm,
-        kuvaus: body.kuvaus,
-        img: body.img
+        kuvaus: body.kuvaus
     };
 
     const paivitettyTuote = await Tuote.findByIdAndUpdate(id, tuote, { new: true });
+    res.json(paivitettyTuote);
+});
+
+tuoteRouter.put("/upload/:id", upload.array("image", 3), async (req, res) => {
+    const id = req.params.id;
+    const images = [];
+    const inputFile = req.files;
+
+    const avattuToken = jwt.verify(req.token, process.env.TOKEN_KEY);
+    if (!req.abortedtoken || !avattuToken.id) {
+        return res.status(401).json({ error: 'token puuttuu tai viallinen' });
+    }
+
+    inputFile.map((file) => {
+        images.push(file.filename);
+    });
+
+    const paivitettyTuote = await Tuote.findByIdAndUpdate(id, { $push: { img: images } }, { new: true });
     res.json(paivitettyTuote);
 });
 
