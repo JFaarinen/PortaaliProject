@@ -76,7 +76,7 @@ const suodataTuotteet = (kategoria) => {
         <Route path="/uusiTuote">
           <UusiTuote />
         </Route>
-        <Route path="/kuvienLataus/:id">
+        <Route path="/kuvienLataus/:tuoteId">
           <KuvienLataus />
         </Route>
         <Route path="/Login">

@@ -1,10 +1,37 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import tuoteService from '../services/tuotteet';
+import { useHistory } from 'react-router';
 
-const UusiTuote = (props) => {
+const UusiTuote = () => {
     const [kategoriat, setKategoriat] = useState([]);
+    const [nimi, setNimi] = useState('');
+    const [hinta, setHinta] = useState('');
+    const [kuvaus, setKuvaus] = useState('');
+    const [lkm, setLkm] = useState('');
+    const [kuva, setKuva] = useState('');
     const dispatch = useDispatch();
+    const history = useHistory();
+
+    const handleNimiChange = (event) => {
+        setNimi(event.target.value);
+    };
+
+    const handleHintaChange = (event) => {
+        setHinta(event.target.value);
+    };
+
+    const handleKuvausChange = (event) => {
+        setKuvaus(event.target.value);
+    };
+
+    const handleLkmChange = (event) => {
+        setLkm(event.target.value);
+    };
+
+    const handleKuvaChange = (event) => {
+        setKuva(event.target.value);
+    };
 
     const lisaaKategoria = (event) => {
         event.preventDefault();
@@ -14,45 +41,47 @@ const UusiTuote = (props) => {
     }
 
     const lisaaTuote = async (event) => {
+        event.preventDefault();
         const tuoteTiedot = {
-            "nimi": event.target.nimi.value,
-            "hinta": event.target.hinta.value,
-            "kuvaus": event.target.kuvaus.value,
-            "lkm": event.target.lukumaara.value,
-            "kuva": event.target.kuva.value,
+            "nimi": nimi,
+            "hinta": hinta,
+            "kuvaus": kuvaus,
+            "lkm": lkm,
+            "kuva": kuva,
             "kategoria": kategoriat
         }
-        event.target.nimi.value = '';
-        event.target.hinta.value = '';
-        event.target.kuvaus.value = '';
-        event.target.lukumaara.value = '';
-        event.target.kuva.value = '';
+        setNimi('');
+        setHinta('');
+        setKuvaus('');
+        setLkm('');
+        setKuva('');
         setKategoriat([]);
         const uusiTuote = await tuoteService.create(tuoteTiedot);
         dispatch(lisaaTuote(uusiTuote))
-            .then((res) => {
-                if (res) {
-                    props.history.push(`/kuvienLataus/${111}`);
-
-                }
-            })
-    }
+            .then(
+                history.push(`/kuvienLataus/${uusiTuote.id}`)
+            );
+    };
 
     return (
         <div>
-            <form onSubmit={lisaaTuote}>
-                Nimi: <input name='nimi' />
-                Hinta: <input name='hinta' />
-                Kuvaus: <input name='kuvaus' />
-                Määrä: <input name='lukumaara' />
-                Kuva: <input name='kuva' />
-                <button type="submit">Lisää tuote</button>
-            </form>
-            <form onSubmit={lisaaKategoria}>
-                Kuvaus: <input name='kuvaus' />
-                <button type='submit'>Lisää kategoria</button>
-                {kategoriat.map((k, id) => <li key={id}>{k}</li>)}
-            </form>
+            <div>
+                <form onSubmit={lisaaTuote}>
+                    Nimi: <input value={nimi} onChange={handleNimiChange} />
+                    Hinta: <input value={hinta} onChange={handleHintaChange} />
+                    Kuvaus: <input value={kuvaus} onChange={handleKuvausChange} />
+                    Määrä: <input value={lkm} onChange={handleLkmChange} />
+                    Kuva: <input value={kuva} onChange={handleKuvaChange} />
+                    <button type="submit">Lisää tuote</button>
+                </form>
+            </div>
+            <div>
+                <form onSubmit={lisaaKategoria}>
+                    Kuvaus: <input name='kuvaus' />
+                    <button type='submit'>Lisää kategoria</button>
+                    {kategoriat.map((k, id) => <li key={id}>{k}</li>)}
+                </form>
+            </div>
         </div>
     );
 
