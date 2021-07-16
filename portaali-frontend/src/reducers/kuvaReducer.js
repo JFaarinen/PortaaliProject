@@ -12,10 +12,13 @@ const kuvaReducer = (state = [], action) => {
     }
 }
 
-export const lisaaKuva = (uusiKuva) => {
-    return {
-        type: 'UUSI_KUVA',
-        data: uusiKuva
+export const lisaaKuva = (kuva) => {
+    return async dispatch => {
+        const uusiKuva = await kuvaService.create(kuva);
+        dispatch({
+            type: 'UUSI_KUVA',
+            data: uusiKuva
+        });
     }
 }
 

@@ -1,5 +1,5 @@
 import axios from 'axios';
-const baseUrl = '/api/kuvat';
+const baseUrl = '/api/tuotteet/upload/';
 
 let token = null;
 
@@ -11,11 +11,11 @@ const getAll = () => {
     return axios.get(baseUrl);
 }
 
-const create = async uusiKuva => {
+const create = async (uusiKuva, tuotteenId) => {
     const config = {
         headers: { Authorization: token }
     }
-    const res = await axios.post(baseUrl, uusiKuva, config);
+    const res = await axios.post(`${baseUrl}/${tuotteenId}`, uusiKuva, config);
     return res.data;
 }
 

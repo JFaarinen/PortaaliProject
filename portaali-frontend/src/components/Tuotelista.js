@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { alustaTuotteet } from '../reducers/tuoteReducer';
 
 const TuoteLista = () => {
     const tuotteet = useSelector(state => state.tuotteet);

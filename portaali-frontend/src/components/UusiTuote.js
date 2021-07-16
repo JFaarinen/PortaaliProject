@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import tuoteService from '../services/tuotteet';
 
-const UusiTuote = () => {
+const UusiTuote = (props) => {
     const [kategoriat, setKategoriat] = useState([]);
     const dispatch = useDispatch();
 
@@ -32,6 +32,7 @@ const UusiTuote = () => {
         dispatch(lisaaTuote(uusiTuote))
             .then((res) => {
                 if (res) {
+                    props.history.push(`/kuvienLataus/${111}`);
 
                 }
             })

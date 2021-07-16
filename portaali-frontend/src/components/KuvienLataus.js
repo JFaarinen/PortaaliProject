@@ -40,3 +40,5 @@ const KuvienLataus = (props) => {
         </Fragment>
     )
 }
+
+export default KuvienLataus;

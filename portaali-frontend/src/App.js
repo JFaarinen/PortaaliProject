@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import TuoteLista from './components/Tuotelista';
 import Kategoriat from './components/Kategoriat';
 import UusiTuote from './components/UusiTuote';
+import KuvienLataus from './components/KuvienLataus';
 import tuoteService from './services/tuotteet';
 import { alustaTuotteet } from './reducers/tuoteReducer';
 import Login from './components/Login';
@@ -15,10 +16,9 @@ const App = () => {
   const [ostoskori, setOstoskori] = useState([]);
   const [kategoriat, setKategoriat] = useState([]);
   const [user, setUser] = useState(null);
-
   const dispatch = useDispatch();
 
-  const tuotteet = useSelector(state => state.tuotteet);
+  //const tuotteet = useSelector(state => state.tuotteet);
 
   useEffect(() => {
     dispatch(alustaTuotteet())
@@ -33,10 +33,12 @@ const App = () => {
     }
   }, []);
 
+  /*
   const match = useRouteMatch('/tuotteet/:id');
   const tuote = match
     ? tuotteet.find(tuote => tuote.id === Number(match.params.id))
     : null;
+    */
 
   /*
 const suodataTuotteet = (kategoria) => {
@@ -65,7 +67,7 @@ const suodataTuotteet = (kategoria) => {
       </div>
       <Switch>
         <Route path="/tuotteet/:id">
-          <Tuote tuote={tuote} ostoskori={ostoskori} setOstoskori={() => setOstoskori()} />
+          <Tuote tuote={''} ostoskori={ostoskori} setOstoskori={() => setOstoskori()} />
         </Route>
         <Route path="/tuotteet">
           <Kategoriat kategoriat={kategoriat} />
@@ -73,6 +75,9 @@ const suodataTuotteet = (kategoria) => {
         </Route>
         <Route path="/uusiTuote">
           <UusiTuote />
+        </Route>
+        <Route path="/kuvienLataus/:id">
+          <KuvienLataus />
         </Route>
         <Route path="/Login">
           <Login setUser={() => setUser()} />
