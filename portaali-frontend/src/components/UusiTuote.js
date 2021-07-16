@@ -29,7 +29,12 @@ const UusiTuote = () => {
         event.target.kuva.value = '';
         setKategoriat([]);
         const uusiTuote = await tuoteService.create(tuoteTiedot);
-        dispatch(lisaaTuote(uusiTuote));
+        dispatch(lisaaTuote(uusiTuote))
+            .then((res) => {
+                if (res) {
+
+                }
+            })
     }
 
     return (
