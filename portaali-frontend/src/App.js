@@ -17,7 +17,8 @@ const App = () => {
   const [user, setUser] = useState(null);
 
   const dispatch = useDispatch();
-  const tuotteet = useSelector(state => state);
+
+  const tuotteet = useSelector(state => state.tuotteet);
 
   useEffect(() => {
     dispatch(alustaTuotteet())
@@ -68,7 +69,7 @@ const suodataTuotteet = (kategoria) => {
         </Route>
         <Route path="/tuotteet">
           <Kategoriat kategoriat={kategoriat} />
-          <TuoteLista tuotteet={tuotteet} />
+          <TuoteLista />
         </Route>
         <Route path="/uusiTuote">
           <UusiTuote />

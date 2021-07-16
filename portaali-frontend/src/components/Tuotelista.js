@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
-const TuoteLista = ({ tuotteet }) => {
+const TuoteLista = () => {
+    const tuotteet = useSelector(state => state.tuotteet);
     console.log(tuotteet);
     return (
         <div className='section-center'>
