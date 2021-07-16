@@ -69,3 +69,6 @@ lisääminen Reduxiin toimii.
 14.7 Lisätty multer backendiin ja luotu middleware kuvatiedostojen tallentamista varten. Luotu router kuvien lisäämiseksi/poistamiseksi portaalissa 
 oleville tuotteille.
 => 3h
+
+16.7 Luotu lomake kuvien lisäämiseksi portaalin tuotteisiin. Otettu front-endissä käyttöön react-dropzone kuvatiedostojen lisäämiseen.
+=> 1h
