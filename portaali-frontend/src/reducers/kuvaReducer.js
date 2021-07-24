@@ -1,6 +1,7 @@
 import kuvaService from '../services/kuvat';
 
 const kuvaReducer = (state = [], action) => {
+    console.log(action);
     switch (action.type) {
         case 'UUSI_KUVA':
             return state.concat(action.data);
@@ -12,9 +13,10 @@ const kuvaReducer = (state = [], action) => {
     }
 }
 
-export const lisaaKuva = (kuva) => {
+export const lisaaKuva = (tuoteId, kuva) => {
+    console.log(`lisätään kuva id:${tuoteId} kuva${kuva}`);
     return async dispatch => {
-        const uusiKuva = await kuvaService.create(kuva);
+        const uusiKuva = await kuvaService.upload(tuoteId, kuva);
         dispatch({
             type: 'UUSI_KUVA',
             data: uusiKuva

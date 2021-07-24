@@ -73,5 +73,6 @@ oleville tuotteille.
 16.7 Luotu lomake kuvien lisäämiseksi portaalin tuotteisiin. Otettu front-endissä käyttöön react-dropzone kuvatiedostojen lisäämiseen.
 => 5h
 
-24.7 Korjailtu uuden tuotteen lisäämislomaketta, eriytetty tuotteiden hakusanat omaksi lomakkeekseen.
-=> 4h
+24.7 Korjailtu uuden tuotteen lisäämislomaketta, eriytetty tuotteiden hakusanat omaksi lomakkeekseen. 
+Päivitetty uusien kuvienlisäämiseen tarkoitettu lomake lähettämään tuotteeseen liittyvä kuva back-endille.
+=> 6h

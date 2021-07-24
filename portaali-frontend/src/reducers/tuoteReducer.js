@@ -1,7 +1,7 @@
 import tuoteService from '../services/tuotteet';
 
 const tuoteReducer = (state = [], action) => {
-    console.log('reducer action', action);
+    //console.log('reducer action', action);
     switch (action.type) {
         case 'UUSI_TUOTE':
             return [...state, action.data];
@@ -32,7 +32,7 @@ export const poistaTuote = (id) => {
 export const alustaTuotteet = () => {
     return async dispatch => {
         const tuotteet = await tuoteService.getAll();
-        console.log('kannasta noudetut tuotteet', tuotteet);
+        //console.log('kannasta noudetut tuotteet', tuotteet);
         dispatch({
             type: 'ALUSTA_TUOTTEET',
             data: tuotteet

@@ -1,20 +1,27 @@
 import React, { Fragment } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { lisaaKuva } from '../reducers/kuvaReducer';
 
 import Dropzone from 'react-dropzone';
 
 const KuvaForm = () => {
     const dispatch = useDispatch();
-    const id = useParams().id;
+    const tuoteId = useParams().id;
+    console.log(tuoteId);
     const tuotteet = useSelector(state => state.tuotteet);
-    const tuote = tuotteet.find(tuote => tuote.id === id);
+    const tuote = tuotteet.find(tuote => tuote.id === tuoteId);
     if (!tuote) {
         return null;
     }
 
-    const onDropFile = (files) => {
+    const onDropImage = (files) => {
         console.log('tiedosto lisätty')
+        let formData = new FormData();
+        files.map((file, index) => {
+            formData.append("image", file);
+        });
+        dispatch(lisaaKuva(tuoteId, formData));
     }
 
     return (
@@ -24,7 +31,7 @@ const KuvaForm = () => {
                     <label>Kuvien lataaminen tuotteelle {tuote.nimi}</label>
                 </div>
                 <div className="card-body">
-                    <Dropzone onDrop={onDropFile}>
+                    <Dropzone onDrop={onDropImage}>
                         {({ getRootProps, getInputProps }) => (
                             <div
                                 className="m-1"

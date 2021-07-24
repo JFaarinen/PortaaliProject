@@ -11,12 +11,12 @@ const getAll = () => {
     return axios.get(baseUrl);
 }
 
-const create = async (uusiKuva, tuotteenId) => {
+const upload = async (tuoteId, uusiKuva) => {
     const config = {
-        headers: { Authorization: token }
+        headers: { Authorization: token, ContentType: 'multipart/form-date' }
     }
-    const res = await axios.post(`${baseUrl}/${tuotteenId}`, uusiKuva, config);
+    const res = await axios.put(`${baseUrl}/${tuoteId}`, uusiKuva, config);
     return res.data;
 }
 
-export default { getAll, create, lisaaToken }
+export default { getAll, upload, lisaaToken }
