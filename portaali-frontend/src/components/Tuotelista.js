@@ -8,7 +8,7 @@ const TuoteLista = () => {
     console.log(tuotteet);
     return (
         <div className='section-center'>
-            {tuotteet.data.map((t) => {
+            {tuotteet.map((t) => {
                 const { id, nimi, img, lkm, hinta } = t;
 
                 return (

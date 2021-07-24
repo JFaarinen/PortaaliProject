@@ -1,12 +1,17 @@
-import React, { useState, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Dropzone from 'react-dropzone';
 
-const KuvienLataus = (props) => {
+const KuvaForm = () => {
     const dispatch = useDispatch();
-    const tuoteId = useParams.tuoteId;
+    const id = useParams().id;
+    const tuotteet = useSelector(state => state.tuotteet);
+    const tuote = tuotteet.find(tuote => tuote.id === id);
+    if (!tuote) {
+        return null;
+    }
 
     const onDropFile = (files) => {
         console.log('tiedosto lisätty')
@@ -16,7 +21,7 @@ const KuvienLataus = (props) => {
         <Fragment>
             <div className="card shadow-sm">
                 <div className="card-header">
-                    <div>Kuvien lataaminen</div>
+                    <label>Kuvien lataaminen tuotteelle {tuote.nimi}</label>
                 </div>
                 <div className="card-body">
                     <Dropzone onDrop={onDropFile}>
@@ -44,4 +49,4 @@ const KuvienLataus = (props) => {
     )
 }
 
-export default KuvienLataus;
+export default KuvaForm;

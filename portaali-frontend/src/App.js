@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import TuoteLista from './components/Tuotelista';
 import Kategoriat from './components/Kategoriat';
 import TuoteForm from './components/TuoteForm';
-import KuvienLataus from './components/KuvienLataus';
+import KuvienLataus from './components/KuvaForm';
 import tuoteService from './services/tuotteet';
 import { alustaTuotteet } from './reducers/tuoteReducer';
 import Login from './components/Login';
@@ -76,7 +76,7 @@ const suodataTuotteet = (kategoria) => {
         <Route path="/uusiTuote">
           <TuoteForm />
         </Route>
-        <Route path="/kuvienLataus/:tuoteId">
+        <Route path="/kuvienLataus/:id">
           <KuvienLataus />
         </Route>
         <Route path="/Login">
