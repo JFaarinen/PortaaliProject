@@ -9,29 +9,8 @@ const UusiTuote = () => {
     const [hinta, setHinta] = useState('');
     const [kuvaus, setKuvaus] = useState('');
     const [lkm, setLkm] = useState('');
-    const [kuva, setKuva] = useState('');
     const dispatch = useDispatch();
     const history = useHistory();
-
-    const handleNimiChange = (event) => {
-        setNimi(event.target.value);
-    };
-
-    const handleHintaChange = (event) => {
-        setHinta(event.target.value);
-    };
-
-    const handleKuvausChange = (event) => {
-        setKuvaus(event.target.value);
-    };
-
-    const handleLkmChange = (event) => {
-        setLkm(event.target.value);
-    };
-
-    const handleKuvaChange = (event) => {
-        setKuva(event.target.value);
-    };
 
     const lisaaKategoria = (event) => {
         event.preventDefault();
@@ -43,18 +22,16 @@ const UusiTuote = () => {
     const lisaaTuote = async (event) => {
         event.preventDefault();
         const tuoteTiedot = {
-            "nimi": nimi,
-            "hinta": hinta,
-            "kuvaus": kuvaus,
-            "lkm": lkm,
-            "kuva": kuva,
-            "kategoria": kategoriat
+            nimi: nimi,
+            hinta: hinta,
+            kuvaus: kuvaus,
+            lkm: lkm,
+            kategoria: kategoriat
         }
         setNimi('');
         setHinta('');
         setKuvaus('');
         setLkm('');
-        setKuva('');
         setKategoriat([]);
         const uusiTuote = await tuoteService.create(tuoteTiedot);
         dispatch(lisaaTuote(uusiTuote))
@@ -67,17 +44,50 @@ const UusiTuote = () => {
         <div>
             <div>
                 <form onSubmit={lisaaTuote}>
-                    Nimi: <input value={nimi} onChange={handleNimiChange} />
-                    Hinta: <input value={hinta} onChange={handleHintaChange} />
-                    Kuvaus: <input value={kuvaus} onChange={handleKuvausChange} />
-                    Määrä: <input value={lkm} onChange={handleLkmChange} />
-                    Kuva: <input value={kuva} onChange={handleKuvaChange} />
-                    <button type="submit">Lisää tuote</button>
+                    <div>
+                        <label>Nimi:</label>
+                        <input
+                            name='nimi'
+                            type='text'
+                            value={nimi}
+                            onChange={(event) => setNimi(event.target.value)} />
+
+                    </div>
+                    <div>
+                        <label>Hinta:</label>
+                        <input
+                            name='hinta'
+                            type='number'
+                            value={hinta}
+                            onChange={(event) => setHinta(event.target.value)} />
+
+                    </div>
+                    <div>
+                        <label>Kuvaus:</label>
+                        <textarea>
+                            name='kuvaus'
+                            rows='4'
+                            onChange={(event) => setKuvaus(event.target.value)}
+                        </textarea>
+                    </div>
+                    <div>
+                        <label>Määrä</label>
+                        <input
+                            name='lkm'
+                            type='number'
+                            value={lkm}
+                            onChange={(event) => setLkm(event.target.value)}
+                        />
+
+                    </div>
+                    <button type='submit'>Lisää tuote</button>
                 </form>
             </div>
             <div>
                 <form onSubmit={lisaaKategoria}>
-                    Kuvaus: <input name='kuvaus' />
+                    Kuvaus: <input
+                        name='kuvaus'
+                    />
                     <button type='submit'>Lisää kategoria</button>
                     {kategoriat.map((k, id) => <li key={id}>{k}</li>)}
                 </form>

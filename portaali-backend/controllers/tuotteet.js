@@ -48,10 +48,12 @@ tuoteRouter.put('/:id', async (req, res, next) => {
     const body = req.body;
     const id = req.params.id;
 
+    /*
     const avattuToken = jwt.verify(req.token, process.env.TOKEN_KEY);
     if (!req.abortedtoken || !avattuToken.id) {
         return res.status(401).json({ error: 'token puuttuu tai viallinen' });
     }
+    */
 
     const tuote = {
         nimi: body.nimi,

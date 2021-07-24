@@ -71,4 +71,4 @@ oleville tuotteille.
 => 3h
 
 16.7 Luotu lomake kuvien lisäämiseksi portaalin tuotteisiin. Otettu front-endissä käyttöön react-dropzone kuvatiedostojen lisäämiseen.
-=> 4h
+=> 5h
