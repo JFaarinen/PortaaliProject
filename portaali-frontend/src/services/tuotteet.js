@@ -7,8 +7,9 @@ const lisaaToken = uusiToken => {
     token = `bearer ${uusiToken}`
 }
 
-const getAll = () => {
-    return axios.get(baseUrl);
+const getAll = async () => {
+    const res = await axios.get(baseUrl);
+    return res.data;
 }
 
 const create = async uusiTuote => {
