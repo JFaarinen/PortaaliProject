@@ -7,10 +7,7 @@ import { lisaaTuote } from '../reducers/tuoteReducer';
 
 const TuoteForm = () => {
     const [hakusanat, setHakusanat] = useState([]);
-    const [nimi, setNimi] = useState('');
-    const [hinta, setHinta] = useState('');
-    const [kuvaus, setKuvaus] = useState('');
-    const [lkm, setLkm] = useState('');
+    const [tiedot, setTiedot] = useState({nimi: '', hinta: '', kuvaus: '', lkm: ''});
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -21,16 +18,13 @@ const TuoteForm = () => {
     const handleTuoteLisays = async (event) => {
         event.preventDefault();
         const tuoteTiedot = {
-            nimi: nimi,
-            hinta: hinta,
-            kuvaus: kuvaus,
-            lkm: lkm,
+            nimi: tiedot.nimi,
+            hinta: tiedot.hinta,
+            kuvaus: tiedot.kuvaus,
+            lkm: tiedot.lkm,
             kategoria: hakusanat
         }
-        setNimi('');
-        setHinta('');
-        setKuvaus('');
-        setLkm('');
+        setTiedot({nimi: '', hinta: '', kuvaus: '', lkm: ''});
         setHakusanat([]);
         const uusiTuote = await tuoteService.create(tuoteTiedot);
         dispatch(lisaaTuote(uusiTuote));
@@ -47,8 +41,8 @@ const TuoteForm = () => {
                         <input
                             name='nimi'
                             type='text'
-                            value={nimi}
-                            onChange={({ target }) => setNimi(target.value)} />
+                            value={tiedot.nimi}
+                            onChange={(e) => setTiedot({...tiedot, nimi: e.target.value})} />
 
                     </div>
                     <div>
@@ -56,8 +50,8 @@ const TuoteForm = () => {
                         <input
                             name='hinta'
                             type='text'
-                            value={hinta}
-                            onChange={({ target }) => setHinta(target.value)} />
+                            value={tiedot.hinta}
+                            onChange={(e) => setTiedot({...tiedot, hinta: e.target.value})} />
 
                     </div>
                     <div>
@@ -67,15 +61,16 @@ const TuoteForm = () => {
                         <textarea
                             name='kuvaus'
                             rows='5'
-                            onChange={({ target }) => setKuvaus(target.value)} />
+                            value={tiedot.kuvaus}
+                            onChange={(e) => setTiedot({...tiedot, nimi: e.target.value})} />
                     </div>
                     <div>
                         <label>Määrä</label>
                         <input
                             name='lkm'
                             type='number'
-                            value={lkm}
-                            onChange={({ target }) => setLkm(target.value)}
+                            value={tiedot.lkm}
+                            onChange={(e) => setTiedot({...tiedot, nimi: e.target.value})}
                         />
                     </div>
                     <div>

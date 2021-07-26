@@ -77,4 +77,7 @@ oleville tuotteille.
 Päivitetty uusien kuvienlisäämiseen tarkoitettu lomake lähettämään tuotteeseen liittyvä kuva back-endille.
 => 6h
 
+26.7 päivitetty TuoteForm kenttien käsittely yhden tilaolion alle.
+=> 1h
+
 
