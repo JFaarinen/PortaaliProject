@@ -76,3 +76,5 @@ oleville tuotteille.
 24.7 Korjailtu uuden tuotteen lisäämislomaketta, eriytetty tuotteiden hakusanat omaksi lomakkeekseen. 
 Päivitetty uusien kuvienlisäämiseen tarkoitettu lomake lähettämään tuotteeseen liittyvä kuva back-endille.
 => 6h
+
+
