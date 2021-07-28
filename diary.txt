@@ -81,6 +81,6 @@ Päivitetty uusien kuvienlisäämiseen tarkoitettu lomake lähettämään tuotte
 => 1h
 
 28.7 otettu front-endissä käyttöön react-file-base64, muutettu kuvien lisääminen käyttämään FireBase64:sta.
-=> 2h
+=> 4h
 
 
