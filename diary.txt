@@ -76,3 +76,11 @@ oleville tuotteille.
 24.7 Korjailtu uuden tuotteen lisäämislomaketta, eriytetty tuotteiden hakusanat omaksi lomakkeekseen. 
 Päivitetty uusien kuvienlisäämiseen tarkoitettu lomake lähettämään tuotteeseen liittyvä kuva back-endille.
 => 6h
+
+26.7 päivitetty TuoteForm kenttien käsittely yhden tilaolion alle.
+=> 1h
+
+28.7 otettu front-endissä käyttöön react-file-base64, muutettu kuvien lisääminen käyttämään FireBase64:sta.
+=> 2h
+
+

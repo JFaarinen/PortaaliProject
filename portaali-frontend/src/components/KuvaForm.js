@@ -1,10 +1,8 @@
 import React, { useState, Fragment } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { lisaaKuva } from '../reducers/kuvaReducer';
 import FileBase from 'react-file-base64';
-
-import Dropzone from 'react-dropzone';
+import { paivitaTuote } from '../reducers/tuoteReducer';
 
 const KuvaForm = () => {
     const [newImages, setNewImages] = useState([]);
@@ -21,7 +19,7 @@ const KuvaForm = () => {
         event.preventDefault();
         const updTuote = { ...tuote, img: tuote.img.concat(newImages) }
         console.log('päivitykseen menevä tuote:', updTuote);
-        dispatch(lisaaKuva(tuoteId, updTuote));
+        dispatch(paivitaTuote(tuoteId, updTuote));
     }
 
     const onDropImage = (files) => {
@@ -30,7 +28,7 @@ const KuvaForm = () => {
         files.map((file, index) => {
             formData.append("image", file);
         });
-        dispatch(lisaaKuva(tuoteId, formData));
+        dispatch(paivitaTuote(tuoteId, formData));
     }
 
     return (
