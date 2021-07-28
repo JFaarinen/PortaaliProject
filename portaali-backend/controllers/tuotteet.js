@@ -26,10 +26,12 @@ tuoteRouter.delete('/:id', async (req, res, next) => {
 tuoteRouter.post('/', async (req, res, next) => {
     const body = req.body;
 
+    /*
     const avattuToken = jwt.verify(req.token, process.env.TOKEN_KEY);
     if (!req.token || !avattuToken.id) {
         return res.status(401).json({ error: 'token puuttuu tai viallinen' });
     }
+    */
 
     const tuote = new Tuote({
         nimi: body.nimi,
@@ -60,17 +62,17 @@ tuoteRouter.put('/:id', async (req, res, next) => {
         kategoriat: body.kategoriat,
         hinta: body.hinta,
         lkm: body.lkm,
-        kuvaus: body.kuvaus
+        kuvaus: body.kuvaus,
+        img: body.img
     };
 
     const paivitettyTuote = await Tuote.findByIdAndUpdate(id, tuote, { new: true });
     res.json(paivitettyTuote);
 });
 
-tuoteRouter.put("/upload/:id", upload.array("image", 3), async (req, res) => {
+tuoteRouter.put("/upload/:id", async (req, res) => {
     const id = req.params.id;
-    const images = [];
-    const inputFile = req.files;
+    const images = req.body.images;
 
     /*
     const avattuToken = jwt.verify(req.token, process.env.TOKEN_KEY);
@@ -78,10 +80,6 @@ tuoteRouter.put("/upload/:id", upload.array("image", 3), async (req, res) => {
         return res.status(401).json({ error: 'token puuttuu tai viallinen' });
     }
     */
-
-    inputFile.map((file) => {
-        images.push(file.filename);
-    });
 
     const paivitettyTuote = await Tuote.findByIdAndUpdate(id, { $push: { img: images } }, { new: true });
     res.json(paivitettyTuote);

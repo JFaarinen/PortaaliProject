@@ -80,4 +80,10 @@ Päivitetty uusien kuvienlisäämiseen tarkoitettu lomake lähettämään tuotte
 26.7 päivitetty TuoteForm kenttien käsittely yhden tilaolion alle.
 => 1h
 
+<<<<<<< HEAD
+=======
+28.7 otettu front-endissä käyttöön react-file-base64, muutettu kuvien lisääminen käyttämään FireBase64:sta.
+=> 4h
+
+>>>>>>> img-dev
 

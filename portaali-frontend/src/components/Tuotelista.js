@@ -13,7 +13,7 @@ const TuoteLista = () => {
 
                 return (
                     <article key={id} className='tuote-kuvaus'>
-                        <img src={img} alt={nimi} className='photo-list' />
+                        <img src={img[0]} alt={nimi} className='photo-list' />
                         <div className='tuote-info'>
                             <div>
                                 <Link to={`/tuotteet/${id}`}>

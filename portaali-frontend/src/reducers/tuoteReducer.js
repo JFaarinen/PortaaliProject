@@ -10,6 +10,8 @@ const tuoteReducer = (state = [], action) => {
             return state.filter(t => t.id !== poistettava);
         case 'ALUSTA_TUOTTEET':
             return action.data;
+        case 'PAIVITA_TUOTE':
+            return state.map(t => t.id !== action.data.id ? t : action.data);
         default:
             return state;
     }
@@ -37,7 +39,17 @@ export const alustaTuotteet = () => {
             type: 'ALUSTA_TUOTTEET',
             data: tuotteet
         });
-    }
-}
+    };
+};
+
+export const paivitaTuote = (id, tuote) => {
+    return async dispatch => {
+        const paivTuote = await tuoteService.update(id, tuote);
+        dispatch({
+            type: 'PAIVITA_TUOTE',
+            data: paivTuote
+        });
+    };
+};
 
 export default tuoteReducer;

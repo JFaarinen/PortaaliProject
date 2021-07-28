@@ -21,7 +21,7 @@ const Tuote = ({ tuote, ostoskori, setOstoskori }) => {
     return (
         <div className='tuote'>
             <h2 className='otsikko'>{nimi}</h2>
-            <img src={`./.${img}`} alt={nimi} className='kuva' />
+            <img src={tuote.img[0]} alt={nimi} className='kuva' />
             <div className='tiedot'>
                 <p>Määrä: {lkm} kpl</p>
                 <p>Hinta: {hinta}€</p>
