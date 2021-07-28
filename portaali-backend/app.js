@@ -12,6 +12,8 @@ const morgan = require('morgan');
 const app = express();
 const cors = require('cors');
 app.use(morgan('dev'));
+app.use(express.json({ limit: "5mb", extended: true }));
+app.use(express.urlencoded({ limit: "5mb", extended: true }));
 
 logger.info('connecting to ', config.MONGODB_URI);
 
