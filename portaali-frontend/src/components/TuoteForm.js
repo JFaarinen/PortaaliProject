@@ -13,7 +13,6 @@ const TuoteForm = () => {
     const [tuoteTiedot, setTuoteTiedot] = useState([]);
     const [kuvat, setKuvat] = useState([]);
     const dispatch = useDispatch();
-    const history = useHistory();
 
     const lisaaHakusana = (hakusana) => {
         setHakusanat(hakusanat.concat(hakusana));
@@ -27,11 +26,11 @@ const TuoteForm = () => {
             tuoteTiedot: tuoteTiedot,
             img: kuvat
         }
-        setTuoteRyhma({ nimi: '', hinta: '' });
+        setTuoteRyhma({ otsikko: '', kuvaus: '' });
         setTuoteTiedot([]);
         setKuvat([]);
         const lisattyTuote = await tuoteService.create(uusiTuote);
-        dispatch(lisaaTuote(uusiTuote));
+        dispatch(lisaaTuote(lisattyTuote));
     };
 
     return (

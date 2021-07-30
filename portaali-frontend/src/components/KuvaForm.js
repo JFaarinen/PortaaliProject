@@ -1,6 +1,5 @@
 import React, { useState, Fragment } from 'react';
 import FileBase from 'react-file-base64';
-import { paivitaTuote } from '../reducers/tuoteReducer';
 
 const KuvaForm = ({ kuvat, setKuvat }) => {
     const [values, setValues] = useState({ otsikko: '', kuvaus: '', kuvatiedosto: '', etusivu: false });

@@ -85,7 +85,8 @@ Päivitetty uusien kuvienlisäämiseen tarkoitettu lomake lähettämään tuotte
 
 30.7 backend: päivitetty tuotteiden schema: tuoteryhmässä voi olla useita samaan ryhmään kuuluvia tuotteita (esim. eri kokoisia labratakkeja...) joista
 jokaisella oma lukumäärä ja hinta, sekä useita kuvia joista yksi määritetty 'etusivuksi' (käytössä tuotteen esittelykortissa)
-frontend: otettu käyttöön @material-ui/core ja @material-ui/icons. 
-=> 2h
+frontend: Päivitetty tuotteiden lisäyslomake ja yhdistetty tuotetietojen ja kuvien lisääminen samalle lomakkeelle.
+otettu käyttöön @material-ui/core ja @material-ui/icons.
+=> 3h
 
 
