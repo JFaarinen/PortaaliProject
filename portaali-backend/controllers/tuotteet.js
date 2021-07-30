@@ -33,15 +33,7 @@ tuoteRouter.post('/', async (req, res, next) => {
     }
     */
 
-    const tuote = new Tuote({
-        nimi: body.nimi,
-        kategoriat: body.kategoriat,
-        hinta: body.hinta || 0.00,
-        lkm: body.lkm || 1,
-        kuvaus: body.kuvaus,
-        img: body.img
-    });
-
+    const tuote = new Tuote(body);
     const lisattyTuote = await tuote.save();
     res.json(lisattyTuote.toJSON());
 });

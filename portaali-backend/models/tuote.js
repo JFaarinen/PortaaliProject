@@ -1,19 +1,22 @@
 const mongoose = require('mongoose');
 
 const tuoteSchema = new mongoose.Schema({
-    nimi: {
-        type: String,
-        require: true
-    },
-    kategoriat: Array,
-    hinta: Number,
-    lkm: Number,
-    kuvaus: String,
-    img: {
-        type: [String],
-        require: false
-    }
+    otsikko: { type: String, required: true },
+    kuvaus: { type: String, required: true },
+    tuoteTiedot: [{
+        tuote: { type: String, required: true },
+        hinta: { type: Number, default: 0 },
+        lkm: { type: Number, default: 1 }
+    }],
+    img: [{
+        otsikko: { type: String },
+        kuvaus: { type: String },
+        kuvatiedosto: { type: String },
+        etusivu: { type: Boolean }
+    }]
 });
+
+
 
 tuoteSchema.set('toJSON', {
     transform: (document, returnedObject) => {

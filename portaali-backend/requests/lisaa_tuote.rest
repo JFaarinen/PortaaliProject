@@ -3,13 +3,17 @@ Content-type: application/json
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImFkbWluMiIsImlkIjoiNjBkMjMzZjg0YjgxODgzYmNjNzIwNjFiIiwiaWF0IjoxNjI0Mzg5ODE3fQ._yRf-uyrfNIcEdyjeQ-zhWtmZwClOnYr4Y9w58AGYd4 
 
 {
-    "nimi": "Kuppi, savea",
-    "kategoriat": [
-        "Astiat",
-        "Ruoanlaitto",
-        "Kupit"
-        ],
-    "hinta": 2.00,
-    "lkm": 2,
-    "plääh": 1
+    "otsikko": "Savikuppeja",
+    "kuvaus": "Kuppeja. Savea. Niistä voi juoda tai jotain",
+    "tuoteTiedot": [
+        {"tuote": "pieni kuppi", "hinta": 5, "lkm": 20},
+        {"tuote": "iso kuppi", "hinta": 10, "lkm": 10},
+        {"tuote": "tosi iso kuppi", "hinta": 15, "lkm": 1}
+    ],
+    "img": [{
+        "otsikko": "ainoo kuva", 
+        "kuvaus": "jotain", 
+        "kuvatiedosto": "pitkä string tässä", 
+        "etusivu": true
+    }]
 }
