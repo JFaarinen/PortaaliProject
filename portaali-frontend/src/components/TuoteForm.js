@@ -2,12 +2,16 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import tuoteService from '../services/tuotteet';
 import { useHistory } from 'react-router';
+import { TuoteTiedotForm } from './TuoteTiedotForm';
+import { KuvaForm } from './KuvaForm';
 import HakusanaForm from './HakusanaForm';
 import { lisaaTuote } from '../reducers/tuoteReducer';
 
 const TuoteForm = () => {
     const [hakusanat, setHakusanat] = useState([]);
-    const [tiedot, setTiedot] = useState({nimi: '', hinta: '', kuvaus: '', lkm: ''});
+    const [tuoteRyhma, setTuoteRyhma] = useState({ otsikko: '', kuvaus: '' });
+    const [tuoteTiedot, setTuoteTiedot] = useState([]);
+    const [kuvat, setKuvat] = useState([]);
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -18,18 +22,16 @@ const TuoteForm = () => {
     const handleTuoteLisays = async (event) => {
         event.preventDefault();
         const tuoteTiedot = {
-            nimi: tiedot.nimi,
-            hinta: tiedot.hinta,
-            kuvaus: tiedot.kuvaus,
-            lkm: tiedot.lkm,
-            kategoria: hakusanat
+            otsikko: tuoteRyhma.otsikko,
+            kuvaus: tuoteRyhma.kuvaus,
+            tuoteTiedot: tuoteTiedot,
+            img: kuvat
         }
-        setTiedot({nimi: '', hinta: '', kuvaus: '', lkm: ''});
-        setHakusanat([]);
+        setTuoteRyhma({ nimi: '', hinta: '' });
+        setTuoteTiedot([]);
+        setKuvat([]);
         const uusiTuote = await tuoteService.create(tuoteTiedot);
         dispatch(lisaaTuote(uusiTuote));
-        history.push(`/kuvienLataus/${uusiTuote.id}`)
-
     };
 
     return (
@@ -37,42 +39,26 @@ const TuoteForm = () => {
             <div>
                 <form onSubmit={handleTuoteLisays}>
                     <div>
-                        <label>Nimi:</label>
+                        <label>Otsikko:</label>
                         <input
-                            name='nimi'
+                            name='otsikko'
                             type='text'
-                            value={tiedot.nimi}
-                            onChange={(e) => setTiedot({...tiedot, nimi: e.target.value})} />
+                            value={tuoteRyhma.otsikko}
+                            onChange={(e) => setTuoteRyhma({ ...tuoteRyhma, otsikko: e.target.value })} />
 
                     </div>
                     <div>
-                        <label>Hinta:</label>
+                        <label>Kuvaus:</label>
                         <input
-                            name='hinta'
-                            type='text'
-                            value={tiedot.hinta}
-                            onChange={(e) => setTiedot({...tiedot, hinta: e.target.value})} />
-
-                    </div>
-                    <div>
-                        <div>
-                            <label>Kuvaus:</label>
-                        </div>
-                        <textarea
                             name='kuvaus'
-                            rows='5'
-                            value={tiedot.kuvaus}
-                            onChange={(e) => setTiedot({...tiedot, nimi: e.target.value})} />
+                            type='text'
+                            value={tuoteRyhma.kuvaus}
+                            onChange={(e) => setTuoteRyhma({ ...tuoteRyhma, kuvaus: e.target.value })} />
+
                     </div>
-                    <div>
-                        <label>Määrä</label>
-                        <input
-                            name='lkm'
-                            type='number'
-                            value={tiedot.lkm}
-                            onChange={(e) => setTiedot({...tiedot, nimi: e.target.value})}
-                        />
-                    </div>
+                    <TuoteTiedotForm tuoteTiedot={tuoteTiedot} setTuoteTiedot={setTuoteTiedot} />
+                    <KuvaForm kuvat={kuvat} setKuvat={setKuvat} />
+
                     <div>
                         <div>
                             <label>Hakusanat:</label>

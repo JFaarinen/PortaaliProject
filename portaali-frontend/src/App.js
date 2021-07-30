@@ -76,9 +76,6 @@ const suodataTuotteet = (kategoria) => {
         <Route path="/uusiTuote">
           <TuoteForm />
         </Route>
-        <Route path="/kuvienLataus/:id">
-          <KuvienLataus />
-        </Route>
         <Route path="/Login">
           <Login setUser={() => setUser()} />
         </Route>
