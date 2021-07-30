@@ -37,7 +37,7 @@ const KuvaForm = ({ kuvat, setKuvat }) => {
                         Kuvaus: <input
                             name='kuvaus'
                             type='text'
-                            value={values.otsikko}
+                            value={values.kuvaus}
                             onChange={(event) => setValues({ ...values, kuvaus: event.target.value })}
                         />
                     </div>

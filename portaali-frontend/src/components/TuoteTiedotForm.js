@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import tuote from '../../../portaali-backend/models/tuote';
 
 const TuoteTiedotForm = ({ tuoteTiedot, setTuoteTiedot }) => {
     const [values, setValues] = useState({ tuote: '', hinta: 0, lkm: 1 });
@@ -9,7 +8,7 @@ const TuoteTiedotForm = ({ tuoteTiedot, setTuoteTiedot }) => {
         if (tuotteet.includes(values.tuote)) {
             console.log('Vastaava tuote on jo listassa');
         } else {
-            setTuoteTiedot(tuoteTiedot.connect({ tuote: values.tuote, hinta: values.hinta, lkm: values.lkm }))
+            setTuoteTiedot(tuoteTiedot.concat({ tuote: values.tuote, hinta: values.hinta, lkm: values.lkm }))
             setValues({ tuote: '', hinta: 0, lkm: 1 });
         }
     }
@@ -39,7 +38,7 @@ const TuoteTiedotForm = ({ tuoteTiedot, setTuoteTiedot }) => {
                 <button type='submit'>Lisää tuote</button>
             </form>
             <ul>
-                {tuoteTiedot.map((t) => <li>{t.tuote}</li>)}
+                {tuoteTiedot.map((t) => <li key={t.tuote}>{t.tuote}</li>)}
             </ul>
         </div>
     );

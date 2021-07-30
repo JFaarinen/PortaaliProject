@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import tuoteService from '../services/tuotteet';
 import { useHistory } from 'react-router';
-import { TuoteTiedotForm } from './TuoteTiedotForm';
-import { KuvaForm } from './KuvaForm';
+import TuoteTiedotForm from './TuoteTiedotForm';
+import KuvaForm from './KuvaForm';
 import HakusanaForm from './HakusanaForm';
 import { lisaaTuote } from '../reducers/tuoteReducer';
 
@@ -21,7 +21,7 @@ const TuoteForm = () => {
 
     const handleTuoteLisays = async (event) => {
         event.preventDefault();
-        const tuoteTiedot = {
+        const uusiTuote = {
             otsikko: tuoteRyhma.otsikko,
             kuvaus: tuoteRyhma.kuvaus,
             tuoteTiedot: tuoteTiedot,
@@ -30,14 +30,14 @@ const TuoteForm = () => {
         setTuoteRyhma({ nimi: '', hinta: '' });
         setTuoteTiedot([]);
         setKuvat([]);
-        const uusiTuote = await tuoteService.create(tuoteTiedot);
+        const lisattyTuote = await tuoteService.create(uusiTuote);
         dispatch(lisaaTuote(uusiTuote));
     };
 
     return (
         <div>
             <div>
-                <form onSubmit={handleTuoteLisays}>
+                <form id="tuoteForm" onSubmit={handleTuoteLisays}>
                     <div>
                         <label>Otsikko:</label>
                         <input
@@ -56,8 +56,6 @@ const TuoteForm = () => {
                             onChange={(e) => setTuoteRyhma({ ...tuoteRyhma, kuvaus: e.target.value })} />
 
                     </div>
-                    <TuoteTiedotForm tuoteTiedot={tuoteTiedot} setTuoteTiedot={setTuoteTiedot} />
-                    <KuvaForm kuvat={kuvat} setKuvat={setKuvat} />
 
                     <div>
                         <div>
@@ -67,8 +65,11 @@ const TuoteForm = () => {
                             {hakusanat.map((k, id) => <li key={id}>{k}</li>)}
                         </div>
                     </div>
-                    <button type='submit'>Lisää tuote</button>
+
                 </form>
+                <TuoteTiedotForm tuoteTiedot={tuoteTiedot} setTuoteTiedot={setTuoteTiedot} />
+                <KuvaForm kuvat={kuvat} setKuvat={setKuvat} />
+                <button type="submit" form="tuoteForm">Lisää tuote</button>
             </div>
             <HakusanaForm lisaaHakusana={lisaaHakusana} />
         </div>
