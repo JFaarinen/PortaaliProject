@@ -7,12 +7,15 @@ import {
     Button,
     Typography
 } from '@material-ui/core';
+import useStyles from './styles'
 
 const TuoteCard = ({ tuote }) => {
+    const classes = useStyles();
+
     return (
-        <Card className={null}>
+        <Card className={classes.card}>
             <CardMedia
-                className={null}
+                className={classes.media}
                 image={tuote.img[0].kuvatiedosto || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'}
                 title={tuote.otsikko}
             />
@@ -24,7 +27,7 @@ const TuoteCard = ({ tuote }) => {
                     {tuote.kuvaus}
                 </Typography>
             </CardContent>
-            <CardActions>
+            <CardActions className={classes.cardActions}>
                 <Button size="small" color="primary" onClick={() => { }}>
                     Lisätiedot
                 </Button>

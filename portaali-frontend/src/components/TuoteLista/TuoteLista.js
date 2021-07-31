@@ -1,19 +1,21 @@
 import React from 'react';
-import TuoteCard from './TuoteCard';
+import TuoteCard from './TuoteCard/TuoteCard';
 import { Grid, CircularProgress } from '@material-ui/core';
 import { useSelector } from 'react-redux';
+import useStyles from './styles';
 
 const TuoteLista = () => {
     const tuotteet = useSelector(state => state.tuotteet);
+    const classes = useStyles();
     console.log(tuotteet);
 
     return (
         !tuotteet.length
             ? <CircularProgress />
             : (
-                <Grid className={null} container alignItems="stretch" spacing={3}>
+                <Grid className={classes.container} container alignItems="stretch" spacing={3}>
                     {tuotteet.map((tuote) => (
-                        <Grid key={tuote.id} item xs={12} sm={6} md={4}>
+                        <Grid key={tuote.id} item xs={10} sm={4} md={3}>
                             <TuoteCard tuote={tuote} />
                         </Grid>
                     ))}

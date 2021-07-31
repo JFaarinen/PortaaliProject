@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import TuoteLista from './components/TuoteLista';
+import TuoteLista from './components/TuoteLista/TuoteLista';
 import Kategoriat from './components/Kategoriat';
 import TuoteForm from './components/TuoteForm';
 import KuvienLataus from './components/KuvaForm';
