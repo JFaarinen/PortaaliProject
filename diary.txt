@@ -1,92 +1,118 @@
 14.2 Projektin aloituspalaveri / Todellisuuspakolaiset Ry: kartoitettu Portaalin alustavia tarpeita
 => 2h
 
-17.2 Portaalin front-endin aloitus. Luotu React -ympäristö sekä projektin GitHub -repositio.
-	 JSON -serverille luotu pieni tuotekanta kehityksen tueksi.
+17.2 
+front-end: Portaalin front-endin aloitus. Luotu React -ympäristö sekä projektin GitHub -repositio. JSON -serverille luotu pieni tuotekanta kehityksen tueksi.
 => 3h
 
-18.2 Ensimmäinen luonnos tuotteiden näyttämisestä ohjelmassa. 
+18.2 
+front-end: Ensimmäinen luonnos tuotteiden näyttämisestä ohjelmassa. 
 Ensimmäinen versio tuotteiden hakusivusta joka alustetaan tässä vaiheessa 
 kovakoodatusta taulukosta. App -tiedostoon lisätty router. Lisätty hakusivulle
 suodatus toimenpiteiden kategorioiden perusteella.
 => 4h
 
-20.2 Luotu yksittäisen tuotteen tiedot näyttävä komponentti sekä tapahtumankäsittelijä joka siirtää tuotekomponentissa
+20.2 
+front-end: Luotu yksittäisen tuotteen tiedot näyttävä komponentti sekä tapahtumankäsittelijä joka siirtää tuotekomponentissa
 tehdyn varauksen tiedot sovelluksen ostoskoriin.
 => 4h
 
-21.2 Lisätty projektiin kehitystyön aikainan json-server -ympäristö sekä axios palvelu joka huolehtii yksittäisen tuotteen tietojen 
+21.2 
+front-end: Lisätty projektiin kehitystyön aikainan json-server -ympäristö sekä axios palvelu joka huolehtii yksittäisen tuotteen tietojen 
 lisäämisestä ja päivittämisestä. Luotu lomake UusiTuote jonka kautta käyttäjällä mahdollisuus päivittää portaaliin uusia tuotteita.
 => 2h
 
-----------
+---------- 15h
 
-9.6 Luotu projektin back-endia varten oma express -rajapintaa ja nodemonia käyttävä ympäristö. Luotu back-endista raakaversio jossa 
+9.6 
+back-end: Luotu projektin back-endia varten oma express -rajapintaa ja nodemonia käyttävä ympäristö. Luotu back-endista raakaversio jossa 
 kovakoodattu lista erilaisia Portaalissa tarjottavia tuotteita. Luotu palvelimelle toiminnot tuotelistan ja yksittäisen tuotteen
-noutamiselle, tuotteen lisäämiselle ja poistamiselle. Otettu käyttöön REST client ja luotu testit
-edellämainituille pyynnöille.
+noutamiselle, tuotteen lisäämiselle ja poistamiselle. Otettu käyttöön REST client ja luotu testit edellämainituille pyynnöille.
 => 2h
 
-12.6 Lisätty Back-endiin morgan auttamaan kehitystyötä. Yhdistetty alustava front-end ja back-end.
+12.6 
+back-end: Otettu käyttöön morgan auttamaan kehitystyötä. Yhdistetty alustava front-end ja back-end.
 =>2h
 
-13.6 Luotu projektia varten MongoDb -tietokanta. Otettu käyttöön dotenv tietokantayhteyden avaamisen avuksi.
-Toteutettu backendiin routerit tuotelistan ja yksittäisten tuotteiden hakua varten sekä uusien tuotteiden lisäämiseksi, tietojen muokkaamiseksi ja vanhojen poistamiseksi.
+13.6 
+back-end: Luotu projektia varten MongoDb -tietokanta. Otettu käyttöön dotenv tietokantayhteyden avaamisen avuksi.
+Toteutettu routerit tuotelistan ja yksittäisten tuotteiden hakua varten sekä uusien tuotteiden lisäämiseksi, tietojen muokkaamiseksi ja vanhojen poistamiseksi.
 => 3h
 
-14.6 Refaktoroitu koodin rakennetta useampaan moduuliin.
+14.6 
+back-end: Refaktoroitu koodin rakennetta useampaan moduuliin.
 => 2h
 
-15.6 Otettu käyttöön Jest, supertest sekä Cross-env back-endin testaukseen. Luotu testiympäristöä varten oma testitietokanta.
+15.6 O
+back-end: tettu käyttöön Jest, supertest sekä Cross-env back-endin testaukseen. Luotu testiympäristöä varten oma testitietokanta.
 Luotu testitapaukset tuotteiden lisäämiselle ja noutamiselle portaalista.
 => 2h
 
-20.6 Lisätty testi tuotteen poistamiselle. Refaktoroitu testitapausten koodia. Refaktoroitu backendin routerit käyttämään async/await -rakennetta.
-Lisätty backendiin router Portaalin käyttäjien/administratorien luomiseksi sekä testitapaukset käyttäjätunnuksen luomista varten.
+20.6 
+back-end: Lisätty testi tuotteen poistamiselle. Refaktoroitu testitapausten koodia. Refaktoroitu routerit käyttämään async/await -rakennetta.
+Lisätty router Portaalin käyttäjien/administratorien luomiseksi sekä testitapaukset käyttäjätunnuksen luomista varten.
 => 4h
 
-22.6 Lisätty backendiin Router käyttäjätunnuksella kirjautumiselle. Lisätty Token -perusteinen tunnistautuminen ja muutettu tuotteiden Routerissa
+---------- 30h
+
+22.6 
+back-end: Lisätty Router käyttäjätunnuksella kirjautumiselle. Lisätty Token -perusteinen tunnistautuminen ja muutettu tuotteiden Routerissa
 uusien tuotteiden lisääminen ja tuotetietojen päivittäminen sallituksi vain kirjautuneelle käyttäjälle.
 => 2h
 
-24.6 Päivitetty tuotteiden testaus: uuden tuotteen lisääminen onnistuu vain kirjautuneelta käyttäjältä. Lisätty middleware joka poimii tokenin
+24.6 
+back-end: Päivitetty tuotteiden testaus: uuden tuotteen lisääminen onnistuu vain kirjautuneelta käyttäjältä. Lisätty middleware joka poimii tokenin
 => 2h
 
-28.6 Luotu login -lomake frontendiin sisäänkirjautumista varten
+28.6 
+front-end: Luotu login -lomake sisäänkirjautumista varten
 => 2h
 
-29.6 Päivitetty front-endissä tuotteen lisääminen käyttäen tokenia. Lisätty tokenin tallettaminen local storageen.
+29.6 
+front-end: Päivitetty front-endissä tuotteen lisääminen käyttäen tokenia. Lisätty tokenin tallettaminen local storageen.
 => 2h
 
-30.6 Aloitettu poetaalin komponenttien päivittäminen käyttämään reduxia. Lisätty tuotteiden haku kannasta reduxin avulla.
+30.6 
+front-end: Aloitettu poetaalin komponenttien päivittäminen käyttämään reduxia. Lisätty tuotteiden haku kannasta reduxin avulla.
 Päivitetty Tuotelista -sivulla näytettäviä tietoja.
 => 4h
 
-7.7 Otettu projektissa käyttöön redux devtools sekä redux-thunk. Päivitetty tuotteiden lisäämislomakkeen toimintaa siten että tuotteiden 
+7.7 
+front-end: Otettu projektissa käyttöön redux devtools sekä redux-thunk. Päivitetty tuotteiden lisäämislomakkeen toimintaa siten että tuotteiden 
 lisääminen Reduxiin toimii.
 => 2h
 
-14.7 Lisätty multer backendiin ja luotu middleware kuvatiedostojen tallentamista varten. Luotu router kuvien lisäämiseksi/poistamiseksi portaalissa 
+14.7 
+back-end: Otettu käyttöön multer ja luotu middleware kuvatiedostojen tallentamista varten. Luotu router kuvien lisäämiseksi/poistamiseksi portaalissa 
 oleville tuotteille.
 => 3h
 
-16.7 Luotu lomake kuvien lisäämiseksi portaalin tuotteisiin. Otettu front-endissä käyttöön react-dropzone kuvatiedostojen lisäämiseen.
+16.7 
+back-end: kommentoitu tokenin tarkastamiseen ja käyttäjähallintaan liittyvä koodi pois käytöstä kehityksen ja ensimmäisten käyttöönottotestien ajaksi.
+front-end: Luotu lomake kuvien lisäämiseksi portaalin tuotteisiin. Otettu käyttöön react-dropzone kuvatiedostojen lisäämiseen.
 => 5h
+---------- 52h
 
-24.7 Korjailtu uuden tuotteen lisäämislomaketta, eriytetty tuotteiden hakusanat omaksi lomakkeekseen. 
+24.7 
+front-end: Korjailtu uuden tuotteen lisäämislomaketta, eriytetty tuotteiden hakusanat omaksi lomakkeekseen.
 Päivitetty uusien kuvienlisäämiseen tarkoitettu lomake lähettämään tuotteeseen liittyvä kuva back-endille.
 => 6h
 
-26.7 päivitetty TuoteForm kenttien käsittely yhden tilaolion alle.
+26.7 
+front-end: päivitetty TuoteForm kenttien käsittely yhden tilaolion alle.
 => 1h
 
-28.7 otettu front-endissä käyttöön react-file-base64, muutettu kuvien lisääminen käyttämään FireBase64:sta.
+28.7 
+front-end: otettu käyttöön react-file-base64, muutettu kuvien lisääminen käyttämään FireBase64:sta.
 => 4h
 
-30.7 backend: päivitetty tuotteiden schema: tuoteryhmässä voi olla useita samaan ryhmään kuuluvia tuotteita (esim. eri kokoisia labratakkeja...) joista
+30.7 
+backend: päivitetty tuotteiden schema: tuoteryhmässä voi olla useita samaan ryhmään kuuluvia tuotteita (esim. eri kokoisia labratakkeja...) joista
 jokaisella oma lukumäärä ja hinta, sekä useita kuvia joista yksi määritetty 'etusivuksi' (käytössä tuotteen esittelykortissa)
 frontend: Päivitetty tuotteiden lisäyslomake ja yhdistetty tuotetietojen ja kuvien lisääminen samalle lomakkeelle.
-otettu käyttöön @material-ui/core ja @material-ui/icons.
-=> 3h
+otettu käyttöön @material-ui/core ja @material-ui/icons. Päivitetty TuoteLista.js ulkoiasu käyttämään material-ui/core -kirjastoa ja lisätty TuoteCard.js kuvastamaan yksittäisen tuotteen
+tietojen näyttämistä TuoteLista -näkymässä.
+=> 5h
+----------68h
 
 
