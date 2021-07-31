@@ -118,6 +118,6 @@ tietojen näyttämistä TuoteLista -näkymässä.
 31.7
 front-end: hiottu tuotteiden esittämistapaa listalla sekä yksittäisten tuotteiden tietojen esittämistä.
 päivitetty uuden tuotteen lisäämiseen tarkoitetun lomakkeen ulkoasua.
-=> 3h
+=> 5h
 
 
