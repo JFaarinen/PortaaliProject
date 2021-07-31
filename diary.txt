@@ -107,12 +107,17 @@ front-end: otettu käyttöön react-file-base64, muutettu kuvien lisääminen k�
 => 4h
 
 30.7 
-backend: päivitetty tuotteiden schema: tuoteryhmässä voi olla useita samaan ryhmään kuuluvia tuotteita (esim. eri kokoisia labratakkeja...) joista
+back-end: päivitetty tuotteiden schema: tuoteryhmässä voi olla useita samaan ryhmään kuuluvia tuotteita (esim. eri kokoisia labratakkeja...) joista
 jokaisella oma lukumäärä ja hinta, sekä useita kuvia joista yksi määritetty 'etusivuksi' (käytössä tuotteen esittelykortissa)
 frontend: Päivitetty tuotteiden lisäyslomake ja yhdistetty tuotetietojen ja kuvien lisääminen samalle lomakkeelle.
 otettu käyttöön @material-ui/core ja @material-ui/icons. Päivitetty TuoteLista.js ulkoiasu käyttämään material-ui/core -kirjastoa ja lisätty TuoteCard.js kuvastamaan yksittäisen tuotteen
 tietojen näyttämistä TuoteLista -näkymässä.
 => 5h
 ----------68h
+
+31.7
+front-end: hiottu tuotteiden esittämistapaa listalla sekä yksittäisten tuotteiden tietojen esittämistä.
+päivitetty uuden tuotteen lisäämiseen tarkoitetun lomakkeen ulkoasua.
+=> 3h
 
 
