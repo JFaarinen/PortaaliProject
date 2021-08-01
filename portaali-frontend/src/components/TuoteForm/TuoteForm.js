@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import tuoteService from '../services/tuotteet';
+import tuoteService from '../../services/tuotteet';
 import { useHistory } from 'react-router';
-import TuoteTiedotForm from './TuoteTiedotForm';
-import KuvaForm from './KuvaForm';
-import HakusanaForm from './HakusanaForm';
-import { lisaaTuote } from '../reducers/tuoteReducer';
+import TuoteTiedotForm from './TuoteTiedot/TuoteTiedotForm';
+import KuvaForm from './TuoteKuva/KuvaForm';
+import HakusanaForm from '../HakusanaForm';
+import { lisaaTuote } from '../../reducers/tuoteReducer';
 import { Container, CssBaseline, Grid, TextField } from '@material-ui/core';
+import useStyles from './styles';
 
 const TuoteForm = () => {
     const [hakusanat, setHakusanat] = useState([]);
@@ -14,6 +15,7 @@ const TuoteForm = () => {
     const [tuoteTiedot, setTuoteTiedot] = useState([]);
     const [kuvat, setKuvat] = useState([]);
     const dispatch = useDispatch();
+    const classes = useStyles();
 
     const lisaaHakusana = (hakusana) => {
         setHakusanat(hakusanat.concat(hakusana));
@@ -35,7 +37,7 @@ const TuoteForm = () => {
     };
 
     return (
-        <Container>
+        <Container className={classes.mainContainer}>
             <CssBaseline />
             <div>
                 <form id="tuoteForm" onSubmit={handleTuoteLisays}>
@@ -43,6 +45,7 @@ const TuoteForm = () => {
                         <Grid item xs={12}>
                             <TextField
                                 label='Tuote'
+                                className={classes.syotto}
                                 variant='outlined'
                                 name='tuoteNimi'
                                 value={tuoteRyhma.otsikko}

@@ -120,4 +120,7 @@ front-end: hiottu tuotteiden esittämistapaa listalla sekä yksittäisten tuotte
 päivitetty uuden tuotteen lisäämiseen tarkoitetun lomakkeen ulkoasua.
 => 5h
 
+1.8
+front-end: jatkettu tuotteiden tietojen lisäämiseen käytettyjen lomakkeiden (tuoteForm, tuoteTiedotForm, kuvaForm) ulkoasun hiomista.
+=> 2h
 
