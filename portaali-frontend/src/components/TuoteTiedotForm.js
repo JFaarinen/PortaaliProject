@@ -19,7 +19,6 @@ const TuoteTiedotForm = ({ tuoteTiedot, setTuoteTiedot }) => {
                 <Grid item sx={12} sm={12} md={12} lg={12}>
                     <TextField
                         label='Tuotteen tiedot'
-                        placeholder='Esim: Labratakki, valkoinen, koko s'
                         variant='outlined'
                         name='tuote'
                         type='text'

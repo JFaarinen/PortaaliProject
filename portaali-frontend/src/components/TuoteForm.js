@@ -45,7 +45,6 @@ const TuoteForm = () => {
                                 label='Tuote'
                                 variant='outlined'
                                 name='tuoteNimi'
-                                placeholder='...esim: Labratakkeja, useita kokoja'
                                 value={tuoteRyhma.otsikko}
                                 onChange={(e) => setTuoteRyhma({ ...tuoteRyhma, otsikko: e.target.value })}
                             />
