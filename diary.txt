@@ -122,5 +122,5 @@ päivitetty uuden tuotteen lisäämiseen tarkoitetun lomakkeen ulkoasua.
 
 1.8
 front-end: jatkettu tuotteiden tietojen lisäämiseen käytettyjen lomakkeiden (tuoteForm, tuoteTiedotForm, kuvaForm) ulkoasun hiomista.
-=> 2h
+=> 3h
 
