@@ -6,8 +6,9 @@ import TuoteTiedotForm from './TuoteTiedot/TuoteTiedotForm';
 import KuvaForm from './TuoteKuva/KuvaForm';
 import HakusanaForm from '../HakusanaForm';
 import { lisaaTuote } from '../../reducers/tuoteReducer';
-import { Container, CssBaseline, Grid, TextField } from '@material-ui/core';
+import { Container, CssBaseline, Grid, TextField, Divider } from '@material-ui/core';
 import useStyles from './styles';
+import { Fragment } from 'react';
 
 const TuoteForm = () => {
     const [hakusanat, setHakusanat] = useState([]);
@@ -37,10 +38,10 @@ const TuoteForm = () => {
     };
 
     return (
-        <Container className={classes.mainContainer}>
-            <CssBaseline />
-            <div>
-                <form id="tuoteForm" onSubmit={handleTuoteLisays}>
+        <Fragment>
+            <Container className={classes.mainContainer}>
+                <CssBaseline />
+                <form className={classes.form} id="tuoteForm" onSubmit={handleTuoteLisays}>
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
                             <TextField
@@ -61,25 +62,31 @@ const TuoteForm = () => {
                                 onChange={(e) => setTuoteRyhma({ ...tuoteRyhma, kuvaus: e.target.value })}
                             />
                         </Grid>
-
-                        <div>
-                            <div>
-                                <label>Hakusanat:</label>
-                            </div>
-                            <div>
-                                {hakusanat.map((k, id) => <li key={id}>{k}</li>)}
-                            </div>
-                        </div>
                     </Grid>
                 </form>
-                <TuoteTiedotForm tuoteTiedot={tuoteTiedot} setTuoteTiedot={setTuoteTiedot} />
-                <KuvaForm kuvat={kuvat} setKuvat={setKuvat} />
-                <button type="submit" form="tuoteForm">Lisää tuote</button>
-            </div>
-            <HakusanaForm lisaaHakusana={lisaaHakusana} />
-        </Container>
-    );
+            </Container>
+            <Container>
+                <Grid container spacing={2}>
+                    <Grid item xs={12} sm={6}>
+                        <TuoteTiedotForm tuoteTiedot={tuoteTiedot} setTuoteTiedot={setTuoteTiedot} />
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                        <KuvaForm kuvat={kuvat} setKuvat={setKuvat} />
+                    </Grid>
 
+                    <button type="submit" form="tuoteForm">Lisää tuote</button>
+                    <div>
+                        <div>
+                            <label>Hakusanat:</label>
+                        </div>
+                        <div>
+                            {hakusanat.map((k, id) => <li key={id}>{k}</li>)}
+                        </div>
+                    </div>
+                </Grid>
+            </Container>
+        </Fragment>
+    );
 }
 export default TuoteForm;
 

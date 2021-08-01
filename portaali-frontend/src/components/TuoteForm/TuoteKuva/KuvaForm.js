@@ -1,7 +1,9 @@
 import React, { useState, Fragment } from 'react';
 import FileBase from 'react-file-base64';
+import useStyles from './styles';
 
 const KuvaForm = ({ kuvat, setKuvat }) => {
+    const classes = useStyles();
     const [values, setValues] = useState({ otsikko: '', kuvaus: '', kuvatiedosto: '', etusivu: false });
     const [newImage, setNewImage] = useState('');
 

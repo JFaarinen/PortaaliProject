@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { Grid, TextField, Button } from '@material-ui/core';
+import { Grid, TextField, Button, Container } from '@material-ui/core';
+import useStyles from './styles';
 
 const TuoteTiedotForm = ({ tuoteTiedot, setTuoteTiedot }) => {
+    const classes = useStyles();
     const [values, setValues] = useState({ tuote: '', hinta: 0, lkm: 1 });
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -14,44 +16,47 @@ const TuoteTiedotForm = ({ tuoteTiedot, setTuoteTiedot }) => {
         }
     }
     return (
-        <Grid container alignItems='center' spacing={2}>
+        <Container className={classes.mainContainer}>
+
             <form onSubmit={handleSubmit}>
-                <Grid item sx={12} sm={12} md={12} lg={12}>
-                    <TextField
-                        label='Tuotteen tiedot'
-                        variant='outlined'
-                        name='tuote'
-                        type='text'
-                        value={values.tuote}
-                        onChange={(event) => setValues({ ...values, tuote: event.target.value })}
-                    />
-                </Grid>
-                <Grid item sx={12} sm={6} md={6}>
-                    <TextField
-                        label='Hinta'
-                        variant='outlined'
-                        name='hinta'
-                        type='text'
-                        value={values.hinta}
-                        onChange={(event) => setValues({ ...values, hinta: event.target.value })}
-                    />
-                </Grid>
-                <Grid item sx={12} sm={6} md={6}>
-                    <TextField
-                        label='Lkm'
-                        variant='outlined'
-                        name='lkm'
-                        type='number'
-                        value={values.lkm}
-                        onChange={(event) => setValues({ ...values, lkm: event.target.value })}
-                    />
+                <Grid container alignItems='center' spacing={2}>
+                    <Grid item sx={12} sm={12} md={12} lg={12}>
+                        <TextField
+                            label='Tuotteen tiedot'
+                            variant='outlined'
+                            name='tuote'
+                            type='text'
+                            value={values.tuote}
+                            onChange={(event) => setValues({ ...values, tuote: event.target.value })}
+                        />
+                    </Grid>
+                    <Grid item sx={12} sm={6} md={6}>
+                        <TextField
+                            label='Hinta'
+                            variant='outlined'
+                            name='hinta'
+                            type='text'
+                            value={values.hinta}
+                            onChange={(event) => setValues({ ...values, hinta: event.target.value })}
+                        />
+                    </Grid>
+                    <Grid item sx={12} sm={6} md={6}>
+                        <TextField
+                            label='Lkm'
+                            variant='outlined'
+                            name='lkm'
+                            type='number'
+                            value={values.lkm}
+                            onChange={(event) => setValues({ ...values, lkm: event.target.value })}
+                        />
+                    </Grid>
                 </Grid>
                 <button type='submit'>Lisää tuote</button>
             </form>
             <ul>
                 {tuoteTiedot.map((t) => <li key={t.tuote}>{t.tuote}</li>)}
             </ul>
-        </Grid>
+        </Container>
     );
 }
 
