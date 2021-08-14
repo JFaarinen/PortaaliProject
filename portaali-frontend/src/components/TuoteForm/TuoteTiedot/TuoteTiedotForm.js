@@ -19,18 +19,19 @@ const TuoteTiedotForm = ({ tuoteTiedot, setTuoteTiedot }) => {
         <Container className={classes.mainContainer}>
 
             <form onSubmit={handleSubmit}>
-                <Grid container alignItems='center' spacing={2}>
-                    <Grid item sx={12} sm={12} md={12} lg={12}>
+                <Grid container alignItems='center' spacing={1}>
+                    <Grid item sx={12} sm={12}>
                         <TextField
                             label='Tuotteen tiedot'
                             variant='outlined'
                             name='tuote'
                             type='text'
+                            fullWidth
                             value={values.tuote}
                             onChange={(event) => setValues({ ...values, tuote: event.target.value })}
                         />
                     </Grid>
-                    <Grid item sx={12} sm={6} md={6}>
+                    <Grid item sx={12} sm={6}>
                         <TextField
                             label='Hinta'
                             variant='outlined'
@@ -40,7 +41,7 @@ const TuoteTiedotForm = ({ tuoteTiedot, setTuoteTiedot }) => {
                             onChange={(event) => setValues({ ...values, hinta: event.target.value })}
                         />
                     </Grid>
-                    <Grid item sx={12} sm={6} md={6}>
+                    <Grid item sx={12} sm={6}>
                         <TextField
                             label='Lkm'
                             variant='outlined'

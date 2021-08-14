@@ -1,3 +1,4 @@
+import { Container, Grid, Typography, TextField } from '@material-ui/core';
 import React, { useState, Fragment } from 'react';
 import FileBase from 'react-file-base64';
 import useStyles from './styles';
@@ -20,28 +21,34 @@ const KuvaForm = ({ kuvat, setKuvat }) => {
     }
 
     return (
-        <Fragment>
-            <div className="card shadow-sm">
-                <div className="card-header">
-                    <label>Kuvien lisääminen: </label>
-                </div>
+        <Container className={classes.mainContainer}>
+            <Grid container alignItems='center' spacing={1}>
+                <Grid item sx={12} sm={12}>
+                    <Typography variant="h4">Kuvien lisääminen: </Typography>
+                </Grid>
+                <Grid item sx={12} sm={12}>
+                    <TextField
+                        label='Otsikko'
+                        variant='outlined'
+                        name='otsikko'
+                        type='text'
+                        fullWidth
+                        value={values.otsikko}
+                        onChange={(event) => setValues({ ...values, otsikko: event.target.value })}
+                    />
+                </Grid>
+                <Grid item sx={12} sm={12}>
+                    <TextField
+                        label='Kuvaus'
+                        variant='outlined'
+                        name='kuvaus'
+                        type='text'
+                        fullWidth
+                        value={values.kuvaus}
+                        onChange={(event) => setValues({ ...values, kuvaus: event.target.value })}
+                    />
+                </Grid>
                 <div className="card-body">
-                    <div>
-                        Otsikko: <input
-                            name='otsikko'
-                            type='text'
-                            value={values.otsikko}
-                            onChange={(event) => setValues({ ...values, otsikko: event.target.value })}
-                        />
-                    </div>
-                    <div>
-                        Kuvaus: <input
-                            name='kuvaus'
-                            type='text'
-                            value={values.kuvaus}
-                            onChange={(event) => setValues({ ...values, kuvaus: event.target.value })}
-                        />
-                    </div>
                     <div>
                         <FileBase
                             type="file"
@@ -58,8 +65,9 @@ const KuvaForm = ({ kuvat, setKuvat }) => {
                     </div>
                     <button onClick={handleSubmit}>Lisää kuva</button>
                 </div>
-            </div>
-        </Fragment>
+
+            </Grid>
+        </Container>
     )
 }
 
