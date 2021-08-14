@@ -41,48 +41,49 @@ const TuoteForm = () => {
         <Fragment>
             <Container className={classes.mainContainer}>
                 <CssBaseline />
-                <form className={classes.form} id="tuoteForm" onSubmit={handleTuoteLisays}>
-                    <Grid container spacing={2}>
-                        <Grid item xs={12}>
-                            <TextField
-                                label='Tuote'
-                                className={classes.syotto}
-                                variant='outlined'
-                                name='tuoteNimi'
-                                value={tuoteRyhma.otsikko}
-                                onChange={(e) => setTuoteRyhma({ ...tuoteRyhma, otsikko: e.target.value })}
-                            />
-                        </Grid>
-                        <Grid item xs={12}>
-                            <TextField
-                                label='Tuotteen kuvaus'
-                                variant='outlined'
-                                name='tuoteKuvaus'
-                                value={tuoteRyhma.kuvaus}
-                                onChange={(e) => setTuoteRyhma({ ...tuoteRyhma, kuvaus: e.target.value })}
-                            />
-                        </Grid>
-                    </Grid>
-                </form>
-            </Container>
-            <Container>
                 <Grid container spacing={2}>
-                    <Grid item xs={12} sm={6}>
-                        <TuoteTiedotForm tuoteTiedot={tuoteTiedot} setTuoteTiedot={setTuoteTiedot} />
-                    </Grid>
-                    <Grid item xs={12} sm={6}>
-                        <KuvaForm kuvat={kuvat} setKuvat={setKuvat} />
-                    </Grid>
+                    <Grid item xs={12}>
+                        <form className={classes.form} id="tuoteForm" onSubmit={handleTuoteLisays}>
 
-                    <button type="submit" form="tuoteForm">Lisää tuote</button>
-                    <div>
+                            <Grid item xs={12}>
+                                <TextField
+                                    label='Tuote'
+                                    className={classes.syotto}
+                                    variant='outlined'
+                                    name='tuoteNimi'
+                                    value={tuoteRyhma.otsikko}
+                                    onChange={(e) => setTuoteRyhma({ ...tuoteRyhma, otsikko: e.target.value })}
+                                />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <TextField
+                                    label='Tuotteen kuvaus'
+                                    variant='outlined'
+                                    name='tuoteKuvaus'
+                                    value={tuoteRyhma.kuvaus}
+                                    onChange={(e) => setTuoteRyhma({ ...tuoteRyhma, kuvaus: e.target.value })}
+                                />
+                            </Grid>
+                        </form>
+                    </Grid>
+                    <Grid container spacing={2}>
+                        <Grid item xs={12} sm={6}>
+                            <TuoteTiedotForm tuoteTiedot={tuoteTiedot} setTuoteTiedot={setTuoteTiedot} />
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                            <KuvaForm kuvat={kuvat} setKuvat={setKuvat} />
+                        </Grid>
+
+                        <button type="submit" form="tuoteForm">Lisää tuote</button>
                         <div>
-                            <label>Hakusanat:</label>
+                            <div>
+                                <label>Hakusanat:</label>
+                            </div>
+                            <div>
+                                {hakusanat.map((k, id) => <li key={id}>{k}</li>)}
+                            </div>
                         </div>
-                        <div>
-                            {hakusanat.map((k, id) => <li key={id}>{k}</li>)}
-                        </div>
-                    </div>
+                    </Grid>
                 </Grid>
             </Container>
         </Fragment>
