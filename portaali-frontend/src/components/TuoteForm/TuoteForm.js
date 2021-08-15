@@ -6,7 +6,7 @@ import TuoteTiedotForm from './TuoteTiedot/TuoteTiedotForm';
 import KuvaForm from './TuoteKuva/KuvaForm';
 import HakusanaForm from '../HakusanaForm';
 import { lisaaTuote } from '../../reducers/tuoteReducer';
-import { Container, CssBaseline, Grid, TextField, Divider } from '@material-ui/core';
+import { Container, CssBaseline, Grid, TextField, Typography } from '@material-ui/core';
 import useStyles from './styles';
 import { Fragment } from 'react';
 
@@ -41,12 +41,15 @@ const TuoteForm = () => {
         <Fragment>
             <Container className={classes.mainContainer}>
                 <CssBaseline />
-                <Grid container spacing={2}>
+                <Grid container spacing={1}>
+                    <Grid item sx={12} sm={12}>
+                        <Typography variant="h3">Tuotteen lisääminen: </Typography>
+                    </Grid>
                     <Grid item xs={12}>
                         <form className={classes.form} id="tuoteForm" onSubmit={handleTuoteLisays}>
                             <Grid item xs={12}>
                                 <TextField
-                                    label='Tuote'
+                                    label='Tuotteen nimi'
                                     className={classes.syotto}
                                     variant='outlined'
                                     name='tuoteNimi'

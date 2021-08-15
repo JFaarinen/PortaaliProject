@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Grid, TextField, Button, Container } from '@material-ui/core';
+import { Grid, TextField, Button, Container, Typography } from '@material-ui/core';
 import useStyles from './styles';
 
 const TuoteTiedotForm = ({ tuoteTiedot, setTuoteTiedot }) => {
@@ -18,8 +18,12 @@ const TuoteTiedotForm = ({ tuoteTiedot, setTuoteTiedot }) => {
     return (
         <Container className={classes.mainContainer}>
 
-            <form onSubmit={handleSubmit}>
+            <form>
                 <Grid container alignItems='center' spacing={1}>
+
+                    <Grid item sx={12} sm={12}>
+                        <Typography variant="h4">Tuotetiedot: </Typography>
+                    </Grid>
                     <Grid item sx={12} sm={12}>
                         <TextField
                             label='Tuotteen tiedot'
@@ -31,7 +35,7 @@ const TuoteTiedotForm = ({ tuoteTiedot, setTuoteTiedot }) => {
                             onChange={(event) => setValues({ ...values, tuote: event.target.value })}
                         />
                     </Grid>
-                    <Grid item sx={12} sm={6}>
+                    <Grid item sx={12} sm={12} md={6}>
                         <TextField
                             label='Hinta'
                             variant='outlined'
@@ -41,7 +45,7 @@ const TuoteTiedotForm = ({ tuoteTiedot, setTuoteTiedot }) => {
                             onChange={(event) => setValues({ ...values, hinta: event.target.value })}
                         />
                     </Grid>
-                    <Grid item sx={12} sm={6}>
+                    <Grid item sx={12} sm={12} md={6}>
                         <TextField
                             label='Lkm'
                             variant='outlined'
@@ -51,12 +55,23 @@ const TuoteTiedotForm = ({ tuoteTiedot, setTuoteTiedot }) => {
                             onChange={(event) => setValues({ ...values, lkm: event.target.value })}
                         />
                     </Grid>
+                    <Grid item sx={12}>
+                        <Button
+                            variant='contained'
+                            color='primary'
+                            onClick={(e) => handleSubmit(e)}
+                        >Lisää tuote</Button>
+                    </Grid>
                 </Grid>
-                <button type='submit'>Lisää tuote</button>
             </form>
-            <ul>
-                {tuoteTiedot.map((t) => <li key={t.tuote}>{t.tuote}</li>)}
-            </ul>
+            <Grid container alignItems='center' spacing={1}>
+                <Grid item sx={12}>
+                    <ul>
+                        {tuoteTiedot.map((t) => <li key={t.tuote}>{t.tuote}</li>)}
+                    </ul>
+                </Grid>
+
+            </Grid>
         </Container>
     );
 }

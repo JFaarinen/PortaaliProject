@@ -126,6 +126,6 @@ front-end: jatkettu tuotteiden tietojen lisäämiseen käytettyjen lomakkeiden (
 
 14.8
 front-end: jatkettu tuotteiden tietojen lisäämiseen käytettyjen lomakkeiden ulkoasun hiomista.
-=> 1h
+=> 3h
 
 
