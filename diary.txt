@@ -1,6 +1,3 @@
-14.2 Projektin aloituspalaveri / Todellisuuspakolaiset Ry: kartoitettu Portaalin alustavia tarpeita
-=> 2h
-
 17.2 
 front-end: Portaalin front-endin aloitus. Luotu React -ympäristö sekä projektin GitHub -repositio. JSON -serverille luotu pieni tuotekanta kehityksen tueksi.
 => 3h
@@ -22,7 +19,7 @@ front-end: Lisätty projektiin kehitystyön aikainan json-server -ympäristö se
 lisäämisestä ja päivittämisestä. Luotu lomake UusiTuote jonka kautta käyttäjällä mahdollisuus päivittää portaaliin uusia tuotteita.
 => 2h
 
----------- 15h
+---------- 13h
 
 9.6 
 back-end: Luotu projektin back-endia varten oma express -rajapintaa ja nodemonia käyttävä ympäristö. Luotu back-endista raakaversio jossa 
@@ -53,8 +50,6 @@ back-end: Lisätty testi tuotteen poistamiselle. Refaktoroitu testitapausten koo
 Lisätty router Portaalin käyttäjien/administratorien luomiseksi sekä testitapaukset käyttäjätunnuksen luomista varten.
 => 4h
 
----------- 30h
-
 22.6 
 back-end: Lisätty Router käyttäjätunnuksella kirjautumiselle. Lisätty Token -perusteinen tunnistautuminen ja muutettu tuotteiden Routerissa
 uusien tuotteiden lisääminen ja tuotetietojen päivittäminen sallituksi vain kirjautuneelle käyttäjälle.
@@ -77,6 +72,8 @@ front-end: Aloitettu poetaalin komponenttien päivittäminen käyttämään redu
 Päivitetty Tuotelista -sivulla näytettäviä tietoja.
 => 4h
 
+---------- 40h
+
 7.7 
 front-end: Otettu projektissa käyttöön redux devtools sekä redux-thunk. Päivitetty tuotteiden lisäämislomakkeen toimintaa siten että tuotteiden 
 lisääminen Reduxiin toimii.
@@ -91,7 +88,6 @@ oleville tuotteille.
 back-end: kommentoitu tokenin tarkastamiseen ja käyttäjähallintaan liittyvä koodi pois käytöstä kehityksen ja ensimmäisten käyttöönottotestien ajaksi.
 front-end: Luotu lomake kuvien lisäämiseksi portaalin tuotteisiin. Otettu käyttöön react-dropzone kuvatiedostojen lisäämiseen.
 => 5h
----------- 52h
 
 24.7 
 front-end: Korjailtu uuden tuotteen lisäämislomaketta, eriytetty tuotteiden hakusanat omaksi lomakkeekseen.
@@ -113,12 +109,13 @@ frontend: Päivitetty tuotteiden lisäyslomake ja yhdistetty tuotetietojen ja ku
 otettu käyttöön @material-ui/core ja @material-ui/icons. Päivitetty TuoteLista.js ulkoiasu käyttämään material-ui/core -kirjastoa ja lisätty TuoteCard.js kuvastamaan yksittäisen tuotteen
 tietojen näyttämistä TuoteLista -näkymässä.
 => 5h
-----------68h
 
 31.7
 front-end: hiottu tuotteiden esittämistapaa listalla sekä yksittäisten tuotteiden tietojen esittämistä.
 päivitetty uuden tuotteen lisäämiseen tarkoitetun lomakkeen ulkoasua.
 => 5h
+
+----------71h
 
 1.8
 front-end: jatkettu tuotteiden tietojen lisäämiseen käytettyjen lomakkeiden (tuoteForm, tuoteTiedotForm, kuvaForm) ulkoasun hiomista.
@@ -127,5 +124,12 @@ front-end: jatkettu tuotteiden tietojen lisäämiseen käytettyjen lomakkeiden (
 14.8
 front-end: jatkettu tuotteiden tietojen lisäämiseen käytettyjen lomakkeiden ulkoasun hiomista.
 => 3h
+
+15.8
+front-end: jatkettu tuotteiden tietojen lisäämiseen käytettyjen lomakkeiden ulkoasun hiomista.
+=> 1h
+
+----------78h
+
 
 
