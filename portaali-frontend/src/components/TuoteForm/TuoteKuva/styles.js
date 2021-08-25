@@ -11,7 +11,6 @@ export default makeStyles((theme) => ({
         width: '100%',
         marginTopp: theme.spacing(3),
         border: '1px solid blue'
-    }
-
+    },
 
 }));

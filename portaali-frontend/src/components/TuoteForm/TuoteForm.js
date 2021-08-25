@@ -42,8 +42,8 @@ const TuoteForm = () => {
             <Container className={classes.mainContainer}>
                 <CssBaseline />
                 <Grid container spacing={1}>
-                    <Grid item sx={12} sm={12}>
-                        <Typography variant="h3">Tuotteen lisääminen: </Typography>
+                    <Grid item xs={12} sm={12}>
+                        <Typography variant="h3">Uusi tuote: </Typography>
                     </Grid>
                     <Grid item xs={12}>
                         <form className={classes.form} id="tuoteForm" onSubmit={handleTuoteLisays}>

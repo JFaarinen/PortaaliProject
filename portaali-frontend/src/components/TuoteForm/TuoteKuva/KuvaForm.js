@@ -1,4 +1,4 @@
-import { Container, Grid, Typography, TextField } from '@material-ui/core';
+import { Container, Grid, Typography, TextField, Button } from '@material-ui/core';
 import React, { useState, Fragment } from 'react';
 import FileBase from 'react-file-base64';
 import useStyles from './styles';
@@ -7,26 +7,40 @@ const KuvaForm = ({ kuvat, setKuvat }) => {
     const classes = useStyles();
     const [values, setValues] = useState({ otsikko: '', kuvaus: '', kuvatiedosto: '', etusivu: false });
     const [newImage, setNewImage] = useState('');
+    const [error, setError] = useState('');
 
-    const handleSubmit = (event) => {
+    const lisaaKuvat = (event) => {
         event.preventDefault();
-        setKuvat(kuvat.concat({
-            otsikko: values.otsikko,
-            kuvaus: values.kuvaus,
-            kuvatiedosto: newImage,
-            etusivu: kuvat.length > 1 ? false : true
-        }));
-        setValues({ otsikko: '', kuvaus: '', kuvatiedosto: '', etusivu: false });
-        setNewImage('');
+        const otsikot = kuvat.map(k => k.otsikko);
+        if (otsikot.includes(values.otsikko)) {
+            setError('virhe: otsikon tulee olla uniikki!')
+        } else {
+            setKuvat(kuvat.concat({
+                otsikko: values.otsikko,
+                kuvaus: values.kuvaus,
+                kuvatiedosto: newImage,
+                etusivu: kuvat.length > 1 ? false : true
+            }));
+            setValues({ otsikko: '', kuvaus: '', kuvatiedosto: '', etusivu: false });
+            setError('');
+            setNewImage('');
+        }
+    }
+
+    const poistaKuva = (otsikko) => {
+        setKuvat(kuvat.filter(k => k.otsikko !== otsikko));
     }
 
     return (
         <Container className={classes.mainContainer}>
             <Grid container alignItems='center' spacing={1}>
-                <Grid item sx={12} sm={12}>
+                <Grid item xs={12} sm={12}>
                     <Typography variant="h4">Kuvien lisääminen: </Typography>
                 </Grid>
-                <Grid item sx={12} sm={12}>
+                <Grid item xs={12} sm={12}>
+                    {error}
+                </Grid>
+                <Grid item xs={12} sm={12}>
                     <TextField
                         label='Otsikko'
                         variant='outlined'
@@ -37,7 +51,7 @@ const KuvaForm = ({ kuvat, setKuvat }) => {
                         onChange={(event) => setValues({ ...values, otsikko: event.target.value })}
                     />
                 </Grid>
-                <Grid item sx={12} sm={12}>
+                <Grid item xs={12} sm={12}>
                     <TextField
                         label='Kuvaus'
                         variant='outlined'
@@ -48,8 +62,8 @@ const KuvaForm = ({ kuvat, setKuvat }) => {
                         onChange={(event) => setValues({ ...values, kuvaus: event.target.value })}
                     />
                 </Grid>
-                <div className="card-body">
-                    <div>
+                <Grid item xs={12} sm={12}>
+                    <div className={classes.fileBaseObject}>
                         <FileBase
                             type="file"
                             multiple={false}
@@ -59,13 +73,24 @@ const KuvaForm = ({ kuvat, setKuvat }) => {
                             }}
                         />
                     </div>
-                    <div>
-                        <div>Lisättävät kuvat</div>
-                        <div>{kuvat.length}</div>
-                    </div>
-                    <button onClick={handleSubmit}>Lisää kuva</button>
-                </div>
-
+                </Grid>
+                <Grid item xs={12} sm={12}>
+                    <Button
+                        variant='contained'
+                        color='primary'
+                        onClick={(e) => lisaaKuvat(e)}>
+                        Lisää kuva
+                    </Button>
+                </Grid>
+                <Grid item xs={12} sm={12} md={12}>
+                    <div>Kuvat tuotteesta: {kuvat.length}</div>
+                    <ul>
+                        {kuvat.map((k) =>
+                            <li key={k.otsikko}>
+                                {k.otsikko} <Button onClick={() => poistaKuva(k.otsikko)}>poista</Button>
+                            </li>)}
+                    </ul>
+                </Grid>
             </Grid>
         </Container>
     )

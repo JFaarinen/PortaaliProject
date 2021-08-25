@@ -129,7 +129,12 @@ front-end: jatkettu tuotteiden tietojen lisäämiseen käytettyjen lomakkeiden u
 front-end: jatkettu tuotteiden tietojen lisäämiseen käytettyjen lomakkeiden ulkoasun hiomista.
 => 1h
 
-----------78h
+25.8
+front-end: päivitetty TuoteTiedotForm ja KuvaForm toimintoja, hiottu edelleen lomakkeiden ulkoasua ja responsiivisuutta,
+lisätty molemmille listat lisätyistä objekteista, sekä listalla olevan objektin poistaminen.
+=> 2h
+
+----------80h
 
 
 

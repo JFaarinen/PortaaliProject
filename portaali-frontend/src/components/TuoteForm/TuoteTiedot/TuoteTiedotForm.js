@@ -5,16 +5,24 @@ import useStyles from './styles';
 const TuoteTiedotForm = ({ tuoteTiedot, setTuoteTiedot }) => {
     const classes = useStyles();
     const [values, setValues] = useState({ tuote: '', hinta: 0, lkm: 1 });
-    const handleSubmit = (event) => {
+    const [error, setError] = useState('');
+
+    const lisaaVaihtoehto = (event) => {
         event.preventDefault();
         const tuotteet = tuoteTiedot.map(t => t.tuote);
         if (tuotteet.includes(values.tuote)) {
-            console.log('Vastaava tuote on jo listassa');
+            setError('virhe: vaihtoehto on jo listassa!')
         } else {
-            setTuoteTiedot(tuoteTiedot.concat({ tuote: values.tuote, hinta: values.hinta, lkm: values.lkm }))
+            setTuoteTiedot(tuoteTiedot.concat({ tuote: values.tuote, hinta: values.hinta, lkm: values.lkm }));
             setValues({ tuote: '', hinta: 0, lkm: 1 });
         }
     }
+
+    const poistaVaihtoehto = (tuote) => {
+        setTuoteTiedot(tuoteTiedot.filter(t => t.tuote !== tuote));
+    }
+
+
     return (
         <Container className={classes.mainContainer}>
 
@@ -22,11 +30,12 @@ const TuoteTiedotForm = ({ tuoteTiedot, setTuoteTiedot }) => {
                 <Grid container alignItems='center' spacing={1}>
 
                     <Grid item xs={12}>
-                        <Typography variant="h4">Tuotetiedot: </Typography>
+                        <Typography variant="h4">Vaihtoehdot: </Typography>
+                        {error}
                     </Grid>
                     <Grid item xs={12}>
                         <TextField
-                            label='Tuotteen tiedot'
+                            label='Kuvaus'
                             variant='outlined'
                             name='tuote'
                             type='text'
@@ -59,20 +68,18 @@ const TuoteTiedotForm = ({ tuoteTiedot, setTuoteTiedot }) => {
                         <Button
                             variant='contained'
                             color='primary'
-                            onClick={(e) => handleSubmit(e)}
-                        >Lisää tuote</Button>
+                            onClick={(e) => lisaaVaihtoehto(e)}
+                        >Lisää vaihtoehto</Button>
                     </Grid>
                     <Grid item xs={12} sm={12} md={12}>
                         <ul>
-                            {tuoteTiedot.map((t) => <li key={t.tuote}>{t.tuote}</li>)}
+                            {tuoteTiedot.map((t) =>
+                                <li key={t.tuote}>
+                                    {t.tuote}, {t.hinta}€ lkm: {t.lkm}
+                                    <Button onClick={() => poistaVaihtoehto(t.tuote)}>poista</Button>
+                                </li>)}
                         </ul>
                     </Grid>
-                </Grid>
-            </div>
-            <div>
-                <Grid container alignItems='center' spacing={1}>
-
-
                 </Grid>
             </div>
         </Container>
