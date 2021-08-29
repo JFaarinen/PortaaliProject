@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { alustaTuotteet } from './reducers/tuoteReducer';
 import TuoteLista from './components/TuoteLista/TuoteLista';
-import Kategoriat from './components/Kategoriat';
+import KategoriaForm from './components/Kategoriat/KategoriaForm';
 import TuoteForm from './components/TuoteForm/TuoteForm';
-import TuoteRyhma from './components/TuoteRyhma/TuoteRyhmaForm';
+import TuoteRyhma from './components/Kategoriat/KategoriaForm';
 import tuoteService from './services/tuotteet';
 import Login from './components/Login';
 import TuoteTiedot from './components/TuoteLista/TuoteTiedot/TuoteTiedot';
@@ -64,14 +64,14 @@ const suodataTuotteet = (kategoria) => {
         <Link className="menu" to="/tuotteet">Tuotteet</Link>
         <Link className="menu" to="/larpit">Pelejä</Link>
         <Link className="menu" to="/uusiTuote">Uusi tuote</Link>
-        <Link className="menu" to="/tuoteRyhma">Lisää tuoteryhmä</Link>
+        <Link className="menu" to="/uuseKategoria">Lisää tuoteryhmä</Link>
       </div>
       <Switch>
         <Route path="/tuotteet/:id">
           <TuoteTiedot />
         </Route>
         <Route path="/tuotteet">
-          <Kategoriat kategoriat={kategoriat} />
+          <KategoriaForm kategoriat={kategoriat} />
           <TuoteLista />
         </Route>
         <Route path="/uusiTuote">
