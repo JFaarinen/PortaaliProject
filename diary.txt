@@ -135,8 +135,8 @@ lisätty molemmille listat lisätyistä objekteista, sekä listalla olevan objek
 => 2h
 
 29.8
-front-end: Luotu lomake tuotekategorioiden lisäämistä varten.
-=> 2h
+front-end: Luotu lomake tuotekategorioiden lisäämistä ja olemassaolevien kategorioiden poistoa varten.
+=> 3h
 
 ----------80h
 
