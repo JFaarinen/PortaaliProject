@@ -10,6 +10,10 @@ export default makeStyles((theme) => ({
     form: {
         marginTopp: theme.spacing(3),
         border: '1px solid blue'
+    },
+
+    table: {
+        minWidth: 150,
     }
 
 

@@ -64,7 +64,7 @@ const suodataTuotteet = (kategoria) => {
         <Link className="menu" to="/tuotteet">Tuotteet</Link>
         <Link className="menu" to="/larpit">Pelejä</Link>
         <Link className="menu" to="/uusiTuote">Uusi tuote</Link>
-        <Link className="menu" to="/uuseKategoria">Lisää tuoteryhmä</Link>
+        <Link className="menu" to="/uusiKategoria">Lisää tuoteryhmä</Link>
       </div>
       <Switch>
         <Route path="/tuotteet/:id">
@@ -77,8 +77,8 @@ const suodataTuotteet = (kategoria) => {
         <Route path="/uusiTuote">
           <TuoteForm />
         </Route>
-        <Route path="/tuoteRyhma">
-          <TuoteRyhma />
+        <Route path="/uusiKategoria">
+          <KategoriaForm />
         </Route>
         <Route path="/Login">
           <Login setUser={() => setUser()} />

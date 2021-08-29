@@ -134,6 +134,10 @@ front-end: päivitetty TuoteTiedotForm ja KuvaForm toimintoja, hiottu edelleen l
 lisätty molemmille listat lisätyistä objekteista, sekä listalla olevan objektin poistaminen.
 => 2h
 
+29.8
+front-end: Luotu lomake tuotekategorioiden lisäämistä varten.
+=> 2h
+
 ----------80h
 
 
