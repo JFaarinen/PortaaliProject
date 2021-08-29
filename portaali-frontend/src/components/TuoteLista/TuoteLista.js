@@ -20,7 +20,7 @@ const TuoteLista = () => {
                     justifyContent="space-evenly"
                     spacing={2}>
                     {tuotteet.map((tuote) => (
-                        <Grid key={tuote.id} item xs={10} sm={4} md={3} lg={2}>
+                        <Grid key={tuote.id} item xs={12} sm={4} md={3} lg={2}>
                             <TuoteCard tuote={tuote} />
                         </Grid>
                     ))}

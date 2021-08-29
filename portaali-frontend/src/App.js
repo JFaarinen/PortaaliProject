@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { alustaTuotteet } from './reducers/tuoteReducer';
 import TuoteLista from './components/TuoteLista/TuoteLista';
 import Kategoriat from './components/Kategoriat';
 import TuoteForm from './components/TuoteForm/TuoteForm';
+import TuoteRyhma from './components/TuoteRyhma/TuoteRyhmaForm';
 import tuoteService from './services/tuotteet';
-import { alustaTuotteet } from './reducers/tuoteReducer';
 import Login from './components/Login';
-import Tuote from './components/Tuote';
+import TuoteTiedot from './components/TuoteLista/TuoteTiedot/TuoteTiedot';
 import { Switch, Route, Link, useRouteMatch } from 'react-router-dom';
 
 let kaikkiKategoriat = [];
@@ -63,10 +64,11 @@ const suodataTuotteet = (kategoria) => {
         <Link className="menu" to="/tuotteet">Tuotteet</Link>
         <Link className="menu" to="/larpit">Pelejä</Link>
         <Link className="menu" to="/uusiTuote">Uusi tuote</Link>
+        <Link className="menu" to="/tuoteRyhma">Lisää tuoteryhmä</Link>
       </div>
       <Switch>
         <Route path="/tuotteet/:id">
-          <Tuote tuote={''} ostoskori={ostoskori} setOstoskori={() => setOstoskori()} />
+          <TuoteTiedot />
         </Route>
         <Route path="/tuotteet">
           <Kategoriat kategoriat={kategoriat} />
@@ -74,6 +76,9 @@ const suodataTuotteet = (kategoria) => {
         </Route>
         <Route path="/uusiTuote">
           <TuoteForm />
+        </Route>
+        <Route path="/tuoteRyhma">
+          <TuoteRyhma />
         </Route>
         <Route path="/Login">
           <Login setUser={() => setUser()} />

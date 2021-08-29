@@ -13,10 +13,11 @@ const tuoteSchema = new mongoose.Schema({
         kuvaus: { type: String },
         kuvatiedosto: { type: String },
         etusivu: { type: Boolean }
+    }],
+    hakusanat: [{
+        hakusana: { type: String }
     }]
 });
-
-
 
 tuoteSchema.set('toJSON', {
     transform: (document, returnedObject) => {

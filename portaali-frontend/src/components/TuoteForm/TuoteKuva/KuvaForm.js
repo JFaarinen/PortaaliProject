@@ -1,5 +1,5 @@
 import { Container, Grid, Typography, TextField, Button } from '@material-ui/core';
-import React, { useState, Fragment } from 'react';
+import React, { useState } from 'react';
 import FileBase from 'react-file-base64';
 import useStyles from './styles';
 
@@ -13,7 +13,7 @@ const KuvaForm = ({ kuvat, setKuvat }) => {
         event.preventDefault();
         const otsikot = kuvat.map(k => k.otsikko);
         if (otsikot.includes(values.otsikko)) {
-            setError('virhe: otsikon tulee olla uniikki!')
+            setError('virhe: otsikon tulee olla uniikki!');
         } else {
             setKuvat(kuvat.concat({
                 otsikko: values.otsikko,

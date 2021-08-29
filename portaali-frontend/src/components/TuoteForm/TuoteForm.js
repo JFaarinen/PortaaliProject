@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import tuoteService from '../../services/tuotteet';
-import { useHistory } from 'react-router';
 import TuoteTiedotForm from './TuoteTiedot/TuoteTiedotForm';
 import KuvaForm from './TuoteKuva/KuvaForm';
-import HakusanaForm from '../HakusanaForm';
 import { lisaaTuote } from '../../reducers/tuoteReducer';
 import { Container, CssBaseline, Grid, TextField, Typography } from '@material-ui/core';
 import useStyles from './styles';
@@ -17,10 +15,6 @@ const TuoteForm = () => {
     const [kuvat, setKuvat] = useState([]);
     const dispatch = useDispatch();
     const classes = useStyles();
-
-    const lisaaHakusana = (hakusana) => {
-        setHakusanat(hakusanat.concat(hakusana));
-    }
 
     const handleTuoteLisays = async (event) => {
         event.preventDefault();
