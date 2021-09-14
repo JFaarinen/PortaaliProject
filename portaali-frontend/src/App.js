@@ -18,11 +18,12 @@ const App = () => {
   const [user, setUser] = useState(null);
   const dispatch = useDispatch();
 
-  //const tuotteet = useSelector(state => state.tuotteet);
-
   useEffect(() => {
+    console.log('alustetaan tuotelista');
     dispatch(alustaTuotteet())
   }, [dispatch]);
+
+  //const tuotteet = useSelector(state => state.tuotteet);
 
   useEffect(() => {
     const loggedUserJSON = window.localStorage.getItem('loggedUser');
@@ -71,7 +72,6 @@ const suodataTuotteet = (kategoria) => {
           <TuoteTiedot />
         </Route>
         <Route path="/tuotteet">
-          <KategoriaForm kategoriat={kategoriat} />
           <TuoteLista />
         </Route>
         <Route path="/uusiTuote">

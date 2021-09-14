@@ -138,7 +138,14 @@ lisätty molemmille listat lisätyistä objekteista, sekä listalla olevan objek
 front-end: Luotu lomake tuotekategorioiden lisäämistä ja olemassaolevien kategorioiden poistoa varten.
 => 3h
 
-----------80h
+----------83h
+
+14.9
+front-end: Lisätty TuoteLista -sivulla esiteltyjen tuotteiden cardeihin linkki tuotteen tarkemmat tiedot 
+näyttävään TuoteTiedot -komponenttiin. Tuotetietoihin yksittäisen tuotteiden tietojen haku osoiterivin parametrin 
+perusteella.
+
+=> 1h
 
 
 

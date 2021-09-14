@@ -8,6 +8,7 @@ import {
     Typography
 } from '@material-ui/core';
 import useStyles from './styles'
+import { Link } from 'react-router-dom';
 
 const TuoteCard = ({ tuote }) => {
     const classes = useStyles();
@@ -29,9 +30,9 @@ const TuoteCard = ({ tuote }) => {
                 </Typography>
             </CardContent>
             <CardActions className={classes.cardActions}>
-                <Button size="small" color="primary" onClick={() => { }}>
+                <Link to={`/tuotteet/${tuote.id}`}>
                     Lisätiedot
-                </Button>
+                </Link>
             </CardActions>
         </Card>
     );

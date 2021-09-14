@@ -1,15 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router';
+import { useSelector } from 'react-redux';
 
-const Tuote = ({ tuote, ostoskori, setOstoskori }) => {
-    const { nimi, img, lkm, hinta, kuvaus } = tuote;
+const Tuote = ({ ostoskori, setOstoskori }) => {
+    const id = useParams().id;
+    const tuote = useSelector(state => state.tuotteet.find(t => t.id === id));
+    console.log(`Id: ${id} tyyppi: ${typeof (id)}`);
+    console.log('tuote: ', tuote);
 
     const lisaaKoriin = (event) => {
         event.preventDefault();
         const kpl = event.target.kpl.value;
         event.target.kpl.value = '';
         const varaus = {
-            tuote: nimi,
-            hinta: hinta,
+            tuote: tuote.nimi,
+            hinta: tuote.hinta,
             lkm: kpl
         }
         const koriUpd = ostoskori.concat(varaus);
@@ -18,16 +23,28 @@ const Tuote = ({ tuote, ostoskori, setOstoskori }) => {
         console.log(ostoskori);
     }
 
+    if (!tuote) {
+        return <div>Loading...</div>
+    }
+
     return (
         <div className='tuote'>
-            <h2 className='otsikko'>{nimi}</h2>
-            <img src={tuote.img[0]} alt={nimi} className='kuva' />
+            <h2 className='otsikko'>{tuote.otsikko}</h2>
+            <img
+                src={tuote.img[0].kuvatiedosto}
+                alt={tuote.otsikko}
+                className='kuva'
+            />
             <div className='tiedot'>
-                <p>Määrä: {lkm} kpl</p>
-                <p>Hinta: {hinta}€</p>
+                <h4>Tuotteet</h4>
+                <ul>
+                    {tuote.tuoteTiedot.map(t =>
+                        <li key={t._id}>{t.tuote} {t.lkm}kpl {t.hinta}€</li>
+                    )}
+                </ul>
             </div>
             <div className='kuvaus'>
-                <p>{kuvaus}</p>
+                <p>{tuote.kuvaus}</p>
             </div>
             <form onSubmit={lisaaKoriin}>
                 <input name='kpl' />
