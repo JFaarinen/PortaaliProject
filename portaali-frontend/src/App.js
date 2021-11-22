@@ -5,6 +5,7 @@ import TuoteLista from './components/TuoteLista/TuoteLista';
 import KategoriaForm from './components/Kategoriat/KategoriaForm';
 import TuoteForm from './components/TuoteForm/TuoteForm';
 import TuoteRyhma from './components/Kategoriat/KategoriaForm';
+import Navbar from './components/NavBar/Navbar';
 import tuoteService from './services/tuotteet';
 import Login from './components/Login';
 import TuoteTiedot from './components/TuoteLista/TuoteTiedot/TuoteTiedot';
@@ -54,18 +55,8 @@ const suodataTuotteet = (kategoria) => {
 
   return (
     <main>
-      <div className="menu section">
-        <div className="otsikko">
-          <h1>Tarvikevarasto Portaali</h1>
-          <div className="underline"></div>
-        </div>
-      </div>
       <div>
-        <Link className="menu" to="/">Alku</Link>
-        <Link className="menu" to="/tuotteet">Tuotteet</Link>
-        <Link className="menu" to="/larpit">Pelejä</Link>
-        <Link className="menu" to="/uusiTuote">Uusi tuote</Link>
-        <Link className="menu" to="/uusiKategoria">Lisää tuoteryhmä</Link>
+        <Navbar />
       </div>
       <Switch>
         <Route path="/tuotteet/:id">
