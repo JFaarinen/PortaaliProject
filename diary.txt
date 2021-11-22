@@ -147,5 +147,14 @@ perusteella.
 
 => 1h
 
+----------84h
+
+22.11
+front-end: Erotettu yläreunan valintarivi omaksi komponentikseen <Navbar> ja pienempiä näyttöjä (mobiili) varten vastaavaan käyttöön
+yläpalkin kautta avautuva pystysuuntainen navigointi-ikkuna <Sidebar>. 
+Luotu näille elementeille omat tyylitiedosto.
+
+=> 3h
+
 
 

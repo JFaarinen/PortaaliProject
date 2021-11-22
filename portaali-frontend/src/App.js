@@ -5,6 +5,8 @@ import TuoteLista from './components/TuoteLista/TuoteLista';
 import KategoriaForm from './components/Kategoriat/KategoriaForm';
 import TuoteForm from './components/TuoteForm/TuoteForm';
 import TuoteRyhma from './components/Kategoriat/KategoriaForm';
+import SideBar from './components/SideBar/SideBar';
+import Backdrop from './components/SideBar/Backdrop';
 import Navbar from './components/NavBar/Navbar';
 import tuoteService from './services/tuotteet';
 import Login from './components/Login';
@@ -14,6 +16,7 @@ import { Switch, Route, Link, useRouteMatch } from 'react-router-dom';
 let kaikkiKategoriat = [];
 
 const App = () => {
+  const [sidebarVisible, setSidebarVisible] = useState(false);
   const [ostoskori, setOstoskori] = useState([]);
   const [kategoriat, setKategoriat] = useState([]);
   const [user, setUser] = useState(null);
@@ -56,7 +59,9 @@ const suodataTuotteet = (kategoria) => {
   return (
     <main>
       <div>
-        <Navbar />
+        <Navbar sidebarVisible={() => setSidebarVisible(true)} />
+        <SideBar show={sidebarVisible} clickHandler={() => setSidebarVisible(false)} />
+        <Backdrop show={sidebarVisible} clickHandler={() => setSidebarVisible(false)} />
       </div>
       <Switch>
         <Route path="/tuotteet/:id">
