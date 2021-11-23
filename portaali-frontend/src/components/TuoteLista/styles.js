@@ -7,7 +7,7 @@ export default makeStyles((theme) => ({
     },
 
     container: {
-        padding: '1 rem'
+        margin: 'auto'
     }
 
 }));
