@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import TuoteCard from './TuoteCard/TuoteCard';
 import { Grid, CircularProgress } from '@material-ui/core';
 import { useSelector } from 'react-redux';
@@ -13,14 +13,15 @@ const TuoteLista = () => {
         !tuotteet.length
             ? <CircularProgress />
             : (
+
                 <Grid
                     className={classes.container}
                     container
                     alignItems="stretch"
-                    justifyContent="center"
+                    justifyContent="space-around"
                     spacing={2}>
                     {tuotteet.map((tuote) => (
-                        <Grid key={tuote.id} item xs={12} sm={4} md={3} lg={2}>
+                        <Grid key={tuote.id} item xs={8} sm={5} md={3} lg={2}>
                             <TuoteCard tuote={tuote} />
                         </Grid>
                     ))}

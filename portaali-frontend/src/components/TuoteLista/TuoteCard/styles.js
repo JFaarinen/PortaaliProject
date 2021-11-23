@@ -2,29 +2,25 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles({
     media: {
-        maxHeight: '200',
-        maxWidth: '200',
-        paddingTop: '56,25%',
-        marginTop: '30',
-        backgroundColor: 'rgba(0, 0, 0, 0.5)',
-        backgroundBlendMode: 'darken'
+        border: '1px solid #171717'
     },
 
     card: {
+        height: 350,
+        padding: '1rem',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
-        borderRadius: '15px',
-        height: '100%',
+        borderRadius: '6px',
         position: 'relative'
     },
 
     content: {
-        height: 60
+        height: '60 px'
     },
 
     cardActions: {
-        height: 60,
+        height: '60 px',
         padding: '0 16px 8px 16px',
         display: 'flex',
         justifyContent: 'space-between'
