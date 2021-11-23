@@ -6,7 +6,7 @@ export default makeStyles({
     },
 
     card: {
-        height: 350,
+        height: 400,
         padding: '1rem',
         display: 'flex',
         flexDirection: 'column',
@@ -16,7 +16,7 @@ export default makeStyles({
     },
 
     content: {
-        height: '60 px'
+        height: 60
     },
 
     cardActions: {

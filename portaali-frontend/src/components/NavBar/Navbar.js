@@ -9,7 +9,7 @@ const Navbar = ({ sidebarVisible }) => {
                 <h2>LARP-tarvikevarasto</h2>
                 <h3>PORTAALI</h3>
             </div>
-            <div>
+            <div className="navbar_sisalto">
 
                 <ul className="navbar_linkit">
                     <li>

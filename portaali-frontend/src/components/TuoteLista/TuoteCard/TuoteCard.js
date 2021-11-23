@@ -18,7 +18,7 @@ const TuoteCard = ({ tuote }) => {
             <CardMedia
                 className={classes.media}
                 component="img"
-                height="200"
+                height="250"
                 image={tuote.img[0].kuvatiedosto || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'}
                 title={tuote.otsikko}
             />

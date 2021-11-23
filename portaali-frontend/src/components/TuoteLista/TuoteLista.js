@@ -1,6 +1,6 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import TuoteCard from './TuoteCard/TuoteCard';
-import { Grid, CircularProgress, Paper } from '@material-ui/core';
+import { Grid, CircularProgress } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 import useStyles from './styles';
 
@@ -20,9 +20,9 @@ const TuoteLista = () => {
                         container
                         alignItems="stretch"
                         justifyContent="space-around"
-                        spacing={3}>
+                        spacing={2}>
                         {tuotteet.map((tuote) => (
-                            <Grid key={tuote.id} item xs={7} sm={5} md={3} lg={2}>
+                            <Grid key={tuote.id} item xs={10} sm={6} md={4} lg={3}>
                                 <TuoteCard tuote={tuote} />
                             </Grid>
                         ))}

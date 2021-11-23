@@ -7,7 +7,9 @@ export default makeStyles((theme) => ({
     },
 
     container: {
-        margin: 'auto'
+        margin: 'auto',
+        maxWidth: '100%',
+        padding: '2rem',
     }
 
 }));
