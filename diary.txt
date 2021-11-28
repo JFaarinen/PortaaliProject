@@ -144,7 +144,6 @@ front-end: Luotu lomake tuotekategorioiden lisäämistä ja olemassaolevien kate
 front-end: Lisätty TuoteLista -sivulla esiteltyjen tuotteiden cardeihin linkki tuotteen tarkemmat tiedot 
 näyttävään TuoteTiedot -komponenttiin. Tuotetietoihin yksittäisen tuotteiden tietojen haku osoiterivin parametrin 
 perusteella.
-
 => 1h
 
 ----------84h
@@ -153,8 +152,16 @@ perusteella.
 front-end: Erotettu yläreunan valintarivi omaksi komponentikseen <Navbar> ja pienempiä näyttöjä (mobiili) varten vastaavaan käyttöön
 yläpalkin kautta avautuva pystysuuntainen navigointi-ikkuna <Sidebar>. 
 Luotu näille elementeille omat tyylitiedosto.
-
 => 3h
+
+23.11
+front-end: hiottu tuotelistauksen, yksittäisten tuotekorttien ja navbarin ulkoasua.
+=> 3h
+
+28.11
+front-end: debuggausta ensimmäistä hyväksymistestiä varten.
+
+=> 1h
 
 
 
