@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useParams } from 'react-router';
 import { useSelector } from 'react-redux';
+import './TuoteTiedot.css';
 
 const Tuote = ({ ostoskori, setOstoskori }) => {
     const id = useParams().id;
@@ -29,22 +30,28 @@ const Tuote = ({ ostoskori, setOstoskori }) => {
 
     return (
         <div className='tuote'>
-            <h2 className='otsikko'>{tuote.otsikko}</h2>
-            <img
-                src={tuote.img[0].kuvatiedosto}
-                alt={tuote.otsikko}
-                className='kuva'
-            />
-            <div className='tiedot'>
-                <h4>Tuotteet</h4>
-                <ul>
-                    {tuote.tuoteTiedot.map(t =>
-                        <li key={t._id}>{t.tuote} {t.lkm}kpl {t.hinta}€</li>
-                    )}
-                </ul>
+            <div className='tuote_vasen'>
+                <h2 className='otsikko'>{tuote.otsikko}</h2>
+                <div className='img_vasen'>
+                    <img
+                        src={tuote.img[0].kuvatiedosto}
+                        alt={tuote.otsikko}
+                        className='kuva'
+                    />
+                    <p>{tuote.kuvaus}</p>
+                </div>
             </div>
-            <div className='kuvaus'>
-                <p>{tuote.kuvaus}</p>
+
+            <div className='tuote_oikea'>
+                <div className='oikea_info'>
+                    <ul>
+                        {tuote.tuoteTiedot.map(t =>
+                            <li key={t._id}>{t.tuote} {t.lkm}kpl {t.hinta}€</li>
+                        )}
+                    </ul>
+
+                </div>
+
             </div>
             <form onSubmit={lisaaKoriin}>
                 <input name='kpl' />

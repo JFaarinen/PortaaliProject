@@ -10,7 +10,7 @@ import Backdrop from './components/SideBar/Backdrop';
 import Navbar from './components/NavBar/Navbar';
 import tuoteService from './services/tuotteet';
 import Login from './components/Login';
-import TuoteTiedot from './components/TuoteLista/TuoteTiedot/TuoteTiedot';
+import TuoteTiedot from './components/TuoteTiedot/TuoteTiedot';
 import { Switch, Route, Link, useRouteMatch } from 'react-router-dom';
 
 let kaikkiKategoriat = [];
