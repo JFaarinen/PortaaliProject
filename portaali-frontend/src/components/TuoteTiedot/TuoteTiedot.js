@@ -7,6 +7,7 @@ const Tuote = ({ ostoskori, setOstoskori }) => {
     const id = useParams().id;
     const tuote = useSelector(state => state.tuotteet.find(t => t.id === id));
     const [lkm, setLkm] = useState(1);
+    const [imgNro, setImgNro] = useState(0);
     console.log(`Id: ${id} tyyppi: ${typeof (id)}`);
     console.log('tuote: ', tuote);
 
@@ -25,9 +26,25 @@ const Tuote = ({ ostoskori, setOstoskori }) => {
         console.log(ostoskori);
     }
 
+    const selausNxt = (event) => {
+        if (imgNro === tuote.img.length - 1) {
+            setImgNro(0);
+        } else {
+            setImgNro(imgNro + 1);
+        }
+    };
+
+    const selausPrev = (event) => {
+        if (imgNro === 0) {
+            setImgNro(tuote.img.length - 1);
+        } else {
+            setImgNro(imgNro - 1);
+        }
+    };
+
     if (!tuote) {
         return <div>Loading...</div>
-    }
+    };
 
     return (
         <div className='tuote'>
@@ -37,15 +54,15 @@ const Tuote = ({ ostoskori, setOstoskori }) => {
             <div className='tuote_tiedot'>
                 <div className='tuote_vasen'>
                     <div className='img_vasen'>
-                        <div className='selaus'>
+                        <div className='selaus' onClick={selausPrev}>
                             <i class="fas fa-arrow-circle-left" size="3x"></i>
                         </div>
                         <img
-                            src={tuote.img[0].kuvatiedosto}
+                            src={tuote.img[imgNro].kuvatiedosto}
                             alt={tuote.otsikko}
                             className='kuva'
                         />
-                        <div className='selaus'>
+                        <div className='selaus' onClick={selausNxt}>
                             <i class="fas fa-arrow-circle-right" size="3x"></i>
                         </div>
 
