@@ -160,8 +160,16 @@ front-end: hiottu tuotelistauksen, yksittäisten tuotekorttien ja navbarin ulkoa
 
 28.11
 front-end: debuggausta ensimmäistä hyväksymistestiä varten.
+yksittäisen tuotteen tiedot näyttävän TuoteTiedot -sivun muokkaus.
 
-=> 1h
+=> 3h
+
+----------93h
+
+3.12
+front-end: jatkettu TuoteTiedot -sivun ulkoasun parantelemista.
+
+=> 1h 
 
 
 
