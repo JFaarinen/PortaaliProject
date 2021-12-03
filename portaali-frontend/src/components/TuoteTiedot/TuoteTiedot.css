@@ -19,12 +19,22 @@
 }
 
 .img_vasen {
-    margin: 1rem;
+    margin: auto;
     flex: 0.6;
+    display: flex;
+    vertical-align:auto;
+}
+
+.selaus {
+    margin: 1rem;
+    align-self: center;
+    font-size: xx-large;
+    cursor: pointer;
 }
 
 img {
-    max-width: 600px;
+    align-self: center;
+    max-width: 500px;
     border: 1px solid rgba(0,0,0,0.5);
     box-shadow: 0 1px 4px rgba(0,0,0,0.5);
 }
@@ -84,7 +94,7 @@ img {
     padding: 10px 16px;
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1024px) {
     .tuote {
         flex-direction: column;
     }
@@ -94,7 +104,7 @@ img {
     }
 
     img {
-        max-width: 500px;
+        max-width: 420px;
     }
 
     .tuote_vasen {
@@ -119,18 +129,21 @@ img {
         width: 100%;
         margin: 0;
     }
-
-
 }
 
-@media (max-width: 760px) {
+@media (max-width: 720px) {
     img {
-        max-width: 400px;
+        max-width: 320px;
+    }
+
+    .img_vasen {
+        flex-direction: column;
     }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 460px) {
     img {
-        max-width: 300px;
+        max-width: 250px;
     }
+
 }

@@ -167,9 +167,11 @@ yksittäisen tuotteen tiedot näyttävän TuoteTiedot -sivun muokkaus.
 ----------93h
 
 3.12
-front-end: jatkettu TuoteTiedot -sivun ulkoasun parantelemista.
+front-end: Jatkettu TuoteTiedot -sivun ulkoasun parantelemista. Muutettu sivun asettelua responsiivisemmaksi,
+Lisätty sivulle valintapainikkeet joiden avulla voi selata tuotteista näytettäviä kuvia. 
+Lisätty valikot joiden kautta mahdollista valita tuoteryhmän tuotteita ostoskoriin max varastosta löytyvä määärä.
 
-=> 1h 
+=> 2h 
 
 
 
