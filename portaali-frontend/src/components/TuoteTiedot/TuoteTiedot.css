@@ -34,7 +34,7 @@
 
 img {
     align-self: center;
-    max-width: 500px;
+    width: 500px;
     border: 1px solid rgba(0,0,0,0.5);
     box-shadow: 0 1px 4px rgba(0,0,0,0.5);
 }
@@ -104,7 +104,7 @@ img {
     }
 
     img {
-        max-width: 420px;
+        width: 420px;
     }
 
     .tuote_vasen {
@@ -133,7 +133,7 @@ img {
 
 @media (max-width: 720px) {
     img {
-        max-width: 320px;
+        width: 320px;
     }
 
     .img_vasen {
@@ -143,7 +143,7 @@ img {
 
 @media (max-width: 460px) {
     img {
-        max-width: 250px;
+        width: 250px;
     }
 
 }

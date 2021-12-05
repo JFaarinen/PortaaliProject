@@ -1,12 +1,28 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router';
 import { useSelector } from 'react-redux';
+import { ArrowCircleLeft, ArrowCircleRight } from '@mui/icons-material/';
 import './TuoteTiedot.css';
+
+const TuoteRivi = ({tuote}) => {
+    const [lkm, setLkm] = useState(1);
+
+    return(
+    <li>{tuote.tuote} {
+        <select value={lkm} onChange={(e) => setLkm(e.target.value)}>
+            {
+                [...Array(tuote.lkm).keys()].map((x) =>
+                    <option key={x + 1} value={x + 1}>{x + 1}</option>
+                )
+            }
+        </select>
+    }kpl {tuote.hinta}€</li>
+    );
+};
 
 const Tuote = ({ ostoskori, setOstoskori }) => {
     const id = useParams().id;
     const tuote = useSelector(state => state.tuotteet.find(t => t.id === id));
-    const [lkm, setLkm] = useState(1);
     const [imgNro, setImgNro] = useState(0);
     console.log(`Id: ${id} tyyppi: ${typeof (id)}`);
     console.log('tuote: ', tuote);
@@ -54,8 +70,10 @@ const Tuote = ({ ostoskori, setOstoskori }) => {
             <div className='tuote_tiedot'>
                 <div className='tuote_vasen'>
                     <div className='img_vasen'>
+                    {tuote.img.length > 0 ?
+                    <>
                         <div className='selaus' onClick={selausPrev}>
-                            <i class="fas fa-arrow-circle-left" size="3x"></i>
+                            <ArrowCircleLeft fontSize='large' />
                         </div>
                         <img
                             src={tuote.img[imgNro].kuvatiedosto}
@@ -63,8 +81,10 @@ const Tuote = ({ ostoskori, setOstoskori }) => {
                             className='kuva'
                         />
                         <div className='selaus' onClick={selausNxt}>
-                            <i class="fas fa-arrow-circle-right" size="3x"></i>
+                            <ArrowCircleRight fontSize='large' />
                         </div>
+                        </>
+                        : <img src='https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png' className='kuva'/> }
 
                     </div>
                     <p>{tuote.kuvaus}</p>
@@ -72,16 +92,8 @@ const Tuote = ({ ostoskori, setOstoskori }) => {
                 <div className='tuote_oikea'>
                     <div className='oikea_info'>
                         <ul>
-                            {tuote.tuoteTiedot.map(t =>
-                                <li key={t._id}>{t.tuote} {
-                                    <select value={lkm} onChange={(e) => setLkm(e.target.value)}>
-                                        {
-                                            [...Array(t.lkm).keys()].map((x) =>
-                                                <option key={x + 1} value={x + 1}>{x + 1}</option>
-                                            )
-                                        }
-                                    </select>
-                                }kpl {t.hinta}€</li>
+                            {tuote.tuoteTiedot.map(t => <TuoteRivi key={t._id} tuote={t} />
+
                             )}
                         </ul>
 

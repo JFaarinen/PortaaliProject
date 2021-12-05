@@ -173,5 +173,12 @@ Lisätty valikot joiden kautta mahdollista valita tuoteryhmän tuotteita ostosko
 
 => 3h 
 
+5.12
+front-end: Jatkettu TuoteTiedot -ikkunan kehitystä. Korjattu bugi joka kaataa ohjelman mikäli tuotteesta ei ole 
+kuvaa talletettuna. Refaktoroitu TuoteTiedot komponentille oma alakomponentti TuoteRivi joka näyttää yksittäisen vaihtoehdon
+ja jonka tilassa pystytään valitsemaan n kappaletta kyseistä vaihtoehtoa. 
+
+=> 1h
+
 
 
