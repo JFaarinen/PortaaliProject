@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { alustaTuotteet } from './redux/tuoteReducer';
+import { useDispatch } from 'react-redux';
+import { alustaTuotteet } from './redux/actions/tuoteActions';
 import TuoteLista from './components/TuoteLista/TuoteLista';
 import KategoriaForm from './components/Kategoriat/KategoriaForm';
 import TuoteForm from './components/TuoteForm/TuoteForm';
@@ -11,7 +11,7 @@ import Navbar from './components/NavBar/Navbar';
 import tuoteService from './services/tuotteet';
 import Login from './components/Login';
 import TuoteTiedot from './components/TuoteTiedot/TuoteTiedot';
-import { Switch, Route, Link, useRouteMatch } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
 let kaikkiKategoriat = [];
 
@@ -26,8 +26,6 @@ const App = () => {
     console.log('alustetaan tuotelista');
     dispatch(alustaTuotteet())
   }, [dispatch]);
-
-  //const tuotteet = useSelector(state => state.tuotteet);
 
   useEffect(() => {
     const loggedUserJSON = window.localStorage.getItem('loggedUser');

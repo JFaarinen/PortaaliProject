@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import tuoteService from '../../services/tuotteet';
 import TuoteTiedotForm from './TuoteTiedot/TuoteTiedotForm';
 import KuvaForm from './TuoteKuva/KuvaForm';
-import { lisaaTuote } from '../../redux/tuoteReducer';
+import { lisaaTuote } from '../../redux/actions/tuoteActions';
 import { Container, CssBaseline, Grid, TextField, Typography } from '@material-ui/core';
 import useStyles from './styles';
 import { Fragment } from 'react';
