@@ -182,9 +182,8 @@ ja jonka tilassa pystytään valitsemaan n kappaletta kyseistä vaihtoehtoa.
 
 6.12
 front-end: refaktoroitu tuotteiden ja kuvien reducerit, lisätty ostoskoria varten oma reducer.
-lisätty TuoteRivi komponenttiin painike jolla voidaan siirtää valittu määrä tuotteita ostoskoriin.
 
-=> 3h
+=> 2h
 
 
 

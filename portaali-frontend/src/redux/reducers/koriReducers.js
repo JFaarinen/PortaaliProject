@@ -1,30 +1,37 @@
 import * as koriConstants from '../constants/koriConstants';
 
-export const koriReducer = (state = {korinTuotteet: []}, action) => {
+export const koriReducer = (state = {kori: []}, action) => {
     switch (action.type) {
         case koriConstants.LISAA_TUOTE:
             const tuote = action.data;
-            const tuoteKorissa = state.korinTuotteet.find((i) => i._id === tuote._id);
+            const tuoteKorissa = state.kori.find((i) => i.id === tuote.id);
 
             if (tuoteKorissa) {
                 return {
                     ...state, 
-                    korinTuotteet: state.korinTuotteet.map((t) => t._id === tuoteKorissa._id
+                    kori: state.kori.map((t) => t.id === tuoteKorissa.id
                     ? tuote 
-                    : x)
+                    : t)
                 }
             } else {
                 return {
                     ...state, 
-                    korinTuotteet: [...korinTuotteet, tuote]
+                    kori: [...state.kori, tuote]
                 }
-            }
+            };
         
         case koriConstants.POISTA_TUOTE:
             return {
                 ...state, 
-                korinTuotteet: state.korinTuotteet.filter((i) => i._id !== action.data)
-            }
+                kori: state.kori.filter((i) => i._id !== action.data)
+            };
+        
+        case koriConstants.TYHJENNA_KORI:
+            return {
+                ...state,
+                kori: []
+            };
+
         default: 
             return state;
     }

@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { ArrowCircleLeft, ArrowCircleRight } from '@mui/icons-material/';
+import { lisaaKoriin } from '../../redux/actions/koriActions';
 import './TuoteTiedot.css';
 
 const TuoteRivi = ({tuote}) => {
     const [lkm, setLkm] = useState(1);
+    const dispatch = useDispatch();
+
+    const lisaysHandler = () => {
+        dispatch(lisaaKoriin(tuote.id, lkm));
+        console.log('tuote lisättty koriin.');
+    }
 
     return(
     <li>{tuote.tuote} {
@@ -16,7 +23,7 @@ const TuoteRivi = ({tuote}) => {
                 )
             }
         </select>
-    }kpl {tuote.hinta}€</li>
+    }kpl {tuote.hinta}€ <button onClick={lisaysHandler}>Lisää koriin</button></li>
     );
 };
 
