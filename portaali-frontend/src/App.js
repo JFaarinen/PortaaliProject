@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { alustaTuotteet } from './reducers/tuoteReducer';
+import { alustaTuotteet } from './redux/tuoteReducer';
 import TuoteLista from './components/TuoteLista/TuoteLista';
 import KategoriaForm from './components/Kategoriat/KategoriaForm';
 import TuoteForm from './components/TuoteForm/TuoteForm';

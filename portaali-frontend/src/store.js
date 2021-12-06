@@ -1,8 +1,8 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import tuoteReducer from './reducers/tuoteReducer';
-import kuvaReducer from './reducers/kuvaReducer';
+import tuoteReducer from './redux/tuoteReducer';
+import kuvaReducer from './redux/kuvaReducer';
 
 const reducer = combineReducers({
     tuotteet: tuoteReducer,
