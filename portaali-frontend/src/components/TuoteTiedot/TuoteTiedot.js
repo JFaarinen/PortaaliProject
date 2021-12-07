@@ -8,9 +8,10 @@ import './TuoteTiedot.css';
 const TuoteRivi = ({tuote}) => {
     const [lkm, setLkm] = useState(1);
     const dispatch = useDispatch();
+    console.log('tuoterivi', tuote);
 
     const lisaysHandler = () => {
-        dispatch(lisaaKoriin(tuote.id, lkm));
+        dispatch(lisaaKoriin(tuote._id, lkm));
         console.log('tuote lisättty koriin.');
     }
 
@@ -27,29 +28,14 @@ const TuoteRivi = ({tuote}) => {
     );
 };
 
-const Tuote = ({ ostoskori, setOstoskori }) => {
+const Tuote = () => {
     const id = useParams().id;
     const tuote = useSelector(state => state.tuotteet.find(t => t.id === id));
     const [imgNro, setImgNro] = useState(0);
     console.log(`Id: ${id} tyyppi: ${typeof (id)}`);
     console.log('tuote: ', tuote);
 
-    const lisaaKoriin = (event) => {
-        event.preventDefault();
-        const kpl = event.target.kpl.value;
-        event.target.kpl.value = '';
-        const varaus = {
-            tuote: tuote.nimi,
-            hinta: tuote.hinta,
-            lkm: kpl
-        }
-        const koriUpd = ostoskori.concat(varaus);
-        console.log(koriUpd);
-        setOstoskori(koriUpd);
-        console.log(ostoskori);
-    }
-
-    const selausNxt = (event) => {
+    const selausNxt = () => {
         if (imgNro === tuote.img.length - 1) {
             setImgNro(0);
         } else {
@@ -57,7 +43,7 @@ const Tuote = ({ ostoskori, setOstoskori }) => {
         }
     };
 
-    const selausPrev = (event) => {
+    const selausPrev = () => {
         if (imgNro === 0) {
             setImgNro(tuote.img.length - 1);
         } else {
@@ -105,9 +91,6 @@ const Tuote = ({ ostoskori, setOstoskori }) => {
                         </ul>
 
                     </div>
-                    <form onSubmit={lisaaKoriin}>
-                        <button type='submit'>Lisää koriin</button>
-                    </form>
                 </div>
             </div>
         </div>
