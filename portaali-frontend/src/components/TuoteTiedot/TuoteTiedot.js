@@ -5,26 +5,32 @@ import { ArrowCircleLeft, ArrowCircleRight } from '@mui/icons-material/';
 import { lisaaKoriin } from '../../redux/actions/koriActions';
 import './TuoteTiedot.css';
 
-const TuoteRivi = ({tuote}) => {
-    const [lkm, setLkm] = useState(1);
+const TuoteRivi = ({tuote, tuoteTiedot}) => {
+    const [lkmValinta, setLkmValinta] = useState(1);
     const dispatch = useDispatch();
-    console.log('tuoterivi', tuote);
+    console.log('tuoterivi:', tuoteTiedot);
 
     const lisaysHandler = () => {
-        dispatch(lisaaKoriin(tuote._id, lkm));
+        const tilaus = {
+            tuoteId: tuote,
+            malliId: tuoteTiedot._id,
+            tuotenimi: tuoteTiedot.tuote,
+            varausLkm: lkmValinta
+        }
+        dispatch(lisaaKoriin(tilaus));
         console.log('tuote lisättty koriin.');
     }
 
     return(
-    <li>{tuote.tuote} {
-        <select value={lkm} onChange={(e) => setLkm(e.target.value)}>
+    <li>{tuoteTiedot.tuote} {
+        <select value={lkmValinta} onChange={(e) => setLkmValinta(e.target.value)}>
             {
-                [...Array(tuote.lkm).keys()].map((x) =>
+                [...Array(tuoteTiedot.lkm).keys()].map((x) =>
                     <option key={x + 1} value={x + 1}>{x + 1}</option>
                 )
             }
         </select>
-    }kpl {tuote.hinta}€ <button onClick={lisaysHandler}>Lisää koriin</button></li>
+    }kpl {tuoteTiedot.hinta}€ <button onClick={lisaysHandler}>Lisää koriin</button></li>
     );
 };
 
@@ -85,7 +91,7 @@ const Tuote = () => {
                 <div className='tuote_oikea'>
                     <div className='oikea_info'>
                         <ul>
-                            {tuote.tuoteTiedot.map(t => <TuoteRivi key={t._id} tuote={t} />
+                            {tuote.tuoteTiedot.map(t => <TuoteRivi key={t._id} tuote={tuote.id} tuoteTiedot={t}/>
 
                             )}
                         </ul>

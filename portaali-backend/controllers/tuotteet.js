@@ -10,7 +10,9 @@ tuoteRouter.get('/', async (req, res) => {
 });
 
 tuoteRouter.get('/:id', async (req, res, next) => {
+    console.log('...etsitään tuotetta ', req.params.id);
     const tuote = await Tuote.findById(req.params.id);
+    console.log('tuote: ', tuote);
     if (tuote) {
         res.json(tuote.toJSON());
     } else {
