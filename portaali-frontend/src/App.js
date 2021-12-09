@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { alustaTuotteet } from './redux/actions/tuoteActions';
+import { Switch, Route } from 'react-router-dom';
+
+//Components
+import Login from './components/Login';
+import TuoteTiedot from './components/TuoteTiedot/TuoteTiedot';
 import TuoteLista from './components/TuoteLista/TuoteLista';
 import KategoriaForm from './components/Kategoriat/KategoriaForm';
 import TuoteForm from './components/TuoteForm/TuoteForm';
@@ -8,10 +12,13 @@ import TuoteRyhma from './components/Kategoriat/KategoriaForm';
 import SideBar from './components/SideBar/SideBar';
 import Backdrop from './components/SideBar/Backdrop';
 import Navbar from './components/NavBar/Navbar';
+import Ostoskori from './components/Ostoskori/Ostoskori';
+
+//Services
 import tuoteService from './services/tuotteet';
-import Login from './components/Login';
-import TuoteTiedot from './components/TuoteTiedot/TuoteTiedot';
-import { Switch, Route } from 'react-router-dom';
+
+//Actions
+import { alustaTuotteet } from './redux/actions/tuoteActions';
 
 let kaikkiKategoriat = [];
 
@@ -76,6 +83,9 @@ const suodataTuotteet = (kategoria) => {
         </Route>
         <Route path="/Login">
           <Login setUser={() => setUser()} />
+        </Route>
+        <Route path="/Ostoskori">
+          <Ostoskori />
         </Route>
       </Switch>
     </main>

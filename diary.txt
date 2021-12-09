@@ -186,5 +186,11 @@ lisätty TuoteRivi komponenttiin painike jolla voidaan siirtää valittu määr�
 
 => 3h
 
+7.12
+front-end: päivitetty TuoteRivi -komponenttia, debugattu tapahtumankäsittelijän toimintaa; 
+Halutun tuotetyypin napsauttaminen sen riviltä lisää storeen kyseisen tuotetyypin tiedot tilausta varten.
 
+=> 2h
 
+9.12
+front-end: Luotu uusi komponentti Ostoskori jonka tarkoituksena näyttää ostoskoriin lisättyjen tuotteiden tiedot.

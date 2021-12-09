@@ -50,17 +50,17 @@
     color: #ffff33;
   }
   
-  .cart_link {
+  .kori_link {
     background: #333;
     padding: 10px;
     border-radius: 8px;
   }
   
-  .cart_link:hover {
+  .kori_link:hover {
     color: #ffff33;
   }
   
-  .cartlogo_badge {
+  .kori_lkmInfo {
     width: 30px;
     height: 30px;
     background-color: #f4f4f4;

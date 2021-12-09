@@ -28,10 +28,10 @@ const Navbar = ({ sidebarVisible }) => {
                         <Link className="menu_link" to="/uusiKategoria">Lisää tuoteryhmä</Link>
                     </li>
                     <li>
-                        <Link to="/ostoskori" className="menu_link">
+                        <Link to="/ostoskori" className="kori_link">
                             <i className="fas fa-shopping-cart"></i>
                             <span>
-                                Valitut tuotteet <span className="cartlogo_badge">0</span>
+                                Valitut tuotteet <span className="kori_lkmInfo">0</span>
                             </span>
                         </Link>
                     </li>
