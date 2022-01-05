@@ -11,8 +11,8 @@ const TuoteKorissa = ({ tuote, muutaLkmHandler, poistaTuoteHandler }) => {
             <Link to={`/tuotteet/${tuote.id}`} className='tuote_linkki'>
                 <p>{tuote.tuote}</p>
             </Link>
-            <p className='tuote_hinta'>{tuote.hinta}€</p>
-            <select className='tuote_lkmValinta' value={tuote.lkm} onChange={(e) =>muutaLkmHandler()}>
+            <p className='tuote_hinta'>{tuote.kplHinta}€</p>
+            <select className='tuote_lkmValinta' value={tuote.varausLkm} onChange={(e) =>muutaLkmHandler()}>
 
             </select>
             <button className='tuote_poistaBtn' onClick={() => poistaTuoteHandler(tuote.id)}>

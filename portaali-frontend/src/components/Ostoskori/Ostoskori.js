@@ -22,11 +22,11 @@ const Ostoskori = () => {
     };
 
     const lkmYht = () => {
-        return tuotteetKorissa.reduce((lkm, tuote) => Number(tuote.lkm) + lkm, 0);
+        return tuotteetKorissa.reduce((lkm, tuote) => Number(tuote.varausLkm) + lkm, 0);
     };
 
     const hintaYht = () => {
-        return tuotteetKorissa.reduce((hinta, tuote) => (tuote.hinta * tuote.lkm) + hinta, 0);
+        return tuotteetKorissa.reduce((hinta, tuote) => (tuote.kplHinta * tuote.varausLkm) + hinta, 0);
     };
 
     return (
