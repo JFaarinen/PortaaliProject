@@ -194,3 +194,4 @@ Halutun tuotetyypin napsauttaminen sen riviltä lisää storeen kyseisen tuotety
 
 9.12
 front-end: Luotu uusi komponentti Ostoskori jonka tarkoituksena näyttää ostoskoriin lisättyjen tuotteiden tiedot.
+=> 1h

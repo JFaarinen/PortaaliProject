@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 const TuoteKorissa = ({ tuote, muutaLkmHandler, poistaTuoteHandler }) => {
-    console.lolg(tuote);
+    console.log(tuote);
 
     return (
         <div className='tuoteKorissa'>

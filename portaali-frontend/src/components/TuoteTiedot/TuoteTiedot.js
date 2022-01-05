@@ -15,7 +15,8 @@ const TuoteRivi = ({tuote, tuoteTiedot}) => {
             tuoteId: tuote,
             malliId: tuoteTiedot._id,
             tuotenimi: tuoteTiedot.tuote,
-            varausLkm: lkmValinta
+            varausLkm: lkmValinta,
+            kplHinta: tuoteTiedot.hinta
         }
         dispatch(lisaaKoriin(tilaus));
         console.log('tuote lisättty koriin.');
@@ -34,7 +35,7 @@ const TuoteRivi = ({tuote, tuoteTiedot}) => {
     );
 };
 
-const Tuote = () => {
+const TuoteTiedot = () => {
     const id = useParams().id;
     const tuote = useSelector(state => state.tuotteet.find(t => t.id === id));
     const [imgNro, setImgNro] = useState(0);
@@ -101,7 +102,6 @@ const Tuote = () => {
             </div>
         </div>
     )
-
 }
 
-export default Tuote;
+export default TuoteTiedot;
