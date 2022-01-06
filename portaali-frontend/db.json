@@ -77,19 +77,6 @@
       "img": "./images/item-6.jpg"
     },
     {
-      "id": 7,
-      "nimi": "Pissauspullo",
-      "kategoria": [
-        "Labra",
-        "Lääkintä",
-        "Squik!"
-      ],
-      "lkm": 1,
-      "hinta": 6,
-      "kuvaus": "Pullo pissalle. Sisällön saa tuottaa itse. Palautettava pestynä",
-      "img": "./images/item-7.jpg"
-    },
-    {
       "id": 8,
       "nimi": "Lyhty",
       "kategoria": [
@@ -128,6 +115,7 @@
       "img": "./images/item-10.jpg"
     },
     {
+      "id": 11,
       "nimi": "Haarukka, 6 piikkiä",
       "hinta": "6.00",
       "kuvaus": "Haarukka, miks tässä on piikkejä näin paljon??",
@@ -137,8 +125,7 @@
         "Ruokailuväline",
         "Astia",
         "WTF"
-      ],
-      "id": 11
+      ]
     }
   ]
 }

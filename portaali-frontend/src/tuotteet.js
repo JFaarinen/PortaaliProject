@@ -76,19 +76,6 @@ const tuoteLista = [
         img: "./images/item-6.jpg"
     },
     {
-        id: 7,
-        nimi: "Pissauspullo",
-        kategoriat: [
-            "Labra",
-            "Lääkintä",
-            "Squik!"
-        ],
-        hinta: 0.50,
-        lkm: 1,
-        kuvaus: "Pullo pissalle. Sisällön saa tuottaa itse. Palautettava pestynä",
-        img: "./images/item-7.jpg"
-    },
-    {
         id: 8,
         nimi: "Lyhty",
         kategoriat: [
