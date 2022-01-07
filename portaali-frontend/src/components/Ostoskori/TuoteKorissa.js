@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import './TuoteKorissa.css';
 
-const TuoteKorissa = ({ tuote, muutaLkmHandler, poistaTuoteHandler }) => {
+const TuoteKorissa = ({ tuote, lkmMuutosHandler, poistoHandler }) => {
     console.log(tuote);
 
     return (
@@ -13,12 +13,12 @@ const TuoteKorissa = ({ tuote, muutaLkmHandler, poistaTuoteHandler }) => {
                 <p>{tuote.tuotenimi}</p>
             </Link>
             <p className='tuote_hinta'>{tuote.kplHinta}€</p>
-            <select className='tuote_lkmValinta' value={tuote.varausLkm} onChange={(e) =>muutaLkmHandler()}>
+            <select className='tuote_lkmValinta' value={tuote.varausLkm} onChange={(e) =>lkmMuutosHandler(tuote.malliId, e.target.value)}>
                 {[...Array(tuote.maxLkm).keys()].map(
                     (t) => <option key={t + 1} value={t + 1}>{t + 1}</option>
                 )}
             </select>
-            <button className='tuote_poistaBtn' onClick={() => poistaTuoteHandler(tuote.id)}>
+            <button className='tuote_poistaBtn' onClick={() => poistoHandler(tuote.malliId)}>
                 <i className='fas fa-trash'></i>
             </button>
         </div>

@@ -4,7 +4,7 @@ export const koriReducer = (state = {tuotteetKorissa: []}, action) => {
     switch (action.type) {
         case koriConstants.LISAA_TUOTE:
             const tuote = action.data;
-            const tuoteLoytyy = state.tuotteetKorissa.find((i) => i.malliId === tuote.malliId);
+            const tuoteLoytyy = state.tuotteetKorissa.find((t) => t.malliId === tuote.malliId);
 
             if (tuoteLoytyy) {
                 return {
@@ -24,7 +24,7 @@ export const koriReducer = (state = {tuotteetKorissa: []}, action) => {
         case koriConstants.POISTA_TUOTE:
             return {
                 ...state, 
-                tuotteetKorissa: state.tuotteetKorissa.filter((i) => i._id !== action.data)
+                tuotteetKorissa: state.tuotteetKorissa.filter((t) => t.malliId !== action.data)
             };
         
         case koriConstants.TYHJENNA_KORI:
@@ -34,9 +34,16 @@ export const koriReducer = (state = {tuotteetKorissa: []}, action) => {
             };
         
         case koriConstants.MUUTA_VARAUSLKM:
+            const {id, lkm} = action.data;
+            const muutettavaTuote = state.tuotteetKorissa.find((t) => t.malliId === id);
+            const muutettuTuote = {...muutettavaTuote, varausLkm: lkm};
             return {
-                state
-            }
+                ...state, 
+                tuotteetKorissa: state.tuotteetKorissa.map((t) => 
+                t.malliId === muutettuTuote.malliId
+                ? muutettuTuote 
+                : t)
+            };
 
         default: 
             return state;

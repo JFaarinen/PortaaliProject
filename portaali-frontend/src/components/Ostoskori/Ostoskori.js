@@ -6,7 +6,7 @@ import './Ostoskori.css';
 import TuoteKorissa from './TuoteKorissa';
 
 //Actions
-import { lisaaKoriin, poistaKorista, tyhjennaKori } from '../../redux/actions/koriActions';
+import { lisaaKoriin, poistaKorista, tyhjennaKori, muutaVarausta } from '../../redux/actions/koriActions';
 
 const Ostoskori = () => {
     const dispatch = useDispatch();
@@ -16,10 +16,12 @@ const Ostoskori = () => {
 
     const lkmMuutosHandler = (id, lkm) => {
         console.log('muutetaan lukumäärää');
+        dispatch(muutaVarausta(id, lkm));
     };
 
     const poistoHandler = (id) => {
         console.log('poistetaan tuote korista');
+        dispatch(poistaKorista(id));
     };
 
     const lkmYht = () => {
