@@ -32,6 +32,11 @@ export const koriReducer = (state = {tuotteetKorissa: []}, action) => {
                 ...state,
                 tuotteetKorissa: []
             };
+        
+        case koriConstants.MUUTA_VARAUSLKM:
+            return {
+                state
+            }
 
         default: 
             return state;

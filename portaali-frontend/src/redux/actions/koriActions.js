@@ -8,12 +8,22 @@ export const lisaaKoriin = (tilaus) => async (dispatch, getState) => {
     });
 };
 
+export const muutaLkm = (id, lkm) => async (dispatch, setState) => {
+    dispatch({
+        type: koriConstants.MUUTA_VARAUSLKM,
+        data: {
+            id: id,
+            lkm: lkm
+        }
+    });
+};
+
 export const poistaKorista = (id) => (dispatch, getState) => {
     dispatch({
         type: koriConstants.POISTA_TUOTE,
         data: id
     });
-}
+};
 
 export const tyhjennaKori = () => (dispatch, getState) => {
     dispatch({

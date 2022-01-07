@@ -16,6 +16,7 @@ const TuoteRivi = ({tuote, tuoteTiedot}) => {
             malliId: tuoteTiedot._id,
             tuotenimi: tuoteTiedot.tuote,
             varausLkm: lkmValinta,
+            maxLkm: tuoteTiedot.lkm,
             kplHinta: tuoteTiedot.hinta
         }
         dispatch(lisaaKoriin(tilaus));

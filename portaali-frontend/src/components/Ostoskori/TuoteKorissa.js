@@ -14,7 +14,9 @@ const TuoteKorissa = ({ tuote, muutaLkmHandler, poistaTuoteHandler }) => {
             </Link>
             <p className='tuote_hinta'>{tuote.kplHinta}€</p>
             <select className='tuote_lkmValinta' value={tuote.varausLkm} onChange={(e) =>muutaLkmHandler()}>
-
+                {[...Array(tuote.maxLkm).keys()].map(
+                    (t) => <option key={t + 1} value={t + 1}>{t + 1}</option>
+                )}
             </select>
             <button className='tuote_poistaBtn' onClick={() => poistaTuoteHandler(tuote.id)}>
                 <i className='fas fa-trash'></i>
