@@ -1,0 +1,70 @@
+.tuoteKorissa {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 8px;
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr 1fr 1fr;
+    gap: 8px;
+    background-color: #fff;
+    border-radius: 2px;
+    place-items: center;
+}
+
+.tuote_linkki {
+    text-decoration: none;
+    color: #171717;
+}
+
+.tuote_linkki:hover {
+    color: #dd219e;
+}
+
+.tuote_lkmValinta {
+    padding: 10px 17px;
+}
+
+.tuote_poistaBtn {
+    padding: 10px 17px;
+    color: red;
+    background: #f4f4f4;
+    border: 1px solid #171717;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+}
+
+.tuote_poistaBtn:hover,
+.tuote_poistaBtn:focus,
+.tuote_poistaBtn:active {
+    background: #171717;
+    transform: scale(1.2);
+}
+
+@media (max-width: 700px) {
+    .tuote_linkki {
+        font-size: 0.8rem;
+    }
+
+    .tuote_lkmValinta,
+    .tuote_poistaBtn {
+        padding: 8px 13px;
+    }
+
+    .tuote_hinta {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .tuote_linkki {
+        font-size: 0.6rem;
+    }
+
+    .tuote_lkmValinta,
+    .tuote_poistaBtn {
+        padding: 5px 8px;
+    }
+
+    .tuote_hinta {
+        font-size: 0.6rem;
+    }
+}
