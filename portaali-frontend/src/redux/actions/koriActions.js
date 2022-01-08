@@ -5,9 +5,10 @@ export const lisaaKoriin = (tilaus) => async (dispatch, getState) => {
         type: koriConstants.LISAA_TUOTE,
         data: tilaus
     });
+    localStorage.setItem('kori', JSON.stringify(getState().kori.tuotteetKorissa));
 };
 
-export const muutaVarausta = (id, lkm) => async (dispatch, setState) => {
+export const muutaVarausta = (id, lkm, getState) => async (dispatch, setState) => {
     dispatch({
         type: koriConstants.MUUTA_VARAUSLKM,
         data: {
@@ -15,6 +16,7 @@ export const muutaVarausta = (id, lkm) => async (dispatch, setState) => {
             lkm: lkm
         }
     });
+    localStorage.setItem('kori', JSON.stringify(getState().kori.tuotteetKorissa));
 };
 
 export const poistaKorista = (id) => (dispatch, getState) => {
@@ -22,10 +24,12 @@ export const poistaKorista = (id) => (dispatch, getState) => {
         type: koriConstants.POISTA_TUOTE,
         data: id
     });
+    localStorage.setItem('kori', JSON.stringify(getState().kori.tuotteetKorissa));
 };
 
 export const tyhjennaKori = () => (dispatch, getState) => {
     dispatch({
         type: koriConstants.TYHJENNA_KORI,
     });
+    localStorage.setItem('kori', JSON.stringify(getState().kori.tuotteetKorissa));
 };

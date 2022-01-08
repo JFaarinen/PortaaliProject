@@ -38,7 +38,7 @@ const SideBar = ({ show, clickHandler }) => {
                     <Link to="/ostoskori" className="menu_link">
                         <i className="fas fa-shopping-cart"></i>
                         <span>
-                            Ostoskori: <span className="cartlogo_badge">{getKorinLkm()}</span>
+                            Ostoskori: <span className="kori_lkmInfo">{getKorinLkm()}</span>
                         </span>
                     </Link>
                 </li>

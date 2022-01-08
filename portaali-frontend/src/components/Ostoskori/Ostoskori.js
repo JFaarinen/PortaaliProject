@@ -23,9 +23,10 @@ const Ostoskori = () => {
     };
 
     const tyhjennysHandler = () => {
-        console.log('korin tyhjennys');
-        dispatch(tyhjennaKori());
-    }
+        if (window.confirm("Tyhjennetäänkö ostoskori?")) {
+            dispatch(tyhjennaKori());
+        }
+    };
 
     const lkmYht = () => {
         return tuotteetKorissa.reduce((lkm, tuote) => Number(tuote.varausLkm) + lkm, 0);

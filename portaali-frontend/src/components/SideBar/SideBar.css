@@ -61,7 +61,7 @@
     margin-left: 8px;
 }
 
-.sideBar_cartbadge {
+.kori_lkmInfo {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -76,7 +76,7 @@
     font-weight: 600;
 }
 
-.sideBar_linkit > li > a:hover .sideBar_cartbadge {
+.sideBar_linkit > li > a:hover .kori_lkmInfo {
     background-color: #f4f4f4;
     color: #171717;
 }
