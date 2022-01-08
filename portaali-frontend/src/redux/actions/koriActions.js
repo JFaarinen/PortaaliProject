@@ -1,5 +1,4 @@
 import * as koriConstants from '../constants/koriConstants';
-import axios from 'axios';
 
 export const lisaaKoriin = (tilaus) => async (dispatch, getState) => {
     dispatch({

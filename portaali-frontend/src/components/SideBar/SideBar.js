@@ -1,7 +1,15 @@
 import './SideBar.css';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const SideBar = ({ show, clickHandler }) => {
+
+    const kori = useSelector(state => state.kori);
+    const { tuotteetKorissa } = kori;
+
+    const getKorinLkm = () => {
+        return tuotteetKorissa.reduce((lkm, tuote) => lkm + Number(tuote.varausLkm), 0);
+    }
 
     const sideDrawerClass = ['sideBar'];
     if (show) {
@@ -30,7 +38,7 @@ const SideBar = ({ show, clickHandler }) => {
                     <Link to="/ostoskori" className="menu_link">
                         <i className="fas fa-shopping-cart"></i>
                         <span>
-                            Valitut tuotteet <span className="cartlogo_badge">0</span>
+                            Ostoskori: <span className="cartlogo_badge">{getKorinLkm()}</span>
                         </span>
                     </Link>
                 </li>

@@ -85,7 +85,7 @@ const TuoteTiedot = () => {
                             <ArrowCircleRight fontSize='large' />
                         </div>
                         </>
-                        : <img src='https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png' className='kuva'/> }
+                        : <img src='https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png' alt='' className='kuva'/> }
 
                     </div>
                     <p>{tuote.kuvaus}</p>

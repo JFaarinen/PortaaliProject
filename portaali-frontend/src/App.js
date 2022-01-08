@@ -19,8 +19,6 @@ import tuoteService from './services/tuotteet';
 //Actions
 import { alustaTuotteet } from './redux/actions/tuoteActions';
 
-let kaikkiKategoriat = [];
-
 const App = () => {
   const [sidebarVisible, setSidebarVisible] = useState(false);
   const [user, setUser] = useState(null);

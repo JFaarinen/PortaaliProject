@@ -1,7 +1,15 @@
 import "./Navbar.css"
 import { Link } from "react-router-dom";
+import { useSelector } from 'react-redux';
 
 const Navbar = ({ sidebarVisible }) => {
+
+    const kori = useSelector(state => state.kori);
+    const { tuotteetKorissa } = kori;
+
+    const getKorinLkm = () => {
+        return tuotteetKorissa.reduce((lkm, tuote) => lkm + Number(tuote.varausLkm), 0);
+    }
 
     return (
         <nav className="navbar">
@@ -31,7 +39,7 @@ const Navbar = ({ sidebarVisible }) => {
                         <Link to="/ostoskori" className="kori_link">
                             <i className="fas fa-shopping-cart"></i>
                             <span>
-                                Valitut tuotteet <span className="kori_lkmInfo">0</span>
+                                Ostoskori <span className="kori_lkmInfo">{getKorinLkm()}</span>
                             </span>
                         </Link>
                     </li>
