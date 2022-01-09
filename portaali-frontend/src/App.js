@@ -12,6 +12,7 @@ import SideBar from './components/SideBar/SideBar';
 import Backdrop from './components/SideBar/Backdrop';
 import Navbar from './components/NavBar/Navbar';
 import Ostoskori from './components/Ostoskori/Ostoskori';
+import Larpit from './components/Menneet_Pelit/Larpit';
 
 //Services
 import tuoteService from './services/tuotteet';
@@ -63,6 +64,9 @@ const App = () => {
         </Route>
         <Route path="/Ostoskori">
           <Ostoskori />
+        </Route>
+        <Route path="/larpit">
+          <Larpit />
         </Route>
       </Switch>
     </main>
