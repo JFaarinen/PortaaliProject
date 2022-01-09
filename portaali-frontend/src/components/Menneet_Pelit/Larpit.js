@@ -25,8 +25,12 @@ const Larpit = () => {
     }, [index]);
 
     return(
-        <h2>Menneitä yhteistyöprojekteja</h2>
-    )
-} 
+        <section className = 'section'>
+            <div className='otsikko'>
+                <h2>Menneitä yhteistyöprojekteja</h2>
+            </div>
+        </section>
+    );
+};
 
 export default Larpit;

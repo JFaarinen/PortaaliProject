@@ -34,20 +34,20 @@ const Login = ({setUser}) => {
                     <input
                         type='text'
                         value={userName}
-                        name="username"
+                        name='username'
                         onChange={({ target }) => setUserName(target.value)}
                     />
                 </div>
                 <div>
                     password
                     <input
-                        type="password"
+                        type='password'
                         value={salasana}
-                        name="password"
+                        name='password'
                         onChange={({ target }) => setSalasana(target.value)}
                     />
                 </div>
-                <button type="submit">Kirjaudu sisään</button>
+                <button type='submit'>Kirjaudu sisään</button>
             </form>
         </div>
     )

@@ -2,7 +2,7 @@ import React from 'react';
 
 const Kategoriat = ({ kategoriat, tuoteSuodatus }) => {
     return (
-        <div className="btn-container">
+        <div className='btn-container'>
             {kategoriat.map((kategoria) => {
                 return (
                     <button

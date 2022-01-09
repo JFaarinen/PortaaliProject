@@ -18,8 +18,8 @@ const TuoteLista = () => {
                     <Grid
                         className={classes.container}
                         container
-                        alignItems="stretch"
-                        justifyContent="space-around"
+                        alignItems='stretch'
+                        justifyContent='space-around'
                         spacing={2}>
                         {tuotteet.map((tuote) => (
                             <Grid key={tuote.id} item xs={10} sm={6} md={4} lg={3}>

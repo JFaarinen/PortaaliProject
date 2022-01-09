@@ -35,7 +35,7 @@ const KuvaForm = ({ kuvat, setKuvat }) => {
         <Container className={classes.mainContainer}>
             <Grid container alignItems='center' spacing={1}>
                 <Grid item xs={12} sm={12}>
-                    <Typography variant="h4">Kuvien lisääminen: </Typography>
+                    <Typography variant='h4'>Kuvien lisääminen: </Typography>
                 </Grid>
                 <Grid item xs={12} sm={12}>
                     {error}
@@ -65,7 +65,7 @@ const KuvaForm = ({ kuvat, setKuvat }) => {
                 <Grid item xs={12} sm={12}>
                     <div className={classes.fileBaseObject}>
                         <FileBase
-                            type="file"
+                            type='file'
                             multiple={false}
                             onDone={({ base64 }) => {
                                 console.log('base64:', base64);

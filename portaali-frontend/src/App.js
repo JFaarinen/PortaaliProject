@@ -47,25 +47,25 @@ const App = () => {
         <Backdrop show={sidebarVisible} clickHandler={() => setSidebarVisible(false)} />
       </div>
       <Switch>
-        <Route path="/tuotteet/:id">
+        <Route path='/tuotteet/:id'>
           <TuoteTiedot />
         </Route>
-        <Route path="/tuotteet">
+        <Route path='/tuotteet'>
           <TuoteLista />
         </Route>
-        <Route path="/uusiTuote">
+        <Route path='/uusiTuote'>
           <TuoteForm />
         </Route>
-        <Route path="/uusiKategoria">
+        <Route path='/uusiKategoria'>
           <KategoriaForm />
         </Route>
-        <Route path="/Login">
+        <Route path='/Login'>
           <Login setUser={() => setUser()} />
         </Route>
-        <Route path="/Ostoskori">
+        <Route path='/Ostoskori'>
           <Ostoskori />
         </Route>
-        <Route path="/larpit">
+        <Route path='/larpit'>
           <Larpit />
         </Route>
       </Switch>

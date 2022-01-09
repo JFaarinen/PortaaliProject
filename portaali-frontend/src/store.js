@@ -5,7 +5,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 //Reducerit
 import { tuoteReducer } from './redux/reducers/tuoteReducer';
 import { kuvaReducer } from './redux/reducers/kuvaReducer';
-import { koriReducer } from "./redux/reducers/koriReducers";
+import { koriReducer } from './redux/reducers/koriReducers';
 
 const reducer = combineReducers({
     tuotteet: tuoteReducer,

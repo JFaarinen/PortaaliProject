@@ -37,10 +37,10 @@ const TuoteForm = () => {
                 <CssBaseline />
                 <Grid container spacing={1}>
                     <Grid item xs={12} sm={12}>
-                        <Typography variant="h3">Uusi tuote: </Typography>
+                        <Typography variant='h3'>Uusi tuote: </Typography>
                     </Grid>
                     <Grid item xs={12}>
-                        <form className={classes.form} id="tuoteForm" onSubmit={handleTuoteLisays}>
+                        <form className={classes.form} id='tuoteForm' onSubmit={handleTuoteLisays}>
                             <Grid item xs={12}>
                                 <TextField
                                     label='Tuotteen nimi'
@@ -74,7 +74,7 @@ const TuoteForm = () => {
                         <KuvaForm kuvat={kuvat} setKuvat={setKuvat} />
                     </Grid>
 
-                    <button type="submit" form="tuoteForm">Lisää tuote</button>
+                    <button type='submit' form='tuoteForm'>Lisää tuote</button>
                     <div>
                         <div>
                             <label>Hakusanat:</label>
