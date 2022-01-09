@@ -1,0 +1,1 @@
+//kontrolleri peliesittelyiden lisäämiselle
