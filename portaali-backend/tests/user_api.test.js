@@ -7,7 +7,7 @@ const jestConfig = require('../jest.config');
 const api = supertest(app);
 const User = require('../models/user');
 
-describe('kun tietokannassa on luotuna käyttäjä', () => {
+describe('kun tietokannassa luotuna käyttäjä', () => {
     beforeEach(async () => {
         await User.deleteMany({});
         const salasanaHash = await bcrypt.hash('salainen', 10);

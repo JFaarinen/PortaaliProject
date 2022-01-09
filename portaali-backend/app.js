@@ -1,9 +1,13 @@
 const config = require('./utils/config');
 const express = require('express');
 require('express-async-errors');
+
+//Routerit
 const tuoteRouter = require('./controllers/tuotteet');
 const userRouter = require('./controllers/users');
 const loginRouter = require('./controllers/login');
+
+//Utility
 const middlewares = require('./utils/middlewares');
 const logger = require('./utils/logger');
 const mongoose = require('mongoose');
@@ -15,14 +19,14 @@ app.use(morgan('dev'));
 app.use(express.json({ limit: "5mb", extended: true }));
 app.use(express.urlencoded({ limit: "5mb", extended: true }));
 
-logger.info('connecting to ', config.MONGODB_URI);
+logger.info('avataan yhteys: ', config.MONGODB_URI);
 
 mongoose.connect(config.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true })
     .then(res => {
-        logger.info('connected to Portaali DB');
+        logger.info('yhteys avattu: Portaali DB');
     })
     .catch((error) => {
-        logger.info('error connecting to PortaaliDB: ', error.message);
+        logger.info('yhteyden muodostaminen ei onnistu: PortaaliDB: ', error.message);
     });
 
 app.use(cors());

@@ -9,6 +9,6 @@ Content-type: application/json
     ],
     "lkm": 9,
     "hinta": 6,
-    "kuvaus": "Nasseja. Kumia. Ei suojaa kaasulta oikeasti. Eikä muultakaan.",
+    "kuvaus": "Nasseja. Kumia. Ei suojaa kaasulta oikeasti.",
     "img": "./images/item-9.jpg"
 }

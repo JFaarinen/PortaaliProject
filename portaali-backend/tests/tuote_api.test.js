@@ -60,7 +60,7 @@ describe('kun kannassa on jo tuotteita', () => {
                 .expect(404);
         });
 
-        test('epäonnistuu koodilla 400 jos id epäkelpo', async () => {
+        test('epäonnistuu koodilla 400 mikäli id epäkelpo', async () => {
             await api
                 .get('/api/tuotteet/epäkelpoId')
                 .expect(400);

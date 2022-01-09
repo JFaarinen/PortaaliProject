@@ -27,7 +27,7 @@ const Navbar = ({ sidebarVisible }) => {
                         <Link className="menu_link" to="/tuotteet">Tuotteet</Link>
                     </li>
                     <li>
-                        <Link className="menu_link" to="/larpit">Pelejä</Link>
+                        <Link className="menu_link" to="/larpit">Menneitä pelejä</Link>
                     </li>
                     <li>
                         <Link className="menu_link" to="/uusiTuote">Uusi tuote</Link>

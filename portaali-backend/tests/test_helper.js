@@ -28,7 +28,7 @@ const testituotteet = [
 ];
 
 const puuttuvaTuote = async () => {
-    const puuttuva = new Tuote({ nimi: 'poistunut valikoimasta' });
+    const puuttuva = new Tuote({ nimi: 'tuote poistunut valikoimasta' });
     await puuttuva.save();
     await puuttuva.remove();
     return puuttuva._id.toString();

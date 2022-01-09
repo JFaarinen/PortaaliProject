@@ -1,6 +1,4 @@
-/*
-* Ympäristömuuttujien käsittely
-*/
+// Ympäristömuuttujien käsittely
 
 require('dotenv').config();
 

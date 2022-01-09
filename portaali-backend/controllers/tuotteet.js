@@ -1,3 +1,5 @@
+//Tokenien tarkastus ohitettu kunnes alustavat testit formien käytettävyydestä valmiit
+
 const jwt = require('jsonwebtoken');
 const tuoteRouter = require('express').Router();
 const Tuote = require('../models/tuote');

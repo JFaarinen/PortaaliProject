@@ -1,7 +1,7 @@
 {
   "name": "portaali-backend",
   "version": "1.0.0",
-  "description": "Larp-varasto portaali Backend",
+  "description": "Larp-varasto portaali: Backend",
   "main": "index.js",
   "scripts": {
     "test": "cross-env NODE_ENV=test jest --verbose --runInBand",

@@ -12,7 +12,7 @@ loginRouter.post('/', async (req, res) => {
 
     if (!(user && salasanaOikein)) {
         return res.status(401).json({
-            error: 'Virheellinen käyttäjätunnus tai salasana'
+            error: 'Virheellinen käyttäjätunnus tai salasana!'
         });
     }
 

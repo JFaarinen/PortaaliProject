@@ -1,3 +1,6 @@
+//Käyttäjätunnusten vaatiminen ylläpitotoimien osalta suljettu kunnes ylläpitäjien lomakkeiden
+//käytettävyysjutut testattu Todarien kanssa.
+
 const bcrypt = require('bcrypt');
 const userRouter = require('express').Router();
 const User = require('../models/user');

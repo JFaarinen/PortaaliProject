@@ -1,4 +1,4 @@
-//Middleware tiedoston tallentamista varten
+//Middleware kuvatiedoston tallentamista varten
 
 const multer = require('multer');
 
