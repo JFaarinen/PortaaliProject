@@ -13,6 +13,7 @@ import Backdrop from './components/SideBar/Backdrop';
 import Navbar from './components/NavBar/Navbar';
 import Ostoskori from './components/Ostoskori/Ostoskori';
 import Larpit from './components/Menneet_Pelit/Larpit';
+import LarpTiedot from './components/Menneet_Pelit/LarpTiedot';
 
 //Services
 import tuoteService from './services/tuotteet';
@@ -64,6 +65,9 @@ const App = () => {
         </Route>
         <Route path='/Ostoskori'>
           <Ostoskori />
+        <Route exact path='/larpit/:id'>
+          <LarpTiedot />
+        </Route>
         </Route>
         <Route path='/larpit'>
           <Larpit />

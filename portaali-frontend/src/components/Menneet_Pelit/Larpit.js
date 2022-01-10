@@ -1,4 +1,6 @@
 import React, { useState, useEffect} from 'react';
+import { Link } from 'react-router-dom';
+import { ArrowCircleLeft, ArrowCircleRight } from '@mui/icons-material/';
 import mockdata from './mockdata';
 import './Larpit.css';
 
@@ -48,16 +50,19 @@ const Larpit = () => {
                             <article className={sijainti} key={id}>
                                 <img src={kansikuva} alt={pelinNimi} className='peli-img' />
                                 <h3>{pelinNimi}</h3>
-                                <p className='kuvausTeksti'>{kuvaus}</p>
+                                <p className='kuvausTeksti'>{`${kuvaus.substring(0, 200)}...`}</p>
+                                <Link to={`/larpit/${id}`}>
+                                    Näytä lisää
+                                </Link>
                             </article>
                         );
                     })}
-                    <button className='btnEdellinen' onClick={() => setIndex(index-1)}>
-                        edellinen
-                    </button>
-                    <button className='btnSeuraava' onClick={() => setIndex(index+1)}>
-                        seuraava
-                    </button>
+                    <div className='btnEdellinen' onClick={() => setIndex(index-1)}>
+                        <ArrowCircleLeft fontSize='large' />
+                    </div>
+                    <div className='btnSeuraava' onClick={() => setIndex(index+1)}>
+                        <ArrowCircleRight fontSize='large' />   
+                    </div>
             </div>
         </section>
     );
