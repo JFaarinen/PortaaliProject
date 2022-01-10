@@ -4,7 +4,7 @@ import tuoteService from '../../services/tuotteet';
 import TuoteTiedotForm from './TuoteTiedot/TuoteTiedotForm';
 import KuvaForm from './TuoteKuva/KuvaForm';
 import { lisaaTuote } from '../../redux/actions/tuoteActions';
-import { Container, CssBaseline, Grid, TextField, Typography } from '@material-ui/core';
+import { Container, CssBaseline, Grid, TextField, Typography, Button } from '@material-ui/core';
 import useStyles from './styles';
 import { Fragment } from 'react';
 
@@ -74,11 +74,16 @@ const TuoteForm = () => {
                         <KuvaForm kuvat={kuvat} setKuvat={setKuvat} />
                     </Grid>
 
-                    <button type='submit' form='tuoteForm'>Lisää tuote</button>
+                    <Button
+                        variant='contained'
+                        color='primary' 
+                        type='submit' 
+                        form='tuoteForm'
+                    >Lisää tuote</Button>
                     <div>
-                        <div>
+                        <p>
                             <label>Hakusanat:</label>
-                        </div>
+                        </p>
                         <div>
                             {hakusanat.map((k, id) => <li key={id}>{k}</li>)}
                         </div>
